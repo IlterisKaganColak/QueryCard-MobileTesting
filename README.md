@@ -63,9 +63,29 @@ While adding to Github, never use git add .!
 
 **GENERAL FEATURE STEPS**
 
-**_User Sign In Steps_**
+**_appium Example Steps_**
 
-User goes to the buysellcyle homepage.
+Launch the application.
+
+Navigate to the home page.
+
+Verify that the search Text Box is visible
+
+Verify that the profile icon is active
+
+Verify that the Sign Up button is visible
+
+Verify the "*** ** ****" text is visible
+
+Click on the Category button
+
+select "black" color option
+
+Verify the "Use Email Instead" text is active
+
+
+----------------------------------------------------------------------------------------------------------------
+*old steps*
 
 User clicks on the Log In button and displays the sign in page.
 

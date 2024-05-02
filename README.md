@@ -65,23 +65,22 @@ While adding to Github, never use git add .!
 
 **_appium Example Steps_**
 
-Launch the application.
+Launch the app
 
-Navigate to the home page.
 
-Verify that the search Text Box is visible
+Verify that the "search Text Box" is visible
 
-Verify that the profile icon is active
+Verify that the "profile button" is active
 
-Verify that the Sign Up button is visible
+Verify that the "Sign Up button" is visible
 
-Verify the "*** ** ****" text is visible
+Verify that the "*** ** **** text" is visible
 
-Click on the Category button
+Click on the "Category button"
 
 select "black" color option
 
-Verify the "Use Email Instead" text is active
+Verify that the "Use Email Instead text" is active
 
 
 ----------------------------------------------------------------------------------------------------------------

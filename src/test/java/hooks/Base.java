@@ -1,0 +1,34 @@
+package hooks;
+
+import Page.HomePage;
+import Page.ProfilePage;
+import com.github.javafaker.Faker;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.sql.Date;
+import java.util.Random;
+
+public abstract class Base {
+    public static String email, password, name;
+    public static int id;
+    public static double sub_total;
+    public static Date date;
+    public static Random random;
+    public static Faker faker ;
+    public static UiAutomator2Options options;
+    public static AppiumDriver driver;
+    public static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    public static HomePage homePage;
+    public static ProfilePage profilePage;
+
+    public static void initialize() {
+        faker = new Faker();
+        random = new Random();
+        profilePage = new ProfilePage();
+        homePage = new HomePage();
+        desiredCapabilities = new DesiredCapabilities();
+    }
+
+}

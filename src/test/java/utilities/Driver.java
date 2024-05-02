@@ -32,19 +32,19 @@ public class Driver {
                 case "Android":
                     options = new UiAutomator2Options();
                     options.setPlatformName("Android").setAutomationName("UiAutomator2");
-                    options.setApp("C:/Users/MONSTER/Downloads/querycartSonSurum.apk/");
+                    options.setApp("C:/Users/zehra/Desktop/Appium/querycart1.0.apk");
                     options.setAppPackage("com.inilabs.shopking");
                     options.setAppActivity("com.inilabs.shopking.MainActivity");
                     options.setUdid("emulator-5554");
                     options.setNoReset(false);
                     options.setNewCommandTimeout(Duration.ofMinutes(20));
-                    try {
+                   try {
                         driver = new AndroidDriver(
-                                new URL("http://0.0.0.0:4723"), options
-                        );
-                    } catch (MalformedURLException e) {
-                        throw new RuntimeException(e);
-                    }
+                             new URL("http://0.0.0.0:4723"), options
+                     );
+                 } catch (MalformedURLException e) {
+                     throw new RuntimeException(e);
+                 }
 
                     break;
                 case "IOS":
@@ -73,4 +73,12 @@ public class Driver {
         }*/
         return driver;
     }
+    public static void quitAppiumDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+
+        }
+    }
+
 }

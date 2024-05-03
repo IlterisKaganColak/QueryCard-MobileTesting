@@ -4,11 +4,15 @@ import Page.HomePage;
 import Page.ProfilePage;
 import com.github.javafaker.Faker;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import utilities.Driver;
 
 import java.sql.Date;
 import java.util.Random;
+
 
 public abstract class Base {
     public static String email, password, name;
@@ -19,9 +23,10 @@ public abstract class Base {
     public static Faker faker ;
     public static UiAutomator2Options options;
     public static AppiumDriver driver;
-    public static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    public static DesiredCapabilities desiredCapabilities;
     public static HomePage homePage;
     public static ProfilePage profilePage;
+    public static WebElement element;
 
     public static void initialize() {
         faker = new Faker();
@@ -29,6 +34,7 @@ public abstract class Base {
         profilePage = new ProfilePage();
         homePage = new HomePage();
         desiredCapabilities = new DesiredCapabilities();
+        driver = (AndroidDriver)  Driver.getAppiumDriver();
     }
 
 }

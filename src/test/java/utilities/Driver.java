@@ -32,7 +32,7 @@ public class Driver {
                 case "Android":
                     options = new UiAutomator2Options();
                     options.setPlatformName("Android").setAutomationName("UiAutomator2");
-                    options.setApp("C:/Users/zehra/Desktop/Appium/querycart1.0.apk");
+                    options.setApp("C:/Users/ATALAY/Desktop/Appium/querycart1.0.apk");
                     options.setAppPackage("com.inilabs.shopking");
                     options.setAppActivity("com.inilabs.shopking.MainActivity");
                     options.setUdid("emulator-5554");
@@ -40,7 +40,7 @@ public class Driver {
                     options.setNewCommandTimeout(Duration.ofMinutes(20));
                    try {
                         driver = new AndroidDriver(
-                             new URL("http://0.0.0.0:4723"), options
+                             new URL("http://0.0.0.0:4723/"), options
                      );
                  } catch (MalformedURLException e) {
                      throw new RuntimeException(e);

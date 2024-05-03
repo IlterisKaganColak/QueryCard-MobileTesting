@@ -1,6 +1,6 @@
 package utilities;
-
 import com.google.common.collect.ImmutableMap;
+import hooks.Base;
 import io.appium.java_client.*;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -31,42 +31,33 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class ReusableMethods {
-   private static DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
 
 
-
-
-    public static void apkYukle(){
-
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME,ConfigReader.getProperty("deviceName"));
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,ConfigReader.getProperty("version"));
-        desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
-        //desiredCapabilities.setCapability(MobileCapabilityType.APP,ConfigReader.getProperty(apk));
-        desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,ConfigReader.getProperty("appPackage"));
-        desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,ConfigReader.getProperty("appActivity"));
+public class ReusableMethods extends Base {
+    public static void clickWithCoordinates(int x, int y) {
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        var tapPoint = new Point(x, y);
+        var tap = new Sequence(finger, 1);
+        tap.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), tapPoint.x, tapPoint.y));
+        tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        tap.addAction(new Pause(finger, Duration.ofMillis(50)));
+        tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(tap));
     }
-    public static void koordinatTiklama(int xKoordinat, int yKoordinat, int bekleme, WebElement slider) throws InterruptedException {
-        Point source = slider.getLocation();
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence sequence = new Sequence(finger, 1);
-        sequence.addAction(finger.createPointerMove(ofMillis(0),
-                PointerInput.Origin.viewport(), source.x, source.y));
-        sequence.addAction(finger.createPointerDown(PointerInput.MouseButton.MIDDLE.asArg()));
-        sequence.addAction(new Pause(finger, ofMillis(600)));
-        sequence.addAction(finger.createPointerMove(ofMillis(600),
-                PointerInput.Origin.viewport(), source.x + 400, source.y));
-        sequence.addAction(finger.createPointerUp(PointerInput.MouseButton.MIDDLE.asArg()));
-
-        getAppiumDriver().perform(singletonList(sequence));
-           }
+    public static void enterText(WebElement element, String text) {
+        tapOn(element);
+        wait(10);
+        element.sendKeys(text);
+    }
 
   //  static AndroidDriver<AndroidElement> driver=Driver.getAppiumDriver();
     public static void koordinatTiklamaMethodu(int x,int y) throws InterruptedException {
@@ -75,10 +66,28 @@ public class ReusableMethods {
         Thread.sleep(1000);
     }
 
-    public static void scrollWithUiScrollableAndClick(String elementText) {
-        AndroidDriver driver = (AndroidDriver)  Driver.getAppiumDriver();
-      //  driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
-        driver.findElement(By.xpath("//*[@text='" + elementText + "']")).click();
+    public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
+      //  AndroidDriver driver = (AndroidDriver)  Driver.getAppiumDriver();
+      //  element = driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
+      //  element = driver.findElement(By.xpath("//*[@text='" + elementText + "']"));
+     element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
+     element.click();
+        Thread.sleep(1000);
+    }
+    public static void countOfElement(String text,int x,int y) throws InterruptedException {
+        String  arr[] = new String[3];
+        for (int i=0;i<3;i++){
+            arr[i]= Arrays.toString(text.split(","));
+        }
+
+        String clickItem= text.replaceAll("\\D","");
+        int countElementFound ;
+        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
+        if (mobileElementList.size()>1){
+
+            clickWithCoordinates(Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
+        }
+        else scrollWithUiScrollableAndClick(text);
 
     }
     public static void scrollWithUiScrollable(String elementText) {
@@ -117,6 +126,44 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+    public static boolean isElementPresent(String text) {
+        boolean elementFound = false;
+        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
+        for (WebElement el : mobileElementList) {
+            if (el.getText().equals(text)) {
+                waitToBeVisible(el, Duration.ofSeconds(10));
+                if (el.isDisplayed()) {
+                    elementFound = true;
+                }
+            }
+        }
+        return elementFound;
+    }
+    public static void tapOn(WebElement element) {
+        waitToBeClickable(element, Duration.ofSeconds(10));
+        element.click();
+    }
+    public static void waitToBeVisible(WebElement element, Duration timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getAppiumDriver(), timeout);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    public static void waitToBeClickable(WebElement element, Duration timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getAppiumDriver(), timeout);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+    public static boolean isElementMultiple(String text,int sayi) {
+        boolean elementFound = false;
+        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
 
+        for (WebElement el : mobileElementList) {
+            if (el.getText().equals(text)) {
+                waitToBeVisible(el, Duration.ofSeconds(10));
+                if (el.isDisplayed()) {
+                    elementFound = true;
+                }
+            }
+        }
+        return elementFound;
+    }
 
 }

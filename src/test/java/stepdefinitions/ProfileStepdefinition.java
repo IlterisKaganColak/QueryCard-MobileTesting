@@ -16,7 +16,7 @@ public class ProfileStepdefinition extends Base {
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
 
-        ReusableMethods.countOfElement(clickItem,0,0);
+        ReusableMethods.countOfElement(clickItem);
 
     }
     @Given("{string} is entered")

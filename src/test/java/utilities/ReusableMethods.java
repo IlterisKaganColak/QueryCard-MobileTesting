@@ -68,6 +68,7 @@ public class ReusableMethods extends Base {
     }*/
 
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
+
         //  AndroidDriver driver = (AndroidDriver)  Driver.getAppiumDriver();
         //  element = driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
         //  element = driver.findElement(By.xpath("//*[@text='" + elementText + "']"));
@@ -89,6 +90,32 @@ public class ReusableMethods extends Base {
 
             clickWithCoordinates(Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
         } else scrollWithUiScrollableAndClick(text);
+
+      //  AndroidDriver driver = (AndroidDriver)  Driver.getAppiumDriver();
+      //  element = driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
+      //  element = driver.findElement(By.xpath("//*[@text='" + elementText + "']"));
+     element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
+     if (element.isEnabled()){
+     element.click();}
+        Thread.sleep(1000);
+    }
+    public static void countOfElement(String text) throws InterruptedException {
+        String[] arr = text.split(",");
+
+        int countElementFound ;
+        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.view.View[@content-desc=\"" + arr[0] + "\")"));
+
+        if (mobileElementList.size()>1){
+
+            clickWithCoordinates(Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
+        }
+        else scrollWithUiScrollableAndClick(arr[0]);
+
+    }
+    public static void scrollWithUiScrollable(String elementText) {
+        AndroidDriver driver = (AndroidDriver)  getAppiumDriver();
+     //   driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))"));
+
 
     }
 

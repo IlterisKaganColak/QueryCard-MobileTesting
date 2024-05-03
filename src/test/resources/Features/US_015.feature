@@ -10,7 +10,7 @@ Feature: US_015 As a registered user, I would like to have a page in my Dashboar
      * Click on the "*Use Email Instead"
      * "simgeEmail" is entered
      * "simgePassword" is entered
-     * Click on the "Sign In"
+     * Click on the "Sign In,518,1057"
      * Click on the "Profile"
      * Verify that "Order History" is visible
      * Verify that "Order History" is active

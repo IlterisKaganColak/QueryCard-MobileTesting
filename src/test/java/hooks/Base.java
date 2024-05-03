@@ -19,7 +19,7 @@ public abstract class Base {
     public static Faker faker ;
     public static UiAutomator2Options options;
     public static AppiumDriver driver;
-    public static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    public static DesiredCapabilities desiredCapabilities;
     public static HomePage homePage;
     public static ProfilePage profilePage;
 

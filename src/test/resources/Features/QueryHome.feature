@@ -1,6 +1,6 @@
 Feature: Home page
   Background: Kullanici applicationi acar
-    * Kullanici driver ayarlamalari yapar
+   # * Kullanici driver ayarlamalari yapar
 
   Scenario: Sign In
     * Kullanici anasayfada oldugunu dogrular

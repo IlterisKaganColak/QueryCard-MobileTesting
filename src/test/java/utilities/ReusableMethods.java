@@ -38,11 +38,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReusableMethods {
-   private static DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
-
-
-
-
+ /*  private static DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
     public static void apkYukle(){
 
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME,ConfigReader.getProperty("deviceName"));
@@ -52,7 +48,7 @@ public class ReusableMethods {
         //desiredCapabilities.setCapability(MobileCapabilityType.APP,ConfigReader.getProperty(apk));
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,ConfigReader.getProperty("appPackage"));
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,ConfigReader.getProperty("appActivity"));
-    }
+    }*/
     public static void koordinatTiklama(int xKoordinat, int yKoordinat, int bekleme, WebElement slider) throws InterruptedException {
         Point source = slider.getLocation();
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");

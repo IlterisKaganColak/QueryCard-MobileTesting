@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class ProfilePage extends Base {
             profilePage.emailPasswordTextBoxList.get(1).click();
             Thread.sleep(1000);
             profilePage.emailPasswordTextBoxList.get(1).sendKeys(ConfigReader.getProperty(info));
+            ReusableMethods.clickWithCoordinates(991,1707);
         }
         else System.out.println("Hatali info girdiniz!!!");
     }

@@ -2,9 +2,6 @@ package stepdefinitions;
 
 import hooks.Base;
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.backgroundservice.BackgroundService;
-import utilities.ConfigReader;
 import utilities.ReusableMethods;
 
 public class ProfileStepdefinition extends Base {

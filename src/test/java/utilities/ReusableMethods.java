@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 
 public class ReusableMethods extends Base {
@@ -33,14 +32,6 @@ public class ReusableMethods extends Base {
         driver.perform(Arrays.asList(tap));
     }
 
-
-  //  static AndroidDriver<AndroidElement> driver=Driver.getAppiumDriver();
-    public static void koordinatTiklamaMethodu(int x,int y) throws InterruptedException {
-        TouchAction action=new TouchAction((PerformsTouchActions) getAppiumDriver());
-        action.press(PointOption.point(x,y)).release().perform();
-        Thread.sleep(1000);
-    }
-
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
      element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
      if (element.isEnabled()){
@@ -54,11 +45,6 @@ public class ReusableMethods extends Base {
             clickWithCoordinates(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
         }
         else scrollWithUiScrollableAndClick(arr[0]);
-
-    }
-    public static void scrollWithUiScrollable(String elementText) {
-        AndroidDriver driver = (AndroidDriver)  getAppiumDriver();
-     //   driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))"));
 
     }
 
@@ -77,14 +63,6 @@ public class ReusableMethods extends Base {
         return target;
     }
 
-    public static void ekranKaydirmaMethodu(int xPress,int yPress,int wait,int xMove,int yMove){
-        TouchAction action=new TouchAction<>((PerformsTouchActions) getAppiumDriver());
-        action.press(PointOption.point(xPress,yPress))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(wait)))
-                .moveTo(PointOption.point(xMove,yMove))
-                .release()
-                .perform();
-    }
     public static void wait(int saniye) {
         try {
             Thread.sleep(saniye * 1000);

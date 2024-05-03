@@ -71,23 +71,21 @@ public class ReusableMethods extends Base {
       //  element = driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
       //  element = driver.findElement(By.xpath("//*[@text='" + elementText + "']"));
      element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
-     element.click();
+     if (element.isEnabled()){
+     element.click();}
         Thread.sleep(1000);
     }
-    public static void countOfElement(String text,int x,int y) throws InterruptedException {
-        String  arr[] = new String[3];
-        for (int i=0;i<3;i++){
-            arr[i]= Arrays.toString(text.split(","));
-        }
+    public static void countOfElement(String text) throws InterruptedException {
+        String[] arr = text.split(",");
 
-        String clickItem= text.replaceAll("\\D","");
         int countElementFound ;
-        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
+        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.view.View[@content-desc=\"" + arr[0] + "\")"));
+
         if (mobileElementList.size()>1){
 
             clickWithCoordinates(Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
         }
-        else scrollWithUiScrollableAndClick(text);
+        else scrollWithUiScrollableAndClick(arr[0]);
 
     }
     public static void scrollWithUiScrollable(String elementText) {

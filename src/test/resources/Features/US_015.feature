@@ -5,12 +5,12 @@ Feature: US_015 As a registered user, I would like to have a page in my Dashboar
 
   Scenario: TC_01 Order History menu item should be visible and active in Dashboard sideBar
 
-     * Click on the "Profile" in homepage
-     * Click on the "Sign In" in login page
-     * Click on the "Use Email" in sign in
-     * "Valid email" is entered
-     * "Valid password" is entered
-     * Click on the "Sign In" in sign in page
-     * Click on the "Profile" in homepage
-     * Verify that "Order History" is visible in profile page
-     * Verify that "Order History" is active in profile page
+     * Click on the "Profile"
+     * Click on the "Sign In"
+     * Click on the "*Use Email Instead"
+     * "simgeEmail" is entered
+     * "simgePassword" is entered
+     * Click on the "Sign In"
+     * Click on the "Profile"
+     * Verify that "Order History" is visible
+     * Verify that "Order History" is active

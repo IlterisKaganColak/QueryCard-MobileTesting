@@ -6,7 +6,7 @@ Feature: US_013 As a registered user, I would like to have a dedicated dashboard
     * Launch the app
 
      Scenario: TC_01 Profile icon should be visible and active on the home page.
-       * Verify that the "profile" is visible
+       * Verify that the "Profile" is visible
        * Verify that the "profile" is active
 
      Scenario: TC_02 Clicking on the Profile icon should go to the dashboard page

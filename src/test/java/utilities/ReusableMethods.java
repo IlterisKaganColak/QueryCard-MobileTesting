@@ -1,44 +1,23 @@
 package utilities;
-import com.google.common.collect.ImmutableMap;
 import hooks.Base;
 import io.appium.java_client.*;
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
-import io.appium.java_client.touch.ActionOptions;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import static java.time.Duration.ofMillis;
-import static java.util.Collections.singletonList;
 import static utilities.Driver.getAppiumDriver;
-
-
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
 
 
 public class ReusableMethods extends Base {
@@ -53,11 +32,7 @@ public class ReusableMethods extends Base {
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(tap));
     }
-    public static void enterText(WebElement element, String text) {
-        tapOn(element);
-        wait(10);
-        element.sendKeys(text);
-    }
+
 
   //  static AndroidDriver<AndroidElement> driver=Driver.getAppiumDriver();
     public static void koordinatTiklamaMethodu(int x,int y) throws InterruptedException {
@@ -67,23 +42,16 @@ public class ReusableMethods extends Base {
     }
 
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
-      //  AndroidDriver driver = (AndroidDriver)  Driver.getAppiumDriver();
-      //  element = driver.findElement(AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
-      //  element = driver.findElement(By.xpath("//*[@text='" + elementText + "']"));
      element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
      if (element.isEnabled()){
      element.click();}
         Thread.sleep(1000);
     }
-    public static void countOfElement(String text) throws InterruptedException {
+    public static void clickElement(String text) throws InterruptedException {
         String[] arr = text.split(",");
 
-        int countElementFound ;
-        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.view.View[@content-desc=\"" + arr[0] + "\")"));
-
-        if (mobileElementList.size()>1){
-
-            clickWithCoordinates(Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
+        if (arr.length==2){
+            clickWithCoordinates(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
         }
         else scrollWithUiScrollableAndClick(arr[0]);
 
@@ -124,44 +92,15 @@ public class ReusableMethods extends Base {
             e.printStackTrace();
         }
     }
-    public static boolean isElementPresent(String text) {
-        boolean elementFound = false;
-        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
-        for (WebElement el : mobileElementList) {
-            if (el.getText().equals(text)) {
-                waitToBeVisible(el, Duration.ofSeconds(10));
-                if (el.isDisplayed()) {
-                    elementFound = true;
-                }
-            }
-        }
-        return elementFound;
+    public static void isVisible(String text) throws InterruptedException {
+        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
+        Thread.sleep(1000);
+        Assert.assertTrue(element.isDisplayed());
     }
-    public static void tapOn(WebElement element) {
-        waitToBeClickable(element, Duration.ofSeconds(10));
-        element.click();
-    }
-    public static void waitToBeVisible(WebElement element, Duration timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getAppiumDriver(), timeout);
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-    public static void waitToBeClickable(WebElement element, Duration timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getAppiumDriver(), timeout);
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
-    public static boolean isElementMultiple(String text,int sayi) {
-        boolean elementFound = false;
-        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
-
-        for (WebElement el : mobileElementList) {
-            if (el.getText().equals(text)) {
-                waitToBeVisible(el, Duration.ofSeconds(10));
-                if (el.isDisplayed()) {
-                    elementFound = true;
-                }
-            }
-        }
-        return elementFound;
+    public static void isEnable(String text) throws InterruptedException {
+        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
+        Thread.sleep(1000);
+        Assert.assertTrue(element.isEnabled());
     }
 
 }

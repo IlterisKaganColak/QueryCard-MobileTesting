@@ -12,7 +12,7 @@ public class HomePageStepdefinition extends Base {
 
     @Given("Kullanici driver ayarlamalari yapar")
     public void kullanici_driver_ayarlamalari_yapar() {
-        getAppiumDriver();
+       // getAppiumDriver();
 
     }
     @Given("Kullanici anasayfada oldugunu dogrular")

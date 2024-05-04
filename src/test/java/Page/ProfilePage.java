@@ -30,6 +30,7 @@ public class ProfilePage extends Base {
             Thread.sleep(1000);
             profilePage.emailPasswordTextBoxList.get(1).sendKeys(ConfigReader.getProperty(info));
             ReusableMethods.clickWithCoordinates(991,1707);
+            Thread.sleep(1000);
         }
         else System.out.println("Hatali info girdiniz!!!");
     }

@@ -30,7 +30,6 @@ public class ProfilePage extends Base {
         //*Use Email Instead yazısına tıklar
         ReusableMethods.clickWithCoordinates(855,551);
         Thread.sleep(1000);
-        System.out.println(emailPasswordTextBoxList.size());
         //Email textbox ına tıklar
         ReusableMethods.clickWithCoordinates(132,642);
         Thread.sleep(1000);

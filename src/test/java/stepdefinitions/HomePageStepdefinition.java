@@ -29,8 +29,11 @@ public class HomePageStepdefinition extends Base {
         homePage.signInClick();
     }
     @Given("Launch the app")
-    public void launch_the_app() {
+    public void launch_the_app() throws InterruptedException {
+        Thread.sleep(3000);
         getAppiumDriver();
+        Thread.sleep(3000);
+
     }
 
     @Given("Verify access to {string}")

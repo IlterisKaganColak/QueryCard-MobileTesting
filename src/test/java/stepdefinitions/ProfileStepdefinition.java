@@ -8,6 +8,7 @@ public class ProfileStepdefinition extends Base {
     //simge
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
+        Thread.sleep(1000);
         ReusableMethods.clickElement(clickItem);
     }
     @Given("{string} is entered")

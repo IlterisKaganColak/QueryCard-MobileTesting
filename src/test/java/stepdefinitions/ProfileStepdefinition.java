@@ -22,5 +22,9 @@ public class ProfileStepdefinition extends Base {
     public void verify_that_is_active(String elementText) throws InterruptedException {
         ReusableMethods.isEnable(elementText);
     }
+    @Given("Click on the Profile")
+    public void click_on_the_profile() throws InterruptedException {
+        profilePage.loginAndDashboard();
+    }
 
 }

@@ -30,9 +30,9 @@ public class HomePageStepdefinition extends Base {
     }
     @Given("Launch the app")
     public void launch_the_app() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         getAppiumDriver();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 
     }
 

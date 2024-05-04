@@ -8,11 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
-
 import java.util.List;
-
 import static utilities.Driver.getAppiumDriver;
 
 public class ProfilePage extends Base {
@@ -23,9 +20,7 @@ public class ProfilePage extends Base {
     @AndroidFindBy(className = "android.widget.EditText")
     public List<WebElement> emailPasswordTextBoxList;
 
-
-
-    public void clickAndSendKeys(String info) throws InterruptedException {
+    public void signIn(String info) throws InterruptedException {
         if (info.contains("Email")){
             profilePage.emailPasswordTextBoxList.get(0).click();
             Thread.sleep(1000);
@@ -54,12 +49,5 @@ public class ProfilePage extends Base {
          var el5 = driver.findElement(AppiumBy.accessibilityId("Profile"));
          el5.click();
      }
-
-
-
-
-
-
-
 
 }

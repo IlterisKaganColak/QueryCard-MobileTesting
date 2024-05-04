@@ -68,19 +68,19 @@ While adding to Github, never use git add .!
 Launch the app
 
 
-Verify that the "search Text Box" is visible
+Verify that "search Text Box" is visible
 
-Verify that the "profile button" is active
+Verify that "profile button" is active
 
-Verify that the "Sign Up button" is visible
+Verify that "Sign Up button" is visible
 
-Verify that the "*** ** **** text" is visible
+Verify that "*** ** **** text" is visible
 
 Click on the "Category button"
 
 select "black" color option
 
-Verify that the "Use Email Instead text" is active
+Verify that "Use Email Instead text" is active
 
 
 ----------------------------------------------------------------------------------------------------------------

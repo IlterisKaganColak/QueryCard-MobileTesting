@@ -4,17 +4,13 @@ import Page.HomePage;
 import hooks.Base;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import utilities.ConfigReader;
+import utilities.ReusableMethods;
 
 import static utilities.Driver.getAppiumDriver;
 
 public class HomePageStepdefinition extends Base {
 
-
-    @Given("Kullanici driver ayarlamalari yapar")
-    public void kullanici_driver_ayarlamalari_yapar() {
-        getAppiumDriver();
-
-    }
     @Given("Kullanici anasayfada oldugunu dogrular")
     public void kullanici_anasayfada_oldugunu_dogrular() throws InterruptedException {
         homePage.LogoGorunurTest();
@@ -34,7 +30,7 @@ public class HomePageStepdefinition extends Base {
     }
     @Given("Launch the app")
     public void launch_the_app() {
-      //  getAppiumDriver();
+        getAppiumDriver();
     }
 
     @Given("Verify access to {string}")
@@ -44,6 +40,9 @@ public class HomePageStepdefinition extends Base {
 
     @Given("Verify that the {string} is visible")
     public void verify_that_the_is_visible(String element) {
+
         homePage.LogoGorunurTest();
     }
+    //Simge
+
 }

@@ -41,9 +41,9 @@ public class HomePageStepdefinition extends Base {
         Assert.assertTrue(homePage.labelCategories.isDisplayed());
     }
 
-    @Given("Verify that the {string} is visible")
-    public void verify_that_the_is_visible(String element) {
-
+    @Given("Verify that the Site Logo is visible")
+    public void verify_that_the_site_logo_is_visible() throws InterruptedException {
+        Thread.sleep(1000);
         homePage.LogoGorunurTest();
     }
     //Simge

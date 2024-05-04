@@ -8,4 +8,4 @@ Feature: US_001 As a user, I want to be able to access the site homepage.
       * Verify access to "homepage"
 
     Scenario: TC_02 The Site Logo should be visible on the homepage.
-      * Verify that the "Site Logo" is visible
+      * Verify that the Site Logo is visible

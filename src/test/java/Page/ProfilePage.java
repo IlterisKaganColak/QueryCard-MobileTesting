@@ -48,14 +48,32 @@ public class ProfilePage extends Base {
          el2.sendKeys("1231231");
          var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
          el3.click();
-         el3.sendKeys("123123");
+         el3.sendKeys("123456");
          var el4 = driver.findElement(AppiumBy.xpath("(//android.view.View[@content-desc=\"Sign In\"])[2]"));
          el4.click();
          var el5 = driver.findElement(AppiumBy.accessibilityId("Profile"));
          el5.click();
      }
 
+    public void changePassword() throws InterruptedException {
+        var el1 = driver.findElement(AppiumBy.accessibilityId("Change Password"));
+        el1.click();
+        var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
+        el2.click();
+        el2.sendKeys("123456");
+        var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
+        el3.click();
+        el3.sendKeys("123123");
+        var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
+        el4.click();
+        el4.sendKeys("123123");
+        Thread.sleep(3000);
 
+      //  var el5 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View"));
+        //el5.click();
+        //var el6 = driver.findElement(AppiumBy.accessibilityId("Save Changes"));
+       // el6.click();
+    }
 
 
 

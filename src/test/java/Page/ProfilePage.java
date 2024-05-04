@@ -20,7 +20,7 @@ public class ProfilePage extends Base {
     @AndroidFindBy(className = "android.widget.EditText")
     public List<WebElement> emailPasswordTextBoxList;
 
-    public void clickAndSendKeys(String info) throws InterruptedException {
+    public void signIn(String info) throws InterruptedException {
         if (info.contains("Email")){
             profilePage.emailPasswordTextBoxList.get(0).click();
             Thread.sleep(1000);
@@ -49,12 +49,5 @@ public class ProfilePage extends Base {
          var el5 = driver.findElement(AppiumBy.accessibilityId("Profile"));
          el5.click();
      }
-
-
-
-
-
-
-
 
 }

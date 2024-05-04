@@ -32,12 +32,13 @@ public class ReusableMethods extends Base {
         Thread.sleep(1000);
     }
     public static void clickElement(String text) throws InterruptedException {
+        if (text.contains(",")){
         String[] arr = text.split(",");
-
-        if (arr.length==2){
             clickWithCoordinates(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
+            Thread.sleep(1000);
         }
-        else scrollWithUiScrollableAndClick(arr[0]);
+        else scrollWithUiScrollableAndClick(text);
+             Thread.sleep(1000);
 
     }
 

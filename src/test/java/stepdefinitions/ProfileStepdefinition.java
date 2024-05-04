@@ -12,7 +12,7 @@ public class ProfileStepdefinition extends Base {
     }
     @Given("{string} is entered")
     public void is_entered(String validInfo) throws InterruptedException {
-        profilePage.clickAndSendKeys(validInfo);
+        profilePage.signIn(validInfo);
     }
     @Given("Verify that {string} is visible")
     public void verify_that_is_visible(String elementText) throws InterruptedException {

@@ -37,8 +37,10 @@ public class ReusableMethods extends Base {
             clickWithCoordinates(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
             Thread.sleep(1000);
         }
-        else scrollWithUiScrollableAndClick(text);
+        else {
+            scrollWithUiScrollableAndClick(text);
              Thread.sleep(1000);
+        }
 
     }
 

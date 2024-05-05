@@ -10,11 +10,13 @@ Feature: US_013 As a registered user, I would like to have a dedicated dashboard
        * Verify that "Profile" is active
 
      Scenario: TC_02 Clicking on the Profile icon should go to the dashboard page
-      * Click on the Profile
+      * Registered user logs in by using "zehraEmail" and "Password" information
+      * Click on the "Profile"
       * Verify that "My Account" is visible
 
      Scenario: TC_03 On the Dashboard page, summary information boards should be visible for the user under the My Account heading.
-      * Click on the Profile
+      * Registered user logs in by using "zehraEmail" and "Password" information
+      * Click on the "Profile"
       * Verify that "My Account" is visible
       * Click on the "My Account"
       * Verify that "Total Orders" is visible

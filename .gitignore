@@ -12,7 +12,7 @@ target/
 *.iml
 *.ipr
 /Apps
-src/test/java/utilities/Driver.java
+utilities/Driver.java
 
 ### Eclipse ###
 .apt_generated

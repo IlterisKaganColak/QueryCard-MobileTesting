@@ -4,7 +4,6 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
@@ -20,18 +19,32 @@ public class ProfilePage extends Base {
     @AndroidFindBy(className = "android.widget.EditText")
     public List<WebElement> emailPasswordTextBoxList;
 
-    public void signIn(String info) throws InterruptedException {
-        if (info.contains("Email")){
-            profilePage.emailPasswordTextBoxList.get(0).click();
-            Thread.sleep(1000);
-            profilePage.emailPasswordTextBoxList.get(0).sendKeys(ConfigReader.getProperty(info));
-        } else if (info.contains("Password")) {
-            profilePage.emailPasswordTextBoxList.get(1).click();
-            Thread.sleep(1000);
-            profilePage.emailPasswordTextBoxList.get(1).sendKeys(ConfigReader.getProperty(info));
-            ReusableMethods.clickWithCoordinates(991,1707);
-        }
-        else System.out.println("Hatali info girdiniz!!!");
+    public void signIn(String validEmail,String validPassword) throws InterruptedException {
+        //Profile butonuna tıklar
+        ReusableMethods.clickWithCoordinates(977,1722);
+        Thread.sleep(1000);
+        //Sign In butonuna tıklar
+        ReusableMethods.clickWithCoordinates(789,598);
+        Thread.sleep(1000);
+        //*Use Email Instead yazısına tıklar
+        ReusableMethods.clickWithCoordinates(855,551);
+        Thread.sleep(1000);
+        //Email textbox ına tıklar
+        ReusableMethods.clickWithCoordinates(132,642);
+        Thread.sleep(1000);
+        //Geçerli email girilir
+        profilePage.emailPasswordTextBoxList.get(0).sendKeys(ConfigReader.getProperty(validEmail));
+        //Password textbox ına tıklar
+        ReusableMethods.clickWithCoordinates(173,870);
+        Thread.sleep(1000);
+        //Geçerli password girilir
+        profilePage.emailPasswordTextBoxList.get(1).sendKeys(ConfigReader.getProperty(validPassword));
+        //Klavye kapatılır
+        ReusableMethods.clickWithCoordinates(991,1707);
+        Thread.sleep(1000);
+        //Sign In butonuna tıklar
+        ReusableMethods.clickWithCoordinates(532,1127);
+        Thread.sleep(1000);
     }
 
      public void loginAndDashboard() throws InterruptedException {

@@ -6,14 +6,15 @@ import utilities.ReusableMethods;
 
 public class ProfileStepdefinition extends Base {
     //simge
+    @Given("Registered user logs in by using {string} and {string} information")
+    public void registered_user_logs_in_by_using_and_information(String validEmail, String validPassword) throws InterruptedException {
+        profilePage.signIn(validEmail,validPassword);
+    }
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
         ReusableMethods.clickElement(clickItem);
     }
-    @Given("{string} is entered")
-    public void is_entered(String validInfo) throws InterruptedException {
-        profilePage.signIn(validInfo);
-    }
+
     @Given("Verify that {string} is visible")
     public void verify_that_is_visible(String elementText) throws InterruptedException {
         ReusableMethods.isVisible(elementText);

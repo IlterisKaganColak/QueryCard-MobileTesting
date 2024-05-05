@@ -3,7 +3,8 @@ Feature: US_017 As a registered user, I want to change the password on my dashbo
 
   Background:
     * Launch the app
-    * Click on the Profile
+    * Registered user logs in by using "zehraEmail" and "Password" information
+    * Click on the "Profile"
 
     Scenario: TC_01 The Change Password link on the Control Panel appears and must be active.
     * Verify that "Change Password" is visible
@@ -23,10 +24,9 @@ Feature: US_017 As a registered user, I want to change the password on my dashbo
 
     Scenario: TC_03 Changes made must be saved successfully
       * Click on the Change Password
-
-      * Click on the "518,1057"
-      * Click on the "Save Change"
-      * Verify that successfully message is visible
+      * Click on the "1010,1747"
+      * Click on the "Save Changes"
+      * Verify that Change Password message is visible
 
     Scenario: TC_04 Negative senario
       * Click on the "Change Password"
@@ -34,7 +34,7 @@ Feature: US_017 As a registered user, I want to change the password on my dashbo
       * "falsePassword" is entered
       * "falsePassword" is entered
       * Click on the "Save Change"
-      * Verify that "error message" is visible
+      * Verify that "error" message is visible
 
 
 

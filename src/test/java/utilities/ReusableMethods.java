@@ -67,6 +67,7 @@ public class ReusableMethods extends Base {
         Assert.assertTrue(element.isEnabled());
 
     }
+
     public static void wait(int saniye) {
         try {
             Thread.sleep(saniye * 1000);
@@ -208,6 +209,15 @@ public class ReusableMethods extends Base {
         driver.executeScript("mobile: doubleClickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) element).getId()
         ));
+    }
+    /**
+     * bu metot ile text degeri verilen elemente kadar sayfa kaydirilir
+     * @param driver yerine AndroidDriver objesi verilir
+     * @param text yerine elementin text degeri verilir
+     */
+    public static void scrollToElementWithText(AndroidDriver driver, String text){
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
+
     }
 }
 

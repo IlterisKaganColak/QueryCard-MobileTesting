@@ -11,8 +11,8 @@ target/
 *.iws
 *.iml
 *.ipr
-.Apps
-.utilities/Driver.java
+/Apps
+src/test/java/utilities/Driver.java
 
 ### Eclipse ###
 .apt_generated

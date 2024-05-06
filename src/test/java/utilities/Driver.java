@@ -13,7 +13,6 @@ public class Driver {
     private Driver() {
     }
 
-    private static UiAutomator2Options options;
     private static AppiumDriver driver;
 
     public static AppiumDriver getAppiumDriver() {
@@ -30,9 +29,9 @@ public class Driver {
         if (driver == null) {
             switch (ConfigReader.getProperty("platformName")) {
                 case "Android":
-                    options = new UiAutomator2Options();
+                    UiAutomator2Options options = new UiAutomator2Options();
                     options.setPlatformName("Android").setAutomationName("UiAutomator2");
-                    options.setApp("C:/Users/zehra/Desktop/Appium/querycart1.0.apk");
+                    options.setApp("C:/Users/ATALAY/Desktop/Appium/querycart1.0.apk");
                     options.setAppPackage("com.inilabs.shopking");
                     options.setAppActivity("com.inilabs.shopking.MainActivity");
                     options.setUdid("emulator-5554");

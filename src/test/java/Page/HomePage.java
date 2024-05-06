@@ -17,18 +17,18 @@ public class HomePage extends Base {
 
     }
     @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[1]")
-    private WebElement queryCardLogoElement;
+    public static WebElement queryCardLogoElement;
     @AndroidFindBy (xpath = "(//android.widget.ImageView[1])[2]")
-    private WebElement searchBoxElement;
+    private static WebElement searchBoxElement;
     @AndroidFindBy (accessibility = "Sign In")
-    private WebElement signInButton;
+    private static WebElement signInButton;
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Profile']")
-    private WebElement profileImageView;
+    private static WebElement profileImageView;
 
     @AndroidFindBy (accessibility = "Categories")
-    public WebElement labelCategories;
+    public static WebElement labelCategories;
 
-    public void LogoGorunurTest(){
+    public static void LogoGorunurTest(){
 
             try {
                Thread.sleep(6000);
@@ -39,15 +39,15 @@ public class HomePage extends Base {
         }
 
 
-    public void SearchBoxGorunurlukClickTest(){
+    public static void SearchBoxGorunurlukClickTest(){
         assertTrue(searchBoxElement.isDisplayed());
         searchBoxElement.click();
     }
-    public void profileImageViewClickTest(){
+    public static void profileImageViewClickTest(){
         assertTrue(profileImageView.isDisplayed());
         profileImageView.click();
     }
-    public void signInClick(){
+    public static void signInClick(){
         assertTrue(signInButton.isDisplayed());
         signInButton.click();
     }

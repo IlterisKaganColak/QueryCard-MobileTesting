@@ -31,8 +31,6 @@ public class Driver {
                 case "Android":
                     UiAutomator2Options options = new UiAutomator2Options();
                     options.setPlatformName("Android").setAutomationName("UiAutomator2");
-
-                    //querycart app'ini C'ye atabilirsiniz dosya yolu şöyle gözükecek--> "C:/querycart1.0.apk"
                     options.setApp("C:/querycart1.0.apk");
                     options.setAppPackage("com.inilabs.shopking");
                     options.setAppActivity("com.inilabs.shopking.MainActivity");

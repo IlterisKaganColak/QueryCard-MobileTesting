@@ -7,7 +7,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import utilities.ConfigReader;
-import utilities.ReusableMethods;
+import static utilities.ReusableMethods.*;
 
 
 public class ProfileStepdefinition extends Base {
@@ -19,17 +19,17 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
-        ReusableMethods.clickElement(clickItem);
+      clickElement(clickItem);
     }
 
     @Given("Verify that {string} is visible")
     public void verify_that_is_visible(String elementText) throws InterruptedException {
-        ReusableMethods.isVisible(elementText);
+    isVisible(elementText);
     }
 
     @Given("Verify that {string} is active")
     public void verify_that_is_active(String elementText) throws InterruptedException {
-        ReusableMethods.isEnable(elementText);
+       isEnable(elementText);
     }
 
     //===================ZD===========
@@ -44,8 +44,8 @@ public class ProfileStepdefinition extends Base {
     }
 
     @Given("Verify that Change Password message is visible")
-    public void verify_that_change_password_mesagge_is_visible(){
-        ReusableMethods.wait(3);
+    public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
+        wait(3);
         Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
 
     }
@@ -62,8 +62,8 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Click on the Save Changes")
     public void click_on_the_save_changes() throws InterruptedException {
-        ReusableMethods.scrollToElementWithText((AndroidDriver) driver, "Save Changes");
-        ReusableMethods.clickElement("Save Changes");
+        scrollToElementWithText((AndroidDriver) driver, "Save Changes");
+       clickElement("Save Changes");
     }
 
     @Given("Click on the Forgot Password")
@@ -91,21 +91,34 @@ public class ProfileStepdefinition extends Base {
         el11.click();
         el11.sendKeys("Query.2904");
     }
+    @Given("Enter the wrong old password")
+    public void enter_the_wrong_old_password() {
+        var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
+        el2.click();
+        el2.sendKeys("123123");
+    }
     @Given("Enter the wrong new password")
     public void enter_the_wrong_new_password() {
-        var el10 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]"));
-        el10.click();
-        el10.sendKeys("1");
+        var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
+        el3.click();
+        el3.sendKeys("123");
     }
     @Given("Enter the wrong Confirm password")
-    public void enter_the_wrong_confirm_password() {
-        var el11 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]"));
-        el11.click();
-        el11.sendKeys("1");
+    public void enter_the_wrong_confirm_password() throws InterruptedException {
+        var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
+        el4.click();
+        el4.sendKeys("123");
+        Thread.sleep(3000);
     }
 
     @Given("Verify that the page does not appear to have changed")
     public void verify_that_the_page_does_not_appear_to_have_changed() {
+
+    }
+    @Given("Verify that error message is visible")
+    public void verify_that_error_mesagge_is_visible() throws InterruptedException {
+       wait(3);
+        Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
 
     }
 }

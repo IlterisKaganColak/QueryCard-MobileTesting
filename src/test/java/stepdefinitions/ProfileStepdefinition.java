@@ -46,7 +46,7 @@ public class ProfileStepdefinition extends Base {
     @Given("Verify that Change Password message is visible")
      public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
         wait(3);
-        Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
+        Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
     }
 
@@ -118,7 +118,7 @@ public class ProfileStepdefinition extends Base {
     @Given("Verify that error message is visible")
     public void verify_that_error_mesagge_is_visible() throws InterruptedException {
        wait(3);
-        Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
+        Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
     }
 }

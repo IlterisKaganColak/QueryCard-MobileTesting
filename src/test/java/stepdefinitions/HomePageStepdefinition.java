@@ -4,18 +4,14 @@ import Page.HomePage;
 import hooks.Base;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
-import utilities.ConfigReader;
-import utilities.ReusableMethods;
-
 import static utilities.Driver.getAppiumDriver;
 
 public class HomePageStepdefinition extends Base {
 
     @Given("Kullanici anasayfada oldugunu dogrular")
-    public void kullanici_anasayfada_oldugunu_dogrular() throws InterruptedException {
+    public void kullanici_anasayfada_oldugunu_dogrular() {
         HomePage.LogoGorunurTest();
-      //  ReusableMethods.koordinatTiklamaMethodu(300,500);
-      //  ReusableMethods.ekranKaydirmaMethodu(300,160,300,500,300);
+
     }
 
     @Given("Profile ikonuna tıklar")

@@ -8,7 +8,7 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import utilities.ConfigReader;
 import utilities.ReusableMethods;
-import static utilities.Driver.getAppiumDriver;
+
 
 public class ProfileStepdefinition extends Base {
     //simge
@@ -44,7 +44,7 @@ public class ProfileStepdefinition extends Base {
     }
 
     @Given("Verify that Change Password message is visible")
-    public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
+    public void verify_that_change_password_mesagge_is_visible(){
         ReusableMethods.wait(3);
         Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
 
@@ -67,7 +67,7 @@ public class ProfileStepdefinition extends Base {
     }
 
     @Given("Click on the Forgot Password")
-    public void click_on_the_forgot_password() throws InterruptedException {
+    public void click_on_the_forgot_password()  {
         ProfilePage.forgotPassword();
     }
 

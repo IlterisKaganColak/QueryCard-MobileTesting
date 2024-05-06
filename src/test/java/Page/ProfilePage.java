@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.ReusableMethods;
-import java.util.List;
 import static utilities.Driver.getAppiumDriver;
 
 public class ProfilePage extends Base {

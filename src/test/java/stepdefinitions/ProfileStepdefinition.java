@@ -14,7 +14,7 @@ public class ProfileStepdefinition extends Base {
     //simge
     @Given("Registered user logs in by using {string} and {string} information")
     public void registered_user_logs_in_by_using_and_information(String validEmail, String validPassword) throws InterruptedException {
-       ProfilePage.signIn(validEmail, validPassword);
+        profilePage.signIn(validEmail, validPassword);
     }
 
     @Given("Click on the {string}")
@@ -35,29 +35,29 @@ public class ProfileStepdefinition extends Base {
     //===================ZD===========
     @Given("Click on the Profile")
     public void click_on_the_profile() throws InterruptedException {
-        ProfilePage.loginAndDashboard();
+        profilePage.loginAndDashboard();
     }
 
     @Given("Click on the Change Password")
     public void click_on_the_change_password() throws InterruptedException {
-        ProfilePage.changePassword();
+        profilePage.changePassword();
     }
 
     @Given("Verify that Change Password message is visible")
     public void verify_that_change_password_mesagge_is_visible(){
         ReusableMethods.wait(3);
-        Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
+        Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
     }
 
     @Given("Verify that email textbox is visible")
     public void verify_that_email_textbox_is_visible() throws InterruptedException {
-        ProfilePage.isVisibleTextbox();
+        profilePage.isVisibleTextbox();
     }
 
     @Given("Verify that email textbox is active")
     public void verify_that_email_textbox_is_active() throws InterruptedException {
-        ProfilePage.isEnableTextbox();
+        profilePage.isEnableTextbox();
     }
 
     @Given("Click on the Save Changes")
@@ -68,7 +68,7 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Click on the Forgot Password")
     public void click_on_the_forgot_password()  {
-        ProfilePage.forgotPassword();
+        profilePage.forgotPassword();
     }
 
     @Given("Registered email is entered")

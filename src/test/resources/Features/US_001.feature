@@ -1,4 +1,4 @@
-@1
+
 Feature: US_001 As a user, I want to be able to access the site homepage.
 
   Background:

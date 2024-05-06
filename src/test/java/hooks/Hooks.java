@@ -14,7 +14,7 @@ public class Hooks {
     @Before
     public void startUp() throws InterruptedException {
      Base.initialize();
-     getAppiumDriver();
+     //getAppiumDriver();
      Thread.sleep(10000);   }
     @After
     public void tearDown(Scenario scenario) throws InterruptedException {

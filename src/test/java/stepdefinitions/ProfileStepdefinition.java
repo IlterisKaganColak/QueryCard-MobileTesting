@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import Page.ProfilePage;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -7,12 +8,13 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import utilities.ConfigReader;
 import utilities.ReusableMethods;
+import static utilities.Driver.getAppiumDriver;
 
 public class ProfileStepdefinition extends Base {
     //simge
     @Given("Registered user logs in by using {string} and {string} information")
     public void registered_user_logs_in_by_using_and_information(String validEmail, String validPassword) throws InterruptedException {
-        profilePage.signIn(validEmail, validPassword);
+       ProfilePage.signIn(validEmail, validPassword);
     }
 
     @Given("Click on the {string}")
@@ -33,29 +35,29 @@ public class ProfileStepdefinition extends Base {
     //===================ZD===========
     @Given("Click on the Profile")
     public void click_on_the_profile() throws InterruptedException {
-        profilePage.loginAndDashboard();
+        ProfilePage.loginAndDashboard();
     }
 
     @Given("Click on the Change Password")
     public void click_on_the_change_password() throws InterruptedException {
-        profilePage.changePassword();
+        ProfilePage.changePassword();
     }
 
     @Given("Verify that Change Password message is visible")
     public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
         ReusableMethods.wait(3);
-        Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
+        Assert.assertTrue(ProfilePage.changePassMessage.getText().contains("Change Password"));
 
     }
 
     @Given("Verify that email textbox is visible")
     public void verify_that_email_textbox_is_visible() throws InterruptedException {
-        profilePage.isVisibleTextbox();
+        ProfilePage.isVisibleTextbox();
     }
 
     @Given("Verify that email textbox is active")
     public void verify_that_email_textbox_is_active() throws InterruptedException {
-        profilePage.isEnableTextbox();
+        ProfilePage.isEnableTextbox();
     }
 
     @Given("Click on the Save Changes")
@@ -66,7 +68,7 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Click on the Forgot Password")
     public void click_on_the_forgot_password() throws InterruptedException {
-        profilePage.forgotPassword();
+        ProfilePage.forgotPassword();
     }
 
     @Given("Registered email is entered")

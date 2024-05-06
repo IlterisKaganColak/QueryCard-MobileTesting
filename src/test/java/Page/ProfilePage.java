@@ -5,7 +5,6 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
@@ -18,42 +17,42 @@ public class ProfilePage extends Base {
         PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);
     }
 
-    @AndroidFindBy(className = "android.widget.EditText")
-    public List<WebElement> emailPasswordTextBoxList;
     @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
-    public WebElement changePassMessage;
-    @AndroidFindBy(className = "android.widget.EditText")
-    public WebElement emailPasswordTextBox;
+    public static WebElement changePassMessage;
 
-    public void signIn(String validEmail,String validPassword) throws InterruptedException {
+    public static  void signIn(String validEmail, String validPassword) throws InterruptedException {
+        Thread.sleep(1000);
         //Profile butonuna tıklar
         ReusableMethods.clickWithCoordinates(977,1722);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         //Sign In butonuna tıklar
         ReusableMethods.clickWithCoordinates(789,598);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         //*Use Email Instead yazısına tıklar
         ReusableMethods.clickWithCoordinates(855,551);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         //Email textbox ına tıklar
-        ReusableMethods.clickWithCoordinates(132,642);
-        Thread.sleep(1000);
+        var el15 = getAppiumDriver().findElement(AppiumBy.className("android.widget.EditText"));
+        el15.click();
+        Thread.sleep(3000);
         //Geçerli email girilir
-        profilePage.emailPasswordTextBoxList.get(0).sendKeys(ConfigReader.getProperty(validEmail));
-        //Password textbox ına tıklar
-        ReusableMethods.clickWithCoordinates(173,870);
+        el15.sendKeys(ConfigReader.getProperty(validEmail));
         Thread.sleep(1000);
+        //Password textbox ına tıklar
+        var el16 = getAppiumDriver().findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
+        el16.click();
+        Thread.sleep(3000);
         //Geçerli password girilir
-        profilePage.emailPasswordTextBoxList.get(1).sendKeys(ConfigReader.getProperty(validPassword));
+        el16.sendKeys(ConfigReader.getProperty(validPassword));
         //Klavye kapatılır
         ReusableMethods.clickWithCoordinates(991,1707);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         //Sign In butonuna tıklar
         ReusableMethods.clickWithCoordinates(532,1127);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
     }
 
-     public void loginAndDashboard() throws InterruptedException {
+     public static void loginAndDashboard() throws InterruptedException {
          ReusableMethods.clickElement("Profile");
          var el1 = driver.findElement(AppiumBy.accessibilityId("Sign In"));
          el1.click();
@@ -69,7 +68,7 @@ public class ProfilePage extends Base {
          el5.click();
      }
 
-    public void changePassword() throws InterruptedException {
+    public static void changePassword() throws InterruptedException {
         var el1 = driver.findElement(AppiumBy.accessibilityId("Change Password"));
         el1.click();
         var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
@@ -89,7 +88,7 @@ public class ProfilePage extends Base {
        // el6.click();
     }
 
-public void forgotPassword(){
+public static void forgotPassword(){
 
     var el6 = driver.findElement(AppiumBy.accessibilityId("Forgot Password"));
     el6.click();
@@ -110,13 +109,13 @@ public void forgotPassword(){
     el12.click();
 
 }
-    public void isVisibleTextbox() throws InterruptedException {
+    public static void isVisibleTextbox() throws InterruptedException {
         Thread.sleep(1000);
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isDisplayed());
     }
-    public void isEnableTextbox() throws InterruptedException {
+    public static void isEnableTextbox() throws InterruptedException {
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isEnabled());

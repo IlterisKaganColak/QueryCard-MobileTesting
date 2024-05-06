@@ -26,7 +26,7 @@ import java.util.List;
 
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
+        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
         if (element.isEnabled()){
             element.click();}
         Thread.sleep(1000);
@@ -53,16 +53,16 @@ public class ReusableMethods extends Base {
         tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         tap.addAction(new Pause(finger, Duration.ofMillis(50)));
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(Arrays.asList(tap));
+        getAppiumDriver().perform(Arrays.asList(tap));
     }
     public static void isVisible(String text) throws InterruptedException {
         Thread.sleep(1000);
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
+        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isDisplayed());
     }
     public static void isEnable(String text) throws InterruptedException {
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
+        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isEnabled());
 

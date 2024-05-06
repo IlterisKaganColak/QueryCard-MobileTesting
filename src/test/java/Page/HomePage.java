@@ -18,21 +18,21 @@ public class HomePage extends Base {
     }
 
     @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[1]")
-    public static WebElement queryCardLogoElement;
+    public  WebElement queryCardLogoElement;
     @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[2]")
-    private static WebElement searchBoxElement;
+    private  WebElement searchBoxElement;
     @AndroidFindBy(accessibility = "Sign In")
-    private static WebElement signInButton;
+    private  WebElement signInButton;
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Profile']")
-    private static WebElement profileImageView;
+    private  WebElement profileImageView;
 
     @AndroidFindBy(accessibility = "Categories")
-    public static WebElement labelCategories;
+    public  WebElement labelCategories;
 
     @AndroidFindBy(xpath = "(//*[@class='android.view.View']")
-    private static WebElement shoppingCartElement;
+    private  WebElement shoppingCartElement;
 
-    public static void LogoGorunurTest() {
+    public void LogoGorunurTest() {
 
         try {
             Thread.sleep(6000);
@@ -43,22 +43,22 @@ public class HomePage extends Base {
     }
 
 
-    public static void SearchBoxGorunurlukClickTest() {
+    public void SearchBoxGorunurlukClickTest() {
         assertTrue(searchBoxElement.isDisplayed());
         searchBoxElement.click();
     }
 
-    public static void profileImageViewClickTest() {
+    public void profileImageViewClickTest() {
         assertTrue(profileImageView.isDisplayed());
         profileImageView.click();
     }
 
-    public static void signInClick() {
+    public void signInClick() {
         assertTrue(signInButton.isDisplayed());
         signInButton.click();
     }
 
-    public static void setShoppingCartElementGurunurlukTest() {
+    public void setShoppingCartElementGurunurlukTest() {
         assertTrue(signInButton.isDisplayed());
 
 

@@ -32,7 +32,8 @@ public class Driver {
                 case "Android":
                     options = new UiAutomator2Options();
                     options.setPlatformName("Android").setAutomationName("UiAutomator2");
-                    options.setApp("C:\\Users\\beytullah\\Desktop\\QueryCart\\querycart1.0.apk");
+                    //querycart app'ini C'ye atabilirsiniz dosya yolu şöyle gözükecek--> "C:/querycart1.0.apk"
+                    options.setApp("C:/querycart1.0.apk");
                     options.setAppPackage("com.inilabs.shopking");
                     options.setAppActivity("com.inilabs.shopking.MainActivity");
                     options.setUdid("emulator-5554");

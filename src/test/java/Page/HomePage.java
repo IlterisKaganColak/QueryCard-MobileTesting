@@ -12,46 +12,55 @@ import static org.junit.Assert.assertTrue;
 import static utilities.Driver.getAppiumDriver;
 
 public class HomePage extends Base {
-   public HomePage(){
-       PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()),this);
+    public HomePage() {
+        PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);
 
     }
+
     @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[1]")
     public static WebElement queryCardLogoElement;
-    @AndroidFindBy (xpath = "(//android.widget.ImageView[1])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[2]")
     private static WebElement searchBoxElement;
-    @AndroidFindBy (accessibility = "Sign In")
+    @AndroidFindBy(accessibility = "Sign In")
     private static WebElement signInButton;
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Profile']")
     private static WebElement profileImageView;
 
-    @AndroidFindBy (accessibility = "Categories")
+    @AndroidFindBy(accessibility = "Categories")
     public static WebElement labelCategories;
 
-    public static void LogoGorunurTest(){
+    @AndroidFindBy(xpath = "(//*[@class='android.view.View']")
+    private static WebElement shoppingCartElement;
 
-            try {
-               Thread.sleep(6000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            assertTrue(queryCardLogoElement.isDisplayed());
+    public static void LogoGorunurTest() {
+
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+        assertTrue(queryCardLogoElement.isDisplayed());
+    }
 
 
-    public static void SearchBoxGorunurlukClickTest(){
+    public static void SearchBoxGorunurlukClickTest() {
         assertTrue(searchBoxElement.isDisplayed());
         searchBoxElement.click();
     }
-    public static void profileImageViewClickTest(){
+
+    public static void profileImageViewClickTest() {
         assertTrue(profileImageView.isDisplayed());
         profileImageView.click();
     }
-    public static void signInClick(){
+
+    public static void signInClick() {
         assertTrue(signInButton.isDisplayed());
         signInButton.click();
     }
 
+    public static void setShoppingCartElementGurunurlukTest() {
+        assertTrue(signInButton.isDisplayed());
 
 
+    }
 }

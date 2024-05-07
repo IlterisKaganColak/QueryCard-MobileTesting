@@ -30,11 +30,11 @@ Feature: US_017 As a registered user, I want to change the password on my dashbo
 
     Scenario: TC_04 Negative senario
       * Click on the "Change Password"
-      * "oldPassword" is entered
-      * "falsePassword" is entered
-      * "falsePassword" is entered
+      * Enter the wrong old password
+      * Enter the wrong new password
+      * Enter the wrong Confirm password
       * Click on the "Save Change"
-      * Verify that "error" message is visible
+      * Verify that error message is visible
 
 
 

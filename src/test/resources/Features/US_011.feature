@@ -1,10 +1,10 @@
 Feature: US_011 As a user, I would like to be able to see the categories and products of the Juniors menu on the home page.
 
   Background:
-   #* Launch the app
+   * Launch the app
 
   Scenario: TC_01 Juniors category window should be displayed in the main page body.
-    # * Verify access to "homepage"
+    * Verify access to "homepage"
     # * Click on the _categoryButton_
     # * Verify that the _juniorCategoryButton_ is visible
 

@@ -22,6 +22,10 @@ public class ProfilePage extends Base {
     public WebElement changePassMessage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[19]")
+    public WebElement floralDress;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[13]")
+    public WebElement cartIconProductDetailsPage;
     @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
     public WebElement fullNameTextbox;
     @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[2]")
@@ -138,7 +142,7 @@ public void forgotPassword(){
            case "old":
                var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
                el2.click();
-               if (ConfigReader.getProperty("Password").equals("Query.2904")) {
+               if (ConfigReader.getProperty("zehraPassword").equals("Query.2904")) {
                    el2.sendKeys("Query.2904");
                }else   el2.sendKeys("123123");
                break;

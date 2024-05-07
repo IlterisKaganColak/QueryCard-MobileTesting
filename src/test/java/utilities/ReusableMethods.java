@@ -26,10 +26,17 @@ import java.util.List;
 
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
-        scrollToElementWithText(elementText);
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
-        if (element.isEnabled()){
-            element.click();}
+        boolean flag=true;
+        do{
+          try {
+              element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + elementText + "\")"));
+              element.click();
+              flag=false;
+          } catch (Exception e) {
+                  slideWithCoordinatesUpToDown();
+
+          }}while(flag);
+
         Thread.sleep(1000);
     }
     public static void scrollToElementWithText(String text) throws InterruptedException {

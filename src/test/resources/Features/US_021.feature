@@ -14,7 +14,7 @@ Feature: US_021 As a registered user, I want to have a payment page where I can 
     # Size
     * Click on the "620,1630"
     # Quantity
-    * Scroll and click to "140,518"
+    * Click on the "140,518"
     * Click on the "290,720"
     * Verify that "Success Product added to cart" is visible
     #* Verify that "Product added to card" message is visible

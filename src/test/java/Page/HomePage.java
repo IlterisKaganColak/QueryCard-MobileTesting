@@ -46,6 +46,8 @@ public class HomePage extends Base {
     @AndroidFindBy (xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView")
     public WebElement filteringIcon;
 
+    @AndroidFindBy(accessibility = "Juniors")
+    private static WebElement juniorsCategory;
 
 
 

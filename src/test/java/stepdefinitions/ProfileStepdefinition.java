@@ -1,8 +1,6 @@
 package stepdefinitions;
-
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import utilities.ConfigReader;
@@ -48,6 +46,20 @@ public class ProfileStepdefinition extends Base {
     @Given("Click on the Shopping History Display")
     public void click_on_the_shopping_history_display() {
        profilePage.shoppingHistory.click();
+    }
+
+
+
+
+    @Given("Wait for {int} second")
+    public void wait_for_second(int second) throws InterruptedException {
+        wait(second);
+    }
+    @Given("Send {string} to eMail textbox")
+    public void Send_to_eMail_textbox(String yenimail) throws InterruptedException {
+
+        enterText(profilePage.eMailTextbox,yenimail, true);
+
     }
 
 

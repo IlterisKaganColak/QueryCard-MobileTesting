@@ -4,6 +4,8 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -21,8 +23,16 @@ public class ProfilePage extends Base {
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
 
-    public  void signIn(String validEmail, String validPassword) throws InterruptedException {
-        Thread.sleep(1000);
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
+    public WebElement fullNameTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[2]")
+    public WebElement eMailTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[3]")
+    public WebElement phoneTextbox;
+
+
+    public void signIn(String validEmail,String validPassword) throws InterruptedException {
+           Thread.sleep(1000);
         //Profile butonuna tıklar
         ReusableMethods.clickWithCoordinates(977,1722);
         Thread.sleep(3000);

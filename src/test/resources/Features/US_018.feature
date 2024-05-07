@@ -20,7 +20,7 @@ Feature: US_010 As a registered user, I want to edit my profile info on my dashb
     # klavyeyi kapat
     * Click on the "1000,1718"
     * Click on the "Save Changes"
-    * Wait for 0 second
+    * Wait for 1000 miliseconds
     * Verify that "PROFILE_UPDATE" is visible
 
 
@@ -34,7 +34,7 @@ Feature: US_010 As a registered user, I want to edit my profile info on my dashb
     # klavyeyi kapat
     * Click on the "1000,1718"
     * Click on the "Save Changes"
-    * Wait for 0 second
+    * Wait for 1000 miliseconds
     * Verify that "PROFILE_UPDATE" is visible
 
 

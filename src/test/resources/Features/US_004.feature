@@ -30,9 +30,9 @@ Feature: US_004 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Name" is visible
     * Verify that "Phone" is visible
     * Verify that "Password" is visible
-    * Verify that "Use Email Instead" is visible
-    * Verify that "Use Email Instead" is active
-    * Click on the "Use Email Instead"
+    * Verify that "*Use Email Instead" is visible
+    * Verify that "*Use Email Instead" is active
+    * Click on the "*Use Email Instead"
 #  Scenario: TC_05 The SignUp form must have fields (Firstname, Email or Phone, Password) that cannot be left blank.
 #    * Verify that "Sign Up" is visible
 #    * Verify that "Sign Up" is active

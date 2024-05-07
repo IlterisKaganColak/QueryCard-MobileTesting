@@ -151,4 +151,9 @@ public class ProfileStepdefinition extends Base {
         Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
     }
+
+
+
+
+
 }

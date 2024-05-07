@@ -33,6 +33,21 @@ public class ProfilePage extends Base {
     public WebElement eMailTextbox;
     @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[3]")
     public WebElement phoneTextbox;
+    @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[11]")
+    public WebElement cartIcon;
+    @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[13]")
+    public WebElement cartIconRight;
+    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[2]")
+    public WebElement productQtyUpIcon;
+    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[1]")
+    public WebElement productQtyDownIcon;
+    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[2]")
+    public WebElement productQtyUpIcon1;
+    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[9]")
+    public WebElement productQtyDownIcon1;
+    @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[10]")
+    public WebElement productRemoveIcon;
+
 
 
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
@@ -44,7 +59,7 @@ public class ProfilePage extends Base {
         ReusableMethods.clickWithCoordinates(789,598);
         Thread.sleep(3000);
         //*Use Email Instead yazısına tıklar
-        ReusableMethods.clickWithCoordinates(855,551);
+        ReusableMethods.clickWithCoordinates(855,480); //551
         Thread.sleep(3000);
         //Email textbox ına tıklar
         emailPasswordTextBoxes.get(0).click();

@@ -6,6 +6,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.Point;
 import utilities.ConfigReader;
 import static utilities.ReusableMethods.*;
 
@@ -19,7 +20,7 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
-      clickElement(clickItem);
+        clickElement(clickItem);
     }
 
     @Given("Verify that {string} is visible")
@@ -45,6 +46,14 @@ public class ProfileStepdefinition extends Base {
     @Given("Click on the Shopping History Display")
     public void click_on_the_shopping_history_display() {
        profilePage.shoppingHistory.click();
+    }
+    @Given("Click on the first product in the Most Popular list")
+    public void click_on_the_first_product_in_the_most_popular_list() {
+        profilePage.floralDress.click();
+    }
+    @Given("Click on the Cart icon in product details page")
+    public void click_on_the_cart_icon_in_product_details_page() {
+      profilePage.cartIconProductDetailsPage.click();
     }
 
 

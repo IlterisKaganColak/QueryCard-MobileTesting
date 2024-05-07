@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utilities.Driver;
@@ -27,6 +28,10 @@ public abstract class Base {
     public static HomePage homePage;
     public static ProfilePage profilePage;
     public static WebElement element;
+    public static String orderId;
+    public static int x;
+    public static int y;
+    public static Point expectedLocation;
 
     public static void initialize() {
         faker = new Faker();
@@ -35,6 +40,7 @@ public abstract class Base {
         homePage = new HomePage();
         desiredCapabilities = new DesiredCapabilities();
         driver = Driver.getAppiumDriver();
+        expectedLocation = new Point(x,y);
     }
 
 }

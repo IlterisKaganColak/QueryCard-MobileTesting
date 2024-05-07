@@ -20,6 +20,12 @@ public class ProfilePage extends Base {
     public WebElement changePassMessage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[19]")
+    public WebElement floralDress;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[13]")
+    public WebElement cartIconProductDetailsPage;
+
+
 
     public  void signIn(String validEmail, String validPassword) throws InterruptedException {
         Thread.sleep(1000);

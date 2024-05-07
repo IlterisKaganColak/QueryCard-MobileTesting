@@ -58,11 +58,10 @@ public class HomePageStepdefinition extends Base {
     public void Click_on_the_favorite_icon() {
         homePage.favoriteIcon.click();
     }
-    @Given("Verify that firs product listing is visible")
-    public void verify_that_firs_product_listing_is_visible() throws InterruptedException {
-        Assert.assertTrue(homePage.ilkUrun.isDisplayed());
-    }
-    @Given("Click on the first product")
+    @Given("Verify that first product listing is visible")
+    public void verify_that_first_product_listing_is_visible() throws InterruptedException {
+        Assert.assertTrue(homePage.ilkUrun.isDisplayed());    }
+     @Given("Click on the first product")
     public void click_on_the_first_product(){
         homePage.ilkUrun.click();
     }

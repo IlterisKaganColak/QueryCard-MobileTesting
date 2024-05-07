@@ -60,6 +60,19 @@ public class ReusableMethods extends Base {
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         getAppiumDriver().perform(Arrays.asList(tap));
     }
+    public static void slideWithCoordinatesUpToDown() {
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        var start = new Point(526, 1346);
+        var end = new Point (535, 833);
+        var swipe = new Sequence(finger, 1);
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), start.getX(), start.getY()));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(), end.getX(), end.getY()));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
+    }
     public static void isVisible(String text) throws InterruptedException {
         Thread.sleep(1000);
         element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));

@@ -51,16 +51,58 @@ public class ProfileStepdefinition extends Base {
 
 
 
-    @Given("Wait for {int} second")
-    public void wait_for_second(int second) throws InterruptedException {
-        wait(second);
-    }
-    @Given("Send {string} to eMail textbox")
+      @Given("Send {string} to eMail textbox")
     public void Send_to_eMail_textbox(String yenimail) throws InterruptedException {
-
         enterText(profilePage.eMailTextbox,yenimail, true);
-
     }
+    @Given("Verify that cart icon is visible")
+    public void verify_that_cart_icon_is_visible() throws InterruptedException {
+        Assert.assertTrue(profilePage.cartIcon.isDisplayed());
+    }
+    @Given("Verify that cart icon right is visible")
+    public void verify_that_cart_icon_right_is_visible() throws InterruptedException {
+        Assert.assertTrue(profilePage.cartIconRight.isDisplayed());
+    }
+    @Given("Verify that cart icon is enabled")
+    public void verify_that_cart_icon_is_enabled() throws InterruptedException {
+        Assert.assertTrue(profilePage.cartIcon.isEnabled());
+    }
+    @Given("Verify that cart icon right is enabled")
+    public void verify_that_cart_icon_right_is_enabled() throws InterruptedException {
+        Assert.assertTrue(profilePage.cartIconRight.isEnabled());
+    }
+    @Given("Click on the cart icon")
+    public void click_on_the_cart_icon(){
+        profilePage.cartIcon.click();
+    }
+    @Given("Click on the cart right icon")
+    public void click_on_the_cart_right_icon(){
+        profilePage.cartIconRight.click();
+    }
+    @Given("Click on the remove icon")
+    public void click_on_the_remove_icon(){
+        profilePage.productRemoveIcon.click();
+    }
+    @Given("Click on the product qty up icon")
+    public void click_on_the_product_qty_up_icon() throws InterruptedException {
+        profilePage.productQtyUpIcon.click();
+        wait(2);
+    }
+    @Given("Click on the product qty down icon")
+    public void click_on_the_product_qty_down_icon() throws InterruptedException {
+        profilePage.productQtyDownIcon.click();
+        wait(2);
+    }
+    @Given("Wait for {int} miliseconds")
+    public void wait_for_miliseconds(int milisecond) throws InterruptedException {
+        Thread.sleep(milisecond);
+    }
+    @Given("Slide small")
+    public void slide_small() throws InterruptedException {
+       slideWithCoordinatesUpToDown();
+    }
+
+
 
 
 

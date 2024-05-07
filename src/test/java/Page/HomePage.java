@@ -38,9 +38,11 @@ public class HomePage extends Base {
             "$15.00\"]/android.widget.ImageView"  )
     public WebElement favoriteIcon;
 
-    @AndroidFindBy (xpath = "//android.view.View[@content-desc=\"Adidas 3-Stripes Cushioned Crew Socks\n" +
-            "0 (0  Reviews)\n" +
-            "$15.00\"]")
+//    @AndroidFindBy (xpath = "//android.view.View[@content-desc=\"Adidas 3-Stripes Cushioned Crew Socks\n" +
+//            "0 (0  Reviews)\n" +
+//            "$15.00\"]")
+//    public WebElement ilkUrun;
+    @AndroidFindBy (xpath = "(//*[@class=\"android.view.View\"])[10]")
     public WebElement ilkUrun;
 
     @AndroidFindBy (xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView")

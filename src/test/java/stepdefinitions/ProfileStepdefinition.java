@@ -1,9 +1,6 @@
 package stepdefinitions;
-
-import Page.ProfilePage;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.Point;
@@ -18,6 +15,10 @@ public class ProfileStepdefinition extends Base {
         profilePage.signIn(validEmail, validPassword);
     }
 
+    @Given("User waits for {int} seconds")
+    public void user_waits_for_seconds(int sn) throws InterruptedException {
+       Thread.sleep(3000);
+    }
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
         clickElement(clickItem);
@@ -54,6 +55,20 @@ public class ProfileStepdefinition extends Base {
     @Given("Click on the Cart icon in product details page")
     public void click_on_the_cart_icon_in_product_details_page() {
       profilePage.cartIconProductDetailsPage.click();
+    }
+
+
+
+
+    @Given("Wait for {int} second")
+    public void wait_for_second(int second) throws InterruptedException {
+        wait(second);
+    }
+    @Given("Send {string} to eMail textbox")
+    public void Send_to_eMail_textbox(String yenimail) throws InterruptedException {
+
+        enterText(profilePage.eMailTextbox,yenimail, true);
+
     }
 
 
@@ -117,25 +132,19 @@ public class ProfileStepdefinition extends Base {
         el11.click();
         el11.sendKeys("Query.2904");
     }
-    @Given("Enter the wrong old password")
-    public void enter_the_wrong_old_password() {
-        var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
-        el2.click();
-        el2.sendKeys("123123");
-    }
-    @Given("Enter the wrong new password")
-    public void enter_the_wrong_new_password() {
+    @Given("Enter the wrong {string}")
+    public void enter_the_wrong(String wrongPass) {
+
         var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
         el3.click();
-        el3.sendKeys("123");
+        el3.sendKeys(wrongPass);
     }
-    @Given("Enter the wrong Confirm password")
-    public void enter_the_wrong_confirm_password() throws InterruptedException {
-        var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
-        el4.click();
-        el4.sendKeys("123");
-        Thread.sleep(3000);
+    @Given("Enter the {string} password")
+    public void enter_the_password(String which) throws InterruptedException {
+
+        profilePage.whichPassword(which);
     }
+
 
     @Given("Verify that the page does not appear to have changed")
     public void verify_that_the_page_does_not_appear_to_have_changed() {

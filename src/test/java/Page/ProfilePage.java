@@ -18,6 +18,8 @@ public class ProfilePage extends Base {
 
     @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
     public WebElement changePassMessage;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
+    public WebElement shoppingHistory;
 
     public  void signIn(String validEmail, String validPassword) throws InterruptedException {
         Thread.sleep(1000);

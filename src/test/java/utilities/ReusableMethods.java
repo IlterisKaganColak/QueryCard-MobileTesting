@@ -26,9 +26,14 @@ import java.util.List;
 
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
+        scrollToElementWithText(elementText);
         element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
         if (element.isEnabled()){
             element.click();}
+        Thread.sleep(1000);
+    }
+    public static void scrollToElementWithText(String text) throws InterruptedException {
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description(\""+text+"\"))"));
         Thread.sleep(1000);
     }
     public static void clickElement(String text) throws InterruptedException {
@@ -215,10 +220,7 @@ public class ReusableMethods extends Base {
      * @param driver yerine AndroidDriver objesi verilir
      * @param text yerine elementin text degeri verilir
      */
-    public static void scrollToElementWithText(AndroidDriver driver, String text){
-        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"))"));
 
-    }
 }
 
 

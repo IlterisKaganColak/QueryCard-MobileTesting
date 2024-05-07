@@ -4,6 +4,10 @@ import Page.HomePage;
 import hooks.Base;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import utilities.ReusableMethods;
+
+import java.net.MalformedURLException;
+
 import static utilities.Driver.getAppiumDriver;
 
 public class HomePageStepdefinition extends Base {
@@ -43,5 +47,43 @@ public class HomePageStepdefinition extends Base {
         homePage.LogoGorunurTest();
     }
     //Simge
+
+
+    @Given("Scroll and click to {string}")
+    public void scroll_and_click_to(String string) throws MalformedURLException, InterruptedException {
+        ReusableMethods.wait(5);
+        ReusableMethods.scrollWithUiScrollableAndClick(string);
+    }
+    @Given("Click on the favorite icon")
+    public void Click_on_the_favorite_icon() {
+        homePage.favoriteIcon.click();
+    }
+    @Given("Verify that firs product listing is visible")
+    public void verify_that_firs_product_listing_is_visible() throws InterruptedException {
+        Assert.assertTrue(homePage.ilkUrun.isDisplayed());
+    }
+    @Given("Click on the first product")
+    public void click_on_the_first_product(){
+        homePage.ilkUrun.click();
+    }
+    @Given("Click filtering icon")
+    public void Click_filtering_icon(){
+        homePage.filteringIcon.click();
+    }
+    @Given("Verify that filtering icon is visible")
+    public void Verify_that_filtering_icon_is_visible(){
+        Assert.assertTrue(homePage.filteringIcon.isDisplayed());
+    }
+    @Given("Click on the first brand checkbox")
+    public void Click_on_the_first_brand_checkbox(){
+
+    }
+
+
+
+
+
+
+
 
 }

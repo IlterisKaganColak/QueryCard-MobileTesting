@@ -1,8 +1,6 @@
 package stepdefinitions;
-
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import utilities.ConfigReader;
@@ -27,13 +25,44 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Verify that {string} is visible")
     public void verify_that_is_visible(String elementText) throws InterruptedException {
-    isVisible(elementText);
+        scrollToElementWithText(elementText);
+        isVisible(elementText);
     }
 
     @Given("Verify that {string} is active")
     public void verify_that_is_active(String elementText) throws InterruptedException {
-       isEnable(elementText);
+        scrollToElementWithText(elementText);
+        isEnable(elementText);
     }
+    @Given("Verify that Shopping History Display Icon is visible")
+    public void verify_that_shopping_history_display_ıcon_is_visible() {
+       profilePage.shoppingHistory.isDisplayed();
+    }
+
+    @Given("Verify that Shopping History Display Icon is active")
+    public void verify_that_shopping_history_display_ıcon_is_active() {
+       profilePage.shoppingHistory.isEnabled();
+    }
+    @Given("Click on the Shopping History Display")
+    public void click_on_the_shopping_history_display() {
+       profilePage.shoppingHistory.click();
+    }
+
+
+
+
+    @Given("Wait for {int} second")
+    public void wait_for_second(int second) throws InterruptedException {
+        wait(second);
+    }
+    @Given("Send {string} to eMail textbox")
+    public void Send_to_eMail_textbox(String yenimail) throws InterruptedException {
+
+        enterText(profilePage.eMailTextbox,yenimail, true);
+
+    }
+
+
 
     //===================ZD===========
     @Given("Click on the Profile")
@@ -65,7 +94,7 @@ public class ProfileStepdefinition extends Base {
 
     @Given("Click on the Save Changes")
     public void click_on_the_save_changes() throws InterruptedException {
-        scrollToElementWithText((AndroidDriver) driver, "Save Changes");
+        scrollToElementWithText("Save Changes");
        clickElement("Save Changes");
     }
 

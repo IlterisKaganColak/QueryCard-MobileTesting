@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Point;
 import utilities.ConfigReader;
 import static utilities.ReusableMethods.*;
+import static org.junit.Assert.*;
 
 
 public class ProfileStepdefinition extends Base {
@@ -141,11 +142,8 @@ public class ProfileStepdefinition extends Base {
     }
     @Given("Enter the {string} password")
     public void enter_the_password(String which) throws InterruptedException {
-
         profilePage.whichPassword(which);
     }
-
-
     @Given("Verify that the page does not appear to have changed")
     public void verify_that_the_page_does_not_appear_to_have_changed() {
 

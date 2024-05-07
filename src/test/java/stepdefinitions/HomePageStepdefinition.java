@@ -27,8 +27,9 @@ public class HomePageStepdefinition extends Base {
     @Given("Verify that the Site Logo is visible")
     public void verify_that_the_site_logo_is_visible() throws InterruptedException {
         Thread.sleep(1000);
-        homePage.LogoGorunurTest();
+        homePage.logoVisibleTest();
     }
+
     //Simge
 
 

@@ -81,21 +81,7 @@ public class ProfilePage extends Base {
         Thread.sleep(3000);
     }
 
-     public void loginAndDashboard() throws InterruptedException {
-         ReusableMethods.clickElement("Profile");
-         var el1 = driver.findElement(AppiumBy.accessibilityId("Sign In"));
-         el1.click();
-         var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
-         el2.click();
-         el2.sendKeys("1231231");
-         var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
-         el3.click();
-         el3.sendKeys("123456");
-         var el4 = driver.findElement(AppiumBy.xpath("(//android.view.View[@content-desc=\"Sign In\"])[2]"));
-         el4.click();
-         var el5 = driver.findElement(AppiumBy.accessibilityId("Profile"));
-         el5.click();
-     }
+
 
     public void changePassword() throws InterruptedException {
         var el1 = driver.findElement(AppiumBy.accessibilityId("Change Password"));
@@ -136,30 +122,7 @@ public void forgotPassword(){
 
 
 }
-   public String whichPassword(String which) throws InterruptedException {
 
-       switch (which){
-           case "old":
-               var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
-               el2.click();
-               if (ConfigReader.getProperty("zehraPassword").equals("Query.2904")) {
-                   el2.sendKeys("Query.2904");
-               }else   el2.sendKeys("123123");
-               break;
-           case "wrong new":
-               var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
-               el3.click();
-               el3.sendKeys("123");
-               break;
-           case "wrong confirm":
-               var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
-               el4.click();
-               el4.sendKeys("123");
-               Thread.sleep(3000);
-               break;
-
-       }return which;
-   }
     public void isVisibleTextbox() throws InterruptedException {
         Thread.sleep(1000);
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));

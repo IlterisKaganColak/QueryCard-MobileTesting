@@ -116,10 +116,6 @@ public class ProfileStepdefinition extends Base {
 
 
     //===================ZD===========
-    @Given("Click on the Profile")
-    public void click_on_the_profile() throws InterruptedException {
-        profilePage.loginAndDashboard();
-    }
 
     @Given("Click on the Change Password")
     public void click_on_the_change_password() throws InterruptedException {
@@ -174,17 +170,25 @@ public class ProfileStepdefinition extends Base {
         el11.click();
         el11.sendKeys("Query.2904");
     }
+
     @Given("Enter the wrong {string}")
     public void enter_the_wrong(String wrongPass) {
-
-        var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
-        el3.click();
-        el3.sendKeys(wrongPass);
+        if (wrongPass.equals("123")) {
+            var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
+            el3.click();
+            el3.sendKeys(wrongPass);
+        }else {
+            var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
+            el4.click();
+            el4.sendKeys(wrongPass);
+        }
     }
     @Given("Enter the {string} password")
-    public void enter_the_password(String which) throws InterruptedException {
+    public void enter_the_password(String old) throws InterruptedException {
 
-        profilePage.whichPassword(which);
+        var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
+        el2.click();
+        el2.sendKeys(old);
     }
 
 

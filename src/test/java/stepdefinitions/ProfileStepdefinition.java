@@ -94,10 +94,17 @@ public class ProfileStepdefinition extends Base {
         el11.click();
         el11.sendKeys("Query.2904");
     }
+    @Given("Enter the wrong {string}")
+    public void enter_the_wrong(String wrongPass) {
+
+        var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
+        el3.click();
+        el3.sendKeys(wrongPass);
+    }
     @Given("Enter the {string} password")
     public void enter_the_password(String which) throws InterruptedException {
 
-       profilePage.whichPassword(which);
+        profilePage.whichPassword(which);
     }
 
 

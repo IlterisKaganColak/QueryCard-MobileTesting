@@ -27,6 +27,8 @@ public class HomePage extends Base {
 
     @AndroidFindBy (accessibility = "Categories")
     public static WebElement labelCategories;
+    @AndroidFindBy(accessibility = "Juniors")
+    private static WebElement juniorsCategory;
 
     public static void LogoGorunurTest(){
 

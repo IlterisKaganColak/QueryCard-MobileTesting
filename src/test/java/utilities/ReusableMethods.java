@@ -56,8 +56,8 @@ public class ReusableMethods extends Base {
         driver.perform(Arrays.asList(tap));
     }
     public static void isVisible(String text) throws InterruptedException {
-        Thread.sleep(1000);
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
+        Thread.sleep(2000);
+        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" +text+ "\")"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isDisplayed());
     }

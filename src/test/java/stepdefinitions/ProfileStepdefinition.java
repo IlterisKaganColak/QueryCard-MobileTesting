@@ -1,7 +1,10 @@
 package stepdefinitions;
 
 import hooks.Base;
+import io.appium.java_client.AppiumDriver;
 import io.cucumber.java.en.Given;
+import org.checkerframework.checker.units.qual.K;
+import org.openqa.selenium.Keys;
 import utilities.ReusableMethods;
 
 public class ProfileStepdefinition extends Base {
@@ -27,5 +30,26 @@ public class ProfileStepdefinition extends Base {
     public void click_on_the_profile() throws InterruptedException {
         profilePage.loginAndDashboard();
     }
+    @Given("Send {string} to full name textbox")
+    public void Send_to_full_name_textbox(String name) throws InterruptedException {
+        profilePage.backspacebasilitut();
+        profilePage.fullNameTextbox.sendKeys(name);
+    }
+    @Given("Wait for {int} second")
+    public void wait_for_second(int second) throws InterruptedException {
+        ReusableMethods.wait(second);
+    }
+    @Given("Send {string} to eMail textbox")
+    public void Send_to_eMail_textbox(String yenimail) throws InterruptedException {
+
+        ReusableMethods.enterText(profilePage.eMailTextbox,yenimail, true);
+
+    }
+
+
+
+
+
+
 
 }

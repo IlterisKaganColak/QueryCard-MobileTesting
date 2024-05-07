@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
@@ -20,15 +21,23 @@ public class ProfilePage extends Base {
     @AndroidFindBy(className = "android.widget.EditText")
     public List<WebElement> emailPasswordTextBoxList;
 
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
+    public WebElement fullNameTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[2]")
+    public WebElement eMailTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[3]")
+    public WebElement phoneTextbox;
+
+
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         //Profile butonuna tıklar
         ReusableMethods.clickWithCoordinates(977,1722);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         //Sign In butonuna tıklar
         ReusableMethods.clickWithCoordinates(789,598);
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         //*Use Email Instead yazısına tıklar
-        ReusableMethods.clickWithCoordinates(855,551);
+        ReusableMethods.clickWithCoordinates(855,560); //480
         Thread.sleep(1000);
         //Email textbox ına tıklar
         ReusableMethods.clickWithCoordinates(132,642);
@@ -62,6 +71,37 @@ public class ProfilePage extends Base {
          el4.click();
          var el5 = driver.findElement(AppiumBy.accessibilityId("Profile"));
          el5.click();
+     }
+
+     public void backspacebasilitut(){
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         actions.keyDown(Keys.BACK_SPACE).perform();
+         ReusableMethods.wait(1);
+         actions.keyDown(Keys.BACK_SPACE).keyUp(Keys.BACK_SPACE).perform();
+
      }
 
 }

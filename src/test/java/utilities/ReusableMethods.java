@@ -26,10 +26,17 @@ import java.util.List;
 
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
-        scrollToElementWithText(elementText);
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
-        if (element.isEnabled()){
-            element.click();}
+        boolean flag=true;
+        do{
+          try {
+              element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + elementText + "\")"));
+              element.click();
+              flag=false;
+          } catch (Exception e) {
+                  slideWithCoordinatesUpToDown();
+
+          }}while(flag);
+
         Thread.sleep(1000);
     }
     public static void scrollToElementWithText(String text) throws InterruptedException {
@@ -59,6 +66,19 @@ public class ReusableMethods extends Base {
         tap.addAction(new Pause(finger, Duration.ofMillis(50)));
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         getAppiumDriver().perform(Arrays.asList(tap));
+    }
+    public static void slideWithCoordinatesUpToDown() {
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        var start = new Point(526, 1346);
+        var end = new Point (535, 833);
+        var swipe = new Sequence(finger, 1);
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), start.getX(), start.getY()));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(), end.getX(), end.getY()));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
     }
     public static void isVisible(String text) throws InterruptedException {
         Thread.sleep(1000);

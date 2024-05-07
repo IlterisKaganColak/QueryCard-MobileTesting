@@ -140,4 +140,11 @@ public class ProfileStepdefinition extends Base {
         Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
     }
+
+    @Given("Wait {int} second")
+    public void wait_second(int wait) throws InterruptedException {
+        Thread.sleep(wait);
+    }
+
+
 }

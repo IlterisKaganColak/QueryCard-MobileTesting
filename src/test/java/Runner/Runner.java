@@ -7,9 +7,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty",
                 "json:target/cucumber.json",},
-        features = "src/test/resources/features",
-        glue = {"stepdefinitions", "Hooks"},
-        tags = "@" ,
+        features = "src/test/resources/Features",
+        glue = {"stepdefinitions" , "hooks"},
+
+        tags = "@US15" ,
+
         dryRun = false
 
 

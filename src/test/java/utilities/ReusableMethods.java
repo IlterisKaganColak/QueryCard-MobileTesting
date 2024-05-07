@@ -26,9 +26,14 @@ import java.util.List;
 
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
+        scrollToElementWithText(elementText);
+        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
         if (element.isEnabled()){
             element.click();}
+        Thread.sleep(1000);
+    }
+    public static void scrollToElementWithText(String text) throws InterruptedException {
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description(\""+text+"\"))"));
         Thread.sleep(1000);
     }
     public static void clickElement(String text) throws InterruptedException {
@@ -53,20 +58,21 @@ public class ReusableMethods extends Base {
         tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         tap.addAction(new Pause(finger, Duration.ofMillis(50)));
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(Arrays.asList(tap));
+        getAppiumDriver().perform(Arrays.asList(tap));
     }
     public static void isVisible(String text) throws InterruptedException {
-        Thread.sleep(2000);
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" +text+ "\")"));
+        Thread.sleep(1000);
+        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isDisplayed());
     }
     public static void isEnable(String text) throws InterruptedException {
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
+        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isEnabled());
 
     }
+
     public static void wait(int saniye) {
         try {
             Thread.sleep(saniye * 1000);
@@ -79,7 +85,7 @@ public class ReusableMethods extends Base {
 
 
 
-    //YEDEKLER
+    //YEDEKLER ---------------    İhtiyaç halinde buradan alıp düzenleyip kullanabilirsiniz              !!!!!!!!!!!!!!!
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -209,6 +215,12 @@ public class ReusableMethods extends Base {
                 "elementId", ((RemoteWebElement) element).getId()
         ));
     }
+    /**
+     * bu metot ile text degeri verilen elemente kadar sayfa kaydirilir
+     * @param driver yerine AndroidDriver objesi verilir
+     * @param text yerine elementin text degeri verilir
+     */
+
 }
 
 

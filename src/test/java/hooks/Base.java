@@ -36,7 +36,7 @@ public abstract class Base {
         profilePage = new ProfilePage();
         homePage = new HomePage();
         desiredCapabilities = new DesiredCapabilities();
-        driver = (AndroidDriver)  Driver.getAppiumDriver();
+        driver = Driver.getAppiumDriver();
         actions = new Actions(driver);
     }
 

@@ -16,9 +16,10 @@ public class HomePage extends Base {
         PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);
 
     }
-
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[1]")
+    @AndroidFindBy(xpath= "(//*[@class='android.widget.ImageView'])[1]")
     public  WebElement queryCardLogoElement;
+   // @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[1]")
+   // public  WebElement queryCardLogoElement;
     @AndroidFindBy(xpath = "(//android.widget.ImageView[1])[2]")
     private  WebElement searchBoxElement;
     @AndroidFindBy(accessibility = "Sign In")

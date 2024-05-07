@@ -25,7 +25,6 @@ Feature: US_015 As a registered user, I would like to have a page in my Dashboar
     * Click on the Shopping History Display
     * Verify that "Download Receipt" is visible
     * Verify that "Download Receipt" is active
-    * Click on the "Download Receipt"
 
   Scenario: TC_04 Order should be canceled from Order History list
 

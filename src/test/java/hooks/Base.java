@@ -7,6 +7,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utilities.Driver;
 
@@ -27,6 +28,7 @@ public abstract class Base {
     public static HomePage homePage;
     public static ProfilePage profilePage;
     public static WebElement element;
+    public static Actions actions;
 
     public static void initialize() {
         faker = new Faker();
@@ -34,7 +36,8 @@ public abstract class Base {
         profilePage = new ProfilePage();
         homePage = new HomePage();
         desiredCapabilities = new DesiredCapabilities();
-        driver = (AndroidDriver)  Driver.getAppiumDriver();
+        driver = Driver.getAppiumDriver();
+        actions = new Actions(driver);
     }
 
 }

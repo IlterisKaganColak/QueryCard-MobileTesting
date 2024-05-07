@@ -4,6 +4,8 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -17,10 +19,20 @@ public class ProfilePage extends Base {
     }
 
     @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
-    public static WebElement changePassMessage;
+    public WebElement changePassMessage;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
+    public WebElement shoppingHistory;
 
-    public static  void signIn(String validEmail, String validPassword) throws InterruptedException {
-        Thread.sleep(1000);
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
+    public WebElement fullNameTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[2]")
+    public WebElement eMailTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[3]")
+    public WebElement phoneTextbox;
+
+
+    public void signIn(String validEmail,String validPassword) throws InterruptedException {
+           Thread.sleep(1000);
         //Profile butonuna tıklar
         ReusableMethods.clickWithCoordinates(977,1722);
         Thread.sleep(3000);
@@ -51,7 +63,7 @@ public class ProfilePage extends Base {
         Thread.sleep(3000);
     }
 
-     public static void loginAndDashboard() throws InterruptedException {
+     public void loginAndDashboard() throws InterruptedException {
          ReusableMethods.clickElement("Profile");
          var el1 = driver.findElement(AppiumBy.accessibilityId("Sign In"));
          el1.click();
@@ -67,7 +79,7 @@ public class ProfilePage extends Base {
          el5.click();
      }
 
-    public static void changePassword() throws InterruptedException {
+    public void changePassword() throws InterruptedException {
         var el1 = driver.findElement(AppiumBy.accessibilityId("Change Password"));
         el1.click();
         var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
@@ -81,13 +93,10 @@ public class ProfilePage extends Base {
         el4.sendKeys("123123");
         Thread.sleep(3000);
 
-      //  var el5 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View"));
-        //el5.click();
-        //var el6 = driver.findElement(AppiumBy.accessibilityId("Save Changes"));
-       // el6.click();
+
     }
 
-public static void forgotPassword(){
+public void forgotPassword(){
 
     var el6 = driver.findElement(AppiumBy.accessibilityId("Forgot Password"));
     el6.click();
@@ -107,14 +116,39 @@ public static void forgotPassword(){
     var el12 = driver.findElement(AppiumBy.accessibilityId("Submit"));
     el12.click();
 
+
 }
-    public static void isVisibleTextbox() throws InterruptedException {
+   public String whichPassword(String which) throws InterruptedException {
+
+       switch (which){
+           case "old":
+               var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
+               el2.click();
+               if (ConfigReader.getProperty("Password").equals("Query.2904")) {
+                   el2.sendKeys("Query.2904");
+               }else   el2.sendKeys("123123");
+               break;
+           case "wrong new":
+               var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
+               el3.click();
+               el3.sendKeys("123");
+               break;
+           case "wrong confirm":
+               var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
+               el4.click();
+               el4.sendKeys("123");
+               Thread.sleep(3000);
+               break;
+
+       }return which;
+   }
+    public void isVisibleTextbox() throws InterruptedException {
         Thread.sleep(1000);
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isDisplayed());
     }
-    public static void isEnableTextbox() throws InterruptedException {
+    public void isEnableTextbox() throws InterruptedException {
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isEnabled());

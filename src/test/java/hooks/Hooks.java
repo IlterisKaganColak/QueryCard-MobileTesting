@@ -14,8 +14,8 @@ public class Hooks {
     @Before
     public void startUp() throws InterruptedException {
      Base.initialize();
-     getAppiumDriver();
-     Thread.sleep(10000);   }
+     Thread.sleep(10000);
+    }
     @After
     public void tearDown(Scenario scenario) throws InterruptedException {
         final byte[] screenshot = ((TakesScreenshot) getAppiumDriver()).getScreenshotAs(OutputType.BYTES);

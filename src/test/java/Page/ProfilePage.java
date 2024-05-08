@@ -12,6 +12,7 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
 import static utilities.Driver.getAppiumDriver;
 
 public class ProfilePage extends Base {
@@ -136,9 +137,53 @@ public void forgotPassword(){
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
         Assert.assertTrue(element.isEnabled());
-
     }
 
-
-
+    public void fillInTextbox(String textboxName, String value) {
+        switch (textboxName + " with " + value){
+            case "Name with validName" :
+                profilePage.fullNameTextbox.click();
+                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
+                break;
+            case "Phone with validPhone" :
+                profilePage.phoneTextbox.click();
+                profilePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
+                break;
+            case "Password with validPassword" :
+                profilePage.passwordTextbox.click();
+                profilePage.passwordTextbox.sendKeys(faker.internet().password(8,12,true,true,true));
+                break;
+            case "Name with blankName" :break;
+            case "Phone with blankPhone" :break;
+            case "Password with blankPassword" :break;
+            case "Name with invalidName" :
+                profilePage.fullNameTextbox.click();
+                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
+                break;
+            case "Phone with invalidPhone" :
+                profilePage.phoneTextbox.click();
+                profilePage.phoneTextbox.sendKeys("555"+faker.numerify("###"));
+                break;
+            case "Password with invalidPassword" :
+                profilePage.passwordTextbox.click();
+                profilePage.passwordTextbox.sendKeys(faker.internet().password(6,6,true,true,true));
+                break;
+        }
+    }
+    public void textBoxIsVisibleAndEnabled(String textBoxName) {
+        switch (textBoxName) {
+            case "Name" :
+                assertTrue(profilePage.fullNameTextbox.isDisplayed());
+                assertTrue(profilePage.fullNameTextbox.isEnabled());
+                break;
+            case "Phone" :
+                assertTrue(profilePage.phoneTextbox.isDisplayed());
+                assertTrue(profilePage.phoneTextbox.isEnabled());
+                break;
+            case "Password" :
+                assertTrue(profilePage.passwordTextbox.isDisplayed());
+                assertTrue(profilePage.passwordTextbox.isEnabled());
+                break;
+        }
+    }
 }

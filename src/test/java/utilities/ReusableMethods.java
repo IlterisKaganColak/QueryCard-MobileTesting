@@ -21,15 +21,19 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-
-
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
-        scrollToElementWithText(elementText);
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+elementText+"\")"));
-        if (element.isEnabled()){
-            element.click();}
+        boolean flag=true;
+        do{
+          try {
+              element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + elementText + "\")"));
+              element.click();
+              flag=false;
+          } catch (Exception e) {
+                  slideWithCoordinatesUpToDown();
+
+          }}while(flag);
+
         Thread.sleep(1000);
     }
     public static void scrollToElementWithText(String text) throws InterruptedException {
@@ -46,7 +50,6 @@ public class ReusableMethods extends Base {
             scrollWithUiScrollableAndClick(text);
              Thread.sleep(1000);
         }
-
     }
 
     public static void clickWithCoordinates(int x, int y) {
@@ -60,17 +63,45 @@ public class ReusableMethods extends Base {
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         getAppiumDriver().perform(Arrays.asList(tap));
     }
+    public static void slideWithCoordinatesUpToDown() {
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        var start = new Point(526, 1346);
+        var end = new Point (535, 833);
+        var swipe = new Sequence(finger, 1);
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), start.getX(), start.getY()));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(), end.getX(), end.getY()));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
+    }
     public static void isVisible(String text) throws InterruptedException {
+        boolean flag=true;
+        do{
+            try {
+                element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
+                Assert.assertTrue(element.isDisplayed());
+                flag=false;
+            } catch (Exception e) {
+                slideWithCoordinatesUpToDown();
+
+            }}while(flag);
+
         Thread.sleep(1000);
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
-        Thread.sleep(1000);
-        Assert.assertTrue(element.isDisplayed());
     }
     public static void isEnable(String text) throws InterruptedException {
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
-        Thread.sleep(1000);
-        Assert.assertTrue(element.isEnabled());
+        boolean flag=true;
+        do{
+            try {
+                element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
+                Assert.assertTrue(element.isEnabled());
+                flag=false;
+            } catch (Exception e) {
+                slideWithCoordinatesUpToDown();
 
+            }}while(flag);
+        Thread.sleep(1000);
     }
 
     public static void wait(int saniye) {
@@ -79,6 +110,9 @@ public class ReusableMethods extends Base {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static void backToPreScreen(){
+        driver.navigate().back();
     }
 
 
@@ -192,9 +226,7 @@ public class ReusableMethods extends Base {
     }
 
 
-    public static void backToPreScreen(){
-        getAppiumDriver().navigate().back();
-    }
+
 
     /*
      * Bu metot ile toast message(kaybolan mesaj)'in ustunde yazan mesaj alinir ve string olarak doner

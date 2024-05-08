@@ -30,7 +30,9 @@ public class ReusableMethods extends Base {
               element.click();
               flag=false;
           } catch (Exception e) {
-                  slideWithCoordinatesUpToDown();
+              if (elementText.equals("Women")){
+                  slideWithCoordinatesLeftToRight();
+              }else slideWithCoordinatesUpToDown();
 
           }}while(flag);
 
@@ -67,6 +69,19 @@ public class ReusableMethods extends Base {
         final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         var start = new Point(526, 1346);
         var end = new Point (535, 833);
+        var swipe = new Sequence(finger, 1);
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), start.getX(), start.getY()));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(), end.getX(), end.getY()));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
+    }
+    public static void slideWithCoordinatesLeftToRight() {
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        var start = new Point(936, 760);
+        var end = new Point (224, 756);
         var swipe = new Sequence(finger, 1);
         swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
                 PointerInput.Origin.viewport(), start.getX(), start.getY()));

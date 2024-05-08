@@ -37,7 +37,18 @@ public class HomePage extends Base {
     public WebElement filteringIcon;
     @AndroidFindBy(accessibility = "Juniors")
     private static WebElement juniorsCategory;
-
+    @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[14]")
+    public  WebElement thirdProductWomenPage;
+    @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[16]")
+    public  WebElement eleventhProductWomenPage;
+    @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[12]")
+    public  WebElement secondProductMenPage;
+    @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[16]")
+    public  WebElement eighthProducMenPage;
+    @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[18]")
+    public  WebElement fourteenthProducMenPage;
+    @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[11]")
+    public  WebElement eleventhProductMenPage;
 
     public void logoVisibilityTest(){
         try {

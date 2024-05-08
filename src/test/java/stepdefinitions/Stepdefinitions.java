@@ -293,4 +293,33 @@ public class Stepdefinitions extends Base {
     public void Click_on_the_first_brand_checkbox(){
 
     }
+    @Given("Slide categories")
+    public void slide_categories() {
+
+    }
+    @Given("Click on the third product in the women page")
+    public void click_on_the_third_product_in_the_women_page() {
+     homePage.thirdProductWomenPage.click();
+    }
+    @Given("Click on the eleventh product in the women page")
+    public void click_on_the_eleventh_product_in_the_women_page() {
+     homePage.eleventhProductWomenPage.click();
+    }
+    @Given("Click on the second product in the men page")
+    public void click_on_the_second_product_in_the_men_page() {
+     homePage.secondProductMenPage.click();
+    }
+    @Given("Click on the eighth product in the men page")
+    public void click_on_the_eighth_product_in_the_men_page() {
+     homePage.eighthProducMenPage.click();
+    }
+    @Given("Click on the fourteenth product in the men page")
+    public void click_on_the_fourteenth_product_in_the_men_page() {
+     homePage.fourteenthProducMenPage.click();
+    }
+    @Given("Click on the eleventh product in the men page")
+    public void click_on_the_eleventh_product_in_the_men_page() {
+      homePage.eleventhProductMenPage.click();
+    }
+
 }

@@ -3,6 +3,7 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import utilities.ConfigReader;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -150,18 +151,19 @@ public class Stepdefinitions extends Base {
         el11.click();
         el11.sendKeys("Query.2904");
     }
-    @Given("Enter the wrong {string}")
-    public void enter_the_wrong(String wrongPass) {
-        if (wrongPass.equals("123")) {
-            var el3 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[2]"));
-            el3.click();
-            el3.sendKeys(wrongPass);
-        }else {
-            var el4 = driver.findElement(AppiumBy.xpath("//android.widget.ScrollView/android.widget.EditText[3]"));
-            el4.click();
-            el4.sendKeys(wrongPass);
-        }
+    @Given("Enter the wrong new password")
+    public void enter_the_wrong_new_password() {
+        var el1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(0)"));
+        el1.click();
+        el1.sendKeys("123");
     }
+    @Given("Enter the wrong confirm password")
+    public void enter_the_wrong_confirm_password() {
+            var el2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
+            el2.click();
+            el2.sendKeys("123");
+        }
+
     @Given("Enter the {string} password")
     public void enter_the_password(String old) throws InterruptedException {
 
@@ -176,7 +178,8 @@ public class Stepdefinitions extends Base {
     @Given("Verify that error message is visible")
     public void verify_that_error_mesagge_is_visible() throws InterruptedException {
        wait(3);
-        assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
+        var el4 = driver.findElement(AppiumBy.accessibilityId("Password is short"));
+        assertTrue(el4.isDisplayed());
     }
     @When("Verify that the Sign Up button is visible under the SignUp form")
     public void verifyThatSignUpButtonIsVisibleUnderTheSignUpForm() {

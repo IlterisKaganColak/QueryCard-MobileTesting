@@ -54,13 +54,13 @@ public class ProfilePage extends Base {
 
 
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
-      //  Thread.sleep(1000);
+        Thread.sleep(10000);
         //Profile butonuna tıklar
           ReusableMethods.clickWithCoordinates(977,1722);
-      //  Thread.sleep(3000);
+        Thread.sleep(3000);
         //Sign In butonuna tıklar
           ReusableMethods.clickWithCoordinates(800,552);//789
-      //  Thread.sleep(3000);
+       Thread.sleep(3000);
         //*Use Email Instead yazısına tıklar
         ReusableMethods.clickElement("*Use Email Instead");
        // ReusableMethods.clickWithCoordinates(855,546); //551

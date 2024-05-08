@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import utilities.ConfigReader;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -299,5 +300,13 @@ public class Stepdefinitions extends Base {
         Thread.sleep(wait);
     }
 
+    @Given("Enter valid {int}, {int}, {int} and {int}")
+    public void enter_valid_and(int cardNumber, int cardDate, int cvcCode, int zipCode) {
+        actions.sendKeys(String.valueOf(cardNumber))
+                .sendKeys(String.valueOf(cardDate))
+                .sendKeys(String.valueOf(cvcCode))
+                .sendKeys(String.valueOf(zipCode))
+                .perform();
+    }
 
 }

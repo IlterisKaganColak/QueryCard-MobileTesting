@@ -27,18 +27,18 @@ Feature: US_003 As a user, I want to be able to shop without registering on the 
     #* Verify that the "quantity" is visible
     #* Verify that the "subTotalInfo" is visible
 
-  Scenario: TC_05 Proceed to Checkout button must be visible and active
+  # Scenario: TC_05 Proceed to Checkout button must be visible and active
     #     BUG_01
     # Proceed To Checkout button is not active.
-  Scenario: TC_06 Shipping address information should be addable and editable
+  # Scenario: TC_06 Shipping address information should be addable and editable
     #     BUG_02
     # Proceed To Checkout button is not active.
-  Scenario: TC_07 Save & Pay button should be visible and active
+  # Scenario: TC_07 Save & Pay button should be visible and active
     #     BUG_03
     # Proceed To Checkout button is not active.
-  Scenario: TC_08 Select payment method and complete the order
+  # Scenario: TC_08 Select payment method and complete the order
     #     BUG_04
     # Proceed To Checkout button is not active.
-  Scenario: TC_09 The status and invoice of the order placed must be visible
+  # Scenario: TC_09 The status and invoice of the order placed must be visible
     #     BUG_05
     # Proceed To Checkout button is not active.

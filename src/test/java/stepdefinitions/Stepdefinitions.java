@@ -1,4 +1,5 @@
 package stepdefinitions;
+import Page.ProfilePage;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.Given;
@@ -189,59 +190,20 @@ public class Stepdefinitions extends Base {
 
     @When("Verify that the Sign Up button is active")
     public void verifyThatTheSignUpButtonIsActive() {
+
         assertTrue(profilePage.signUpButton.isEnabled());
     }
 
-    @When("Verify that Name textBox is visible and enabled")
-    public void verifyThatNameTextBoxIsVisibleAndEnabled() {
-        assertTrue(profilePage.fullNameTextbox.isDisplayed());
-        assertTrue(profilePage.fullNameTextbox.isEnabled());
-    }
-
-    @When("Verify that Phone textBox is visible and enabled")
-    public void verifyThatPhoneTextBoxIsVisibleAndEnabled() {
-        assertTrue(profilePage.phoneTextbox.isDisplayed());
-        assertTrue(profilePage.phoneTextbox.isEnabled());
-    }
-
-    @When("Verify that Password textBox is visible and enabled")
-    public void verifyThatPasswordTextBoxIsVisibleAndEnabled() {
-        assertTrue(profilePage.passwordTextbox.isDisplayed());
-        assertTrue(profilePage.passwordTextbox.isEnabled());
+    @When("Verify that {string} textBox is visible and enabled")
+    public void verifyTextBoxIsVisibleAndEnabled(String textBoxName) {
+        profilePage.textBoxIsVisibleAndEnabled(textBoxName);
     }
 
     @When("Fill in {string} textbox with {string}")
-    public void fillInTextbox(String textboxName, String value) {
-        switch (textboxName + " with " + value){
-            case "Name with validName" :
-                profilePage.fullNameTextbox.click();
-                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
-                break;
-            case "Phone with validPhone" :
-                profilePage.phoneTextbox.click();
-                profilePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
-                break;
-            case "Password with validPassword" :
-                profilePage.passwordTextbox.click();
-                profilePage.passwordTextbox.sendKeys(faker.internet().password(8,12,true,true,true));
-                break;
-            case "Name with blankName" :break;
-            case "Phone with blankPhone" :break;
-            case "Password with blankPassword" :break;
-            case "Name with invalidName" :
-                profilePage.fullNameTextbox.click();
-                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
-                break;
-            case "Phone with invalidPhone" :
-                profilePage.phoneTextbox.click();
-                profilePage.phoneTextbox.sendKeys("555"+faker.numerify("###"));
-                break;
-            case "Password with invalidPassword" :
-                profilePage.passwordTextbox.click();
-                profilePage.passwordTextbox.sendKeys(faker.internet().password(6,6,true,true,true));
-                break;
-        }
+    public void fillIn_TextBox_with(String textboxName, String value){
+        profilePage.fillInTextbox(textboxName,value);
     }
+
     @When("Click on the Sign Up button")
     public void clickOnTheSignUpButton() {
         profilePage.signUpButton.click();

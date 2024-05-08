@@ -236,21 +236,35 @@ public class ProfileStepdefinition extends Base {
         assertTrue(profilePage.passwordTextbox.isEnabled());
     }
 
-    @When("Fill in {string} textbox")
-    public void fillInTextbox(String textboxName) {
-        switch (textboxName){
-            case "Name" :
+    @When("Fill in {string} textbox with {string}")
+    public void fillInTextbox(String textboxName, String value) {
+        switch (textboxName + " with " + value){
+            case "Name with validName" :
                 profilePage.fullNameTextbox.click();
                 profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
                 break;
-            case "Phone" :
+            case "Phone with validPhone" :
                 profilePage.phoneTextbox.click();
                 profilePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
                 break;
-            case "Password" :
+            case "Password with validPassword" :
                 profilePage.passwordTextbox.click();
-                profilePage.passwordTextbox.sendKeys(faker.internet().password(6,12,true,true,true));
+                profilePage.passwordTextbox.sendKeys(faker.internet().password(8,12,true,true,true));
+                break;
+            case "Name with blankName" :break;
+            case "Phone with blankPhone" :break;
+            case "Password with blankPassword" :break;
+            case "Name with invalidName" :
+                profilePage.fullNameTextbox.click();
+                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
+                break;
+            case "Phone with invalidPhone" :
                 profilePage.phoneTextbox.click();
+                profilePage.phoneTextbox.sendKeys("555"+faker.numerify("###"));
+                break;
+            case "Password with invalidPassword" :
+                profilePage.passwordTextbox.click();
+                profilePage.passwordTextbox.sendKeys(faker.internet().password(6,6,true,true,true));
                 break;
         }
     }
@@ -258,5 +272,9 @@ public class ProfileStepdefinition extends Base {
     @When("Click on the Sign Up button")
     public void clickOnTheSignUpButton() {
         profilePage.signUpButton.click();
+    }
+
+    @When("Fill in {string} textbox with invalid phone number")
+    public void fillInTextboxWithInvalidPhoneNumberLessThanDigit(String arg0, int arg1) {
     }
 }

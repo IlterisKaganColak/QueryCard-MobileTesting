@@ -27,11 +27,11 @@ Feature: US_004 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Sign Up" is active
     * Click on the "Sign Up"
     * Verify that "Let's create your account" is visible
-    * Verify that Name textBox is visible and enabled
+    * Verify that "Name" textBox is visible and enabled
     * Fill in "Name" textbox with "validName"
-    * Verify that Phone textBox is visible and enabled
+    * Verify that "Phone" textBox is visible and enabled
     * Fill in "Phone" textbox with "validPhone"
-    * Verify that Password textBox is visible and enabled
+    * Verify that "Password" textBox is visible and enabled
     * Fill in "Password" textbox with "blankPassword"
     * Click on the Sign Up button
     * Verify that "Passord is required" is visible
@@ -41,11 +41,11 @@ Feature: US_004 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Sign Up" is active
     * Click on the "Sign Up"
     * Verify that "Let's create your account" is visible
-    * Verify that Name textBox is visible and enabled
+    * Verify that "Name" textBox is visible and enabled
     * Fill in "Name" textbox with "validName"
-    * Verify that Phone textBox is visible and enabled
+    * Verify that "Phone" textBox is visible and enabled
     * Fill in "Phone" textbox with "blankPhone"
-    * Verify that Password textBox is visible and enabled
+    * Verify that "Password" textBox is visible and enabled
     * Fill in "Password" textbox with "validPassword"
     * Click on the "Sign Up"
     * Verify that "This field is required" is visible
@@ -55,11 +55,11 @@ Feature: US_004 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Sign Up" is active
     * Click on the "Sign Up"
     * Verify that "Let's create your account" is visible
-    * Verify that Name textBox is visible and enabled
+    * Verify that "Name" textBox is visible and enabled
     * Fill in "Name" textbox with "blankName"
-    * Verify that Phone textBox is visible and enabled
+    * Verify that "Phone" textBox is visible and enabled
     * Fill in "Phone" textbox with "validPhone"
-    * Verify that Password textBox is visible and enabled
+    * Verify that "Password" textBox is visible and enabled
     * Fill in "Password" textbox with "validPassword"
     * Click on the "Sign Up"
     * Verify that "This field is required" is visible
@@ -69,9 +69,9 @@ Feature: US_004 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Sign Up" is active
     * Click on the "Sign Up"
     * Verify that "Let's create your account" is visible
-    * Verify that Name textBox is visible and enabled
-    * Verify that Phone textBox is visible and enabled
-    * Verify that Password textBox is visible and enabled
+    * Verify that "Name" textBox is visible and enabled
+    * Verify that "Phone" textBox is visible and enabled
+    * Verify that "Password" textBox is visible and enabled
     * Fill in "Name" textbox with "validName"
     * Fill in "Phone" textbox with "invalidPhone"
     * Fill in "Password" textbox with "validPassword"
@@ -83,13 +83,14 @@ Feature: US_004 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Sign Up" is active
     * Click on the "Sign Up"
     * Verify that "Let's create your account" is visible
-    * Verify that Name textBox is visible and enabled
-    * Verify that Phone textBox is visible and enabled
-    * Verify that Password textBox is visible and enabled
+    * Verify that "Name" textBox is visible and enabled
+    * Verify that "Phone" textBox is visible and enabled
+    * Verify that "Password" textBox is visible and enabled
     * Fill in "Name" textbox with "validName"
     * Fill in "Phone" textbox with "validPhone"
     * Fill in "Password" textbox with "validPassword"
     * Click on the "Sign Up"
-    * Verify that "Success\n Register Successfully." is visible
+    * Verify that "Sign In" is visible
+
 
 

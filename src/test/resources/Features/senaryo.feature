@@ -3,16 +3,64 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Launch the app
     @senaryo
   Scenario: urun satin alma
-
+#Calistirmadan once sign in methodundaki clickElement("Sign In"); methodunu yoruma almayi unutma!!!!
     * Wait for 2000 miliseconds
     * Click on the first product in the Most Popular list
     * Click on the "Favorite"
     * Registered user logs in by using "simgeEmail" and "Password" information
     * Wait for 2000 miliseconds
+      #Annesi için elbise
     * Click on the first product in the Most Popular list
     * Wait for 2000 miliseconds
     * Click on the "S"
-    * Wait for 2000 miliseconds
+    * Click on the "Add To Cart"
+    * Navigate to the previous page
+    * Click on the "Men"
+      #Murat Hoca için adidas ayakkabı
+    * Click on the second product in the men page
+    * Click on the "White"
+    * Click on the "Add To Cart"
+    * Navigate to the previous page
+      #Ahmet Hoca için deri çanta
+    * Slide small
+    * Slide small
+    * Slide small
+    * Click on the eighth product in the men page
+    * Click on the "Black"
+    * Click on the "Add To Cart"
+    * Navigate to the previous page
+      #Emre Hoca için deri çanta
+    * Slide small
+    * Slide small
+    * Slide small
+    * Click on the eleventh product in the men page
+    * Click on the "Black"
+    * Click on the "Add To Cart"
+    * Navigate to the previous page
+      #Recep Hoca için saat
+    * Slide small
+    * Slide small
+    * Slide small
+    * Slide small
+    * Click on the fourteenth product in the men page
+    * Click on the "Brown"
+    * Click on the "Add To Cart"
+    * Navigate to the previous page
+    * Navigate to the previous page
+   # * Slide categories
+    * Click on the "Women"
+      #Dilan Hoca için ayakkabı
+    * Click on the third product in the women page
+    * Click on the "White"
+    * Click on the "Add To Cart"
+    * Navigate to the previous page
+      #Özge Hoca için parka
+    * Slide small
+    * Slide small
+    * Slide small
+    * Slide small
+    * Click on the eleventh product in the women page
+    * Click on the "S"
     * Click on the "Add To Cart"
     * Click on the Cart icon in product details page
     * Click on the "Proceed to Checkout"

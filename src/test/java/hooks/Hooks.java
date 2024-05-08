@@ -5,15 +5,13 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utilities.Driver;
-
-import static utilities.Driver.getAppiumDriver;
-
+import static utilities.Driver.*;
 
 public class Hooks {
     @Before
     public void startUp() throws InterruptedException {
      Base.initialize();
+     getAppiumDriver();
      Thread.sleep(10000);
     }
     @After
@@ -22,6 +20,6 @@ public class Hooks {
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-        Driver.quitAppiumDriver();
+        quitAppiumDriver();
     }
 }

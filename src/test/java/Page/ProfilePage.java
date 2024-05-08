@@ -24,7 +24,7 @@ public class ProfilePage extends Base {
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[19]")
-    public WebElement floralDress;
+    public WebElement firstProductMostPopularHomepage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[13]")
     public WebElement cartIconProductDetailsPage;
     @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
@@ -47,19 +47,16 @@ public class ProfilePage extends Base {
     public WebElement productQtyDownIcon1;
     @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[10]")
     public WebElement productRemoveIcon;
-
-
-
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
-        Thread.sleep(1000);
+      //  Thread.sleep(1000);
         //Profile butonuna tıklar
-        ReusableMethods.clickWithCoordinates(977,1722);
-        Thread.sleep(3000);
+     //   ReusableMethods.clickWithCoordinates(977,1722);
+      //  Thread.sleep(3000);
         //Sign In butonuna tıklar
-        ReusableMethods.clickWithCoordinates(789,598);
-        Thread.sleep(3000);
+     //   ReusableMethods.clickWithCoordinates(789,598);
+      //  Thread.sleep(3000);
         //*Use Email Instead yazısına tıklar
-        ReusableMethods.clickWithCoordinates(855,480); //551
+        ReusableMethods.clickWithCoordinates(855,546); //551
         Thread.sleep(3000);
         //Email textbox ına tıklar
         emailPasswordTextBoxes.get(0).click();

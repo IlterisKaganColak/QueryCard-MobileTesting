@@ -39,8 +39,7 @@ public class HomePage extends Base {
     private static WebElement juniorsCategory;
 
 
-
-    public void logoVisibleTest(){
+    public void logoVisibilityTest(){
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

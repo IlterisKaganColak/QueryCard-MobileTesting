@@ -2,8 +2,6 @@ Feature: US_016 As a registered user, I would like to have a page on the site wh
 
   Background:
     * Launch the app
-    * Click on the "Profile"
-    * Click on the "Sign In"
     * Registered user logs in by using "simgeEmail" and "Password" information
 
 

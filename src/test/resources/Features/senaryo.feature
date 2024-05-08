@@ -7,9 +7,6 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Wait for 2000 miliseconds
     * Click on the first product in the Most Popular list
     * Click on the "Favorite"
-  #  * Click on the "Men"
-#    favoriye eklemek için minik kalbe tıkla
-  #    * Click on the favorite icon
     * Registered user logs in by using "simgeEmail" and "Password" information
     * Wait for 2000 miliseconds
     * Click on the first product in the Most Popular list
@@ -19,6 +16,8 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Click on the "Add To Cart"
     * Click on the Cart icon in product details page
     * Click on the "Proceed to Checkout"
+
+
 
 
 

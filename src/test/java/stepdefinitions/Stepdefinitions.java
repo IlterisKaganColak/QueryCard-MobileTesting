@@ -153,23 +153,23 @@ public class Stepdefinitions extends Base {
     }
     @Given("Enter the wrong new password")
     public void enter_the_wrong_new_password() {
-        var el1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(0)"));
+        var el1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
         el1.click();
         el1.sendKeys("123");
     }
     @Given("Enter the wrong confirm password")
     public void enter_the_wrong_confirm_password() {
-            var el2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
+            var el2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(2)"));
             el2.click();
             el2.sendKeys("123");
         }
 
-    @Given("Enter the {string} password")
-    public void enter_the_password(String old) throws InterruptedException {
+    @Given("Enter the old password")
+    public void enter_the_password() throws InterruptedException {
 
         var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
         el2.click();
-        el2.sendKeys(old);
+        el2.sendKeys("Query.2904");
     }
     @Given("Verify that the page does not appear to have changed")
     public void verify_that_the_page_does_not_appear_to_have_changed() {

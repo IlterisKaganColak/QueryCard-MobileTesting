@@ -13,7 +13,7 @@ Feature: US_010 As a user, I would like to be able to see the categories and pro
     * Click on the "286,554"
 #    black seçeneğini seç
     * Click on the "120,1700"
-    * Scroll and click to "Add To Cart"
+    * Click on the "Add To Cart"
     * Verify that "Success Product added to cart" is visible
 
   Scenario: [TC_03>US_010] Tested that adding to wishlist is possible on the products on the men category page.

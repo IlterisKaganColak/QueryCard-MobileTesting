@@ -21,9 +21,6 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-
-
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
         boolean flag=true;
@@ -53,7 +50,6 @@ public class ReusableMethods extends Base {
             scrollWithUiScrollableAndClick(text);
              Thread.sleep(1000);
         }
-
     }
 
     public static void clickWithCoordinates(int x, int y) {
@@ -81,16 +77,31 @@ public class ReusableMethods extends Base {
         driver.perform(Arrays.asList(swipe));
     }
     public static void isVisible(String text) throws InterruptedException {
+        boolean flag=true;
+        do{
+            try {
+                element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
+                Assert.assertTrue(element.isDisplayed());
+                flag=false;
+            } catch (Exception e) {
+                slideWithCoordinatesUpToDown();
+
+            }}while(flag);
+
         Thread.sleep(1000);
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\""+text+"\")"));
-        Thread.sleep(1000);
-        Assert.assertTrue(element.isDisplayed());
     }
     public static void isEnable(String text) throws InterruptedException {
-        element = getAppiumDriver().findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
-        Thread.sleep(1000);
-        Assert.assertTrue(element.isEnabled());
+        boolean flag=true;
+        do{
+            try {
+                element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + text + "\")"));
+                Assert.assertTrue(element.isEnabled());
+                flag=false;
+            } catch (Exception e) {
+                slideWithCoordinatesUpToDown();
 
+            }}while(flag);
+        Thread.sleep(1000);
     }
 
     public static void wait(int saniye) {
@@ -99,6 +110,10 @@ public class ReusableMethods extends Base {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static void backToPreScreen(){
+
+        driver.navigate().back();
     }
 
 
@@ -212,9 +227,7 @@ public class ReusableMethods extends Base {
     }
 
 
-    public static void backToPreScreen(){
-        getAppiumDriver().navigate().back();
-    }
+
 
     /*
      * Bu metot ile toast message(kaybolan mesaj)'in ustunde yazan mesaj alinir ve string olarak doner

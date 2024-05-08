@@ -4,7 +4,7 @@ Feature: US_015 As a registered user, I would like to have a page in my Dashboar
   Background:
     * Registered user logs in by using "simgeEmail" and "Password" information
 
-
+  @US15
   Scenario: TC_01 Order History menu item should be visible and active in Dashboard sideBar
 
      * Click on the "Profile"
@@ -17,7 +17,7 @@ Feature: US_015 As a registered user, I would like to have a page in my Dashboar
     * Click on the "Order History"
     * Verify that Shopping History Display Icon is visible
     * Verify that Shopping History Display Icon is active
-@US15
+
   Scenario: TC_03 Order invoice should be accessible from Order History list
 
     * Click on the "Profile"

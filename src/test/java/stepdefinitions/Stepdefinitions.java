@@ -3,7 +3,6 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import utilities.ConfigReader;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -107,7 +106,6 @@ public class Stepdefinitions extends Base {
     public void click_on_the_change_password() throws InterruptedException {
         profilePage.changePassword();
     }
-
     @Given("Verify that Change Password message is visible")
      public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
         wait(3);
@@ -117,12 +115,10 @@ public class Stepdefinitions extends Base {
     public void verify_that_email_textbox_is_visible() throws InterruptedException {
         profilePage.isVisibleTextbox();
     }
-
     @Given("Verify that email textbox is active")
     public void verify_that_email_textbox_is_active() throws InterruptedException {
         profilePage.isEnableTextbox();
     }
-
     @Given("Click on the Save Changes")
     public void click_on_the_save_changes() throws InterruptedException {
         scrollToElementWithText("Save Changes");
@@ -132,7 +128,6 @@ public class Stepdefinitions extends Base {
     public void click_on_the_forgot_password()  {
         profilePage.forgotPassword();
     }
-
     @Given("Registered email is entered")
     public void registered_email_is_entered() {
         var el8 = driver.findElement(AppiumBy.className("android.widget.EditText"));
@@ -153,27 +148,25 @@ public class Stepdefinitions extends Base {
     }
     @Given("Enter the wrong new password")
     public void enter_the_wrong_new_password() {
-        var el1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(0)"));
+        var el1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
         el1.click();
         el1.sendKeys("123");
     }
     @Given("Enter the wrong confirm password")
     public void enter_the_wrong_confirm_password() {
-            var el2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
+            var el2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(2)"));
             el2.click();
             el2.sendKeys("123");
         }
-
-    @Given("Enter the {string} password")
-    public void enter_the_password(String old) throws InterruptedException {
+    @Given("Enter the old password")
+    public void enter_the_password() throws InterruptedException {
 
         var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
         el2.click();
-        el2.sendKeys(old);
+        el2.sendKeys("Query.2904");
     }
     @Given("Verify that the page does not appear to have changed")
     public void verify_that_the_page_does_not_appear_to_have_changed() {
-
     }
     @Given("Verify that error message is visible")
     public void verify_that_error_mesagge_is_visible() throws InterruptedException {
@@ -185,61 +178,17 @@ public class Stepdefinitions extends Base {
     public void verifyThatSignUpButtonIsVisibleUnderTheSignUpForm() {
         assertTrue(profilePage.signUpButton.isDisplayed());
     }
-
     @When("Verify that the Sign Up button is active")
     public void verifyThatTheSignUpButtonIsActive() {
         assertTrue(profilePage.signUpButton.isEnabled());
     }
-
-    @When("Verify that Name textBox is visible and enabled")
-    public void verifyThatNameTextBoxIsVisibleAndEnabled() {
-        assertTrue(profilePage.fullNameTextbox.isDisplayed());
-        assertTrue(profilePage.fullNameTextbox.isEnabled());
+    @When("Verify that {string} textBox is visible and enabled")
+    public void verifyTextBoxIsVisibleAndEnabled(String textBoxName) {
+        profilePage.textBoxIsVisibleAndEnabled(textBoxName);
     }
-
-    @When("Verify that Phone textBox is visible and enabled")
-    public void verifyThatPhoneTextBoxIsVisibleAndEnabled() {
-        assertTrue(profilePage.phoneTextbox.isDisplayed());
-        assertTrue(profilePage.phoneTextbox.isEnabled());
-    }
-
-    @When("Verify that Password textBox is visible and enabled")
-    public void verifyThatPasswordTextBoxIsVisibleAndEnabled() {
-        assertTrue(profilePage.passwordTextbox.isDisplayed());
-        assertTrue(profilePage.passwordTextbox.isEnabled());
-    }
-
     @When("Fill in {string} textbox with {string}")
-    public void fillInTextbox(String textboxName, String value) {
-        switch (textboxName + " with " + value){
-            case "Name with validName" :
-                profilePage.fullNameTextbox.click();
-                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
-                break;
-            case "Phone with validPhone" :
-                profilePage.phoneTextbox.click();
-                profilePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
-                break;
-            case "Password with validPassword" :
-                profilePage.passwordTextbox.click();
-                profilePage.passwordTextbox.sendKeys(faker.internet().password(8,12,true,true,true));
-                break;
-            case "Name with blankName" :break;
-            case "Phone with blankPhone" :break;
-            case "Password with blankPassword" :break;
-            case "Name with invalidName" :
-                profilePage.fullNameTextbox.click();
-                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
-                break;
-            case "Phone with invalidPhone" :
-                profilePage.phoneTextbox.click();
-                profilePage.phoneTextbox.sendKeys("555"+faker.numerify("###"));
-                break;
-            case "Password with invalidPassword" :
-                profilePage.passwordTextbox.click();
-                profilePage.passwordTextbox.sendKeys(faker.internet().password(6,6,true,true,true));
-                break;
-        }
+    public void fillIn_TextBox_with(String textboxName, String value){
+        profilePage.fillInTextbox(textboxName,value);
     }
     @When("Click on the Sign Up button")
     public void clickOnTheSignUpButton() {
@@ -293,33 +242,40 @@ public class Stepdefinitions extends Base {
     public void Click_on_the_first_brand_checkbox(){
 
     }
-    @Given("Slide categories")
-    public void slide_categories() {
-
+    @Given("Wait {int} second")
+    public void wait_second(int wait) throws InterruptedException {
+        Thread.sleep(wait);
+    }
+    @Given("Enter valid {int}, {int}, {int} and {int}")
+    public void enter_valid_and(int cardNumber, int cardDate, int cvcCode, int zipCode) {
+        actions.sendKeys(String.valueOf(cardNumber))
+                .sendKeys(String.valueOf(cardDate))
+                .sendKeys(String.valueOf(cvcCode))
+                .sendKeys(String.valueOf(zipCode))
+                .perform();
     }
     @Given("Click on the third product in the women page")
     public void click_on_the_third_product_in_the_women_page() {
-     homePage.thirdProductWomenPage.click();
+        homePage.thirdProductWomenPage.click();
     }
     @Given("Click on the eleventh product in the women page")
     public void click_on_the_eleventh_product_in_the_women_page() {
-     homePage.eleventhProductWomenPage.click();
+        homePage.eleventhProductWomenPage.click();
     }
     @Given("Click on the second product in the men page")
     public void click_on_the_second_product_in_the_men_page() {
-     homePage.secondProductMenPage.click();
+        homePage.secondProductMenPage.click();
     }
     @Given("Click on the eighth product in the men page")
     public void click_on_the_eighth_product_in_the_men_page() {
-     homePage.eighthProducMenPage.click();
+        homePage.eighthProducMenPage.click();
     }
     @Given("Click on the fourteenth product in the men page")
     public void click_on_the_fourteenth_product_in_the_men_page() {
-     homePage.fourteenthProducMenPage.click();
+        homePage.fourteenthProducMenPage.click();
     }
     @Given("Click on the eleventh product in the men page")
     public void click_on_the_eleventh_product_in_the_men_page() {
-      homePage.eleventhProductMenPage.click();
+        homePage.eleventhProductMenPage.click();
     }
-
 }

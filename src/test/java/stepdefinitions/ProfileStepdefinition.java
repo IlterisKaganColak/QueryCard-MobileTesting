@@ -1,10 +1,15 @@
 package stepdefinitions;
+import Page.ProfilePage;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import utilities.ConfigReader;
+
+import static org.junit.Assert.assertTrue;
 import static utilities.ReusableMethods.*;
 
 
@@ -17,7 +22,7 @@ public class ProfileStepdefinition extends Base {
 
     @Given("User waits for {int} seconds")
     public void user_waits_for_seconds(int sn) throws InterruptedException {
-       Thread.sleep(3000);
+       Thread.sleep(sn * 1000);
     }
     @Given("Click on the {string}")
     public void click_on_the(String clickItem) throws InterruptedException {
@@ -66,19 +71,19 @@ public class ProfileStepdefinition extends Base {
     }
     @Given("Verify that cart icon is visible")
     public void verify_that_cart_icon_is_visible() throws InterruptedException {
-        Assert.assertTrue(profilePage.cartIcon.isDisplayed());
+        assertTrue(profilePage.cartIcon.isDisplayed());
     }
     @Given("Verify that cart icon right is visible")
     public void verify_that_cart_icon_right_is_visible() throws InterruptedException {
-        Assert.assertTrue(profilePage.cartIconRight.isDisplayed());
+        assertTrue(profilePage.cartIconRight.isDisplayed());
     }
     @Given("Verify that cart icon is enabled")
     public void verify_that_cart_icon_is_enabled() throws InterruptedException {
-        Assert.assertTrue(profilePage.cartIcon.isEnabled());
+        assertTrue(profilePage.cartIcon.isEnabled());
     }
     @Given("Verify that cart icon right is enabled")
     public void verify_that_cart_icon_right_is_enabled() throws InterruptedException {
-        Assert.assertTrue(profilePage.cartIconRight.isEnabled());
+        assertTrue(profilePage.cartIconRight.isEnabled());
     }
     @Given("Click on the cart icon")
     public void click_on_the_cart_icon(){
@@ -125,7 +130,7 @@ public class ProfileStepdefinition extends Base {
     @Given("Verify that Change Password message is visible")
      public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
         wait(3);
-        Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
+        assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
     }
 
@@ -199,7 +204,59 @@ public class ProfileStepdefinition extends Base {
     @Given("Verify that error message is visible")
     public void verify_that_error_mesagge_is_visible() throws InterruptedException {
        wait(3);
-        Assert.assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
+        assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
 
+    }
+
+    @When("Verify that the Sign Up button is visible under the SignUp form")
+    public void verifyThatSignUpButtonIsVisibleUnderTheSignUpForm() {
+        assertTrue(profilePage.signUpButton.isDisplayed());
+    }
+
+    @When("Verify that the Sign Up button is active")
+    public void verifyThatTheSignUpButtonIsActive() {
+        assertTrue(profilePage.signUpButton.isEnabled());
+    }
+
+    @When("Verify that Name textBox is visible and enabled")
+    public void verifyThatNameTextBoxIsVisibleAndEnabled() {
+        assertTrue(profilePage.fullNameTextbox.isDisplayed());
+        assertTrue(profilePage.fullNameTextbox.isEnabled());
+    }
+
+    @When("Verify that Phone textBox is visible and enabled")
+    public void verifyThatPhoneTextBoxIsVisibleAndEnabled() {
+        assertTrue(profilePage.phoneTextbox.isDisplayed());
+        assertTrue(profilePage.phoneTextbox.isEnabled());
+    }
+
+    @When("Verify that Password textBox is visible and enabled")
+    public void verifyThatPasswordTextBoxIsVisibleAndEnabled() {
+        assertTrue(profilePage.passwordTextbox.isDisplayed());
+        assertTrue(profilePage.passwordTextbox.isEnabled());
+    }
+
+    @When("Fill in {string} textbox")
+    public void fillInTextbox(String textboxName) {
+        switch (textboxName){
+            case "Name" :
+                profilePage.fullNameTextbox.click();
+                profilePage.fullNameTextbox.sendKeys(faker.name().fullName());
+                break;
+            case "Phone" :
+                profilePage.phoneTextbox.click();
+                profilePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
+                break;
+            case "Password" :
+                profilePage.passwordTextbox.click();
+                profilePage.passwordTextbox.sendKeys(faker.internet().password(6,12,true,true,true));
+                profilePage.phoneTextbox.click();
+                break;
+        }
+    }
+
+    @When("Click on the Sign Up button")
+    public void clickOnTheSignUpButton() {
+        profilePage.signUpButton.click();
     }
 }

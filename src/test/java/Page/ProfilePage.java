@@ -26,12 +26,14 @@ public class ProfilePage extends Base {
     public WebElement floralDress;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[13]")
     public WebElement cartIconProductDetailsPage;
-    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
+    @AndroidFindBy(xpath = "//*//android.widget.EditText[1]")
     public WebElement fullNameTextbox;
-    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[2]")
+    @AndroidFindBy(xpath = "//*//android.widget.EditText[2]")
     public WebElement eMailTextbox;
-    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[3]")
+    @AndroidFindBy(xpath = "//*//android.widget.EditText[2]")
     public WebElement phoneTextbox;
+    @AndroidFindBy(xpath = "//*//android.widget.EditText[3]")
+    public WebElement passwordTextbox;
     @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[11]")
     public WebElement cartIcon;
     @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[13]")
@@ -46,7 +48,8 @@ public class ProfilePage extends Base {
     public WebElement productQtyDownIcon1;
     @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[10]")
     public WebElement productRemoveIcon;
-
+    @AndroidFindBy(xpath = "(//*[@content-desc='Sign Up'])[2]")
+    public WebElement signUpButton;
 
 
     public void signIn(String validEmail,String validPassword) throws InterruptedException {

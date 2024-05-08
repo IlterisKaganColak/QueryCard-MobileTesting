@@ -112,7 +112,6 @@ public class ReusableMethods extends Base {
         }
     }
     public static void backToPreScreen(){
-
         driver.navigate().back();
     }
 

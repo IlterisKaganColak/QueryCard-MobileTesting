@@ -20,8 +20,6 @@ public class HomePage extends Base {
     public WebElement ilkUrun;
     @AndroidFindBy (xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView")
     public WebElement filteringIcon;
-    @AndroidFindBy(accessibility = "Juniors")
-    private static WebElement juniorsCategory;
     @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[14]")
     public  WebElement thirdProductWomenPage;
     @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[16]")

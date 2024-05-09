@@ -129,109 +129,6 @@ public class ReusableMethods extends Base {
     public static void backToPreScreen(){
         driver.navigate().back();
     }
-
-
-
-
-
-    //YEDEKLER ---------------    İhtiyaç halinde buradan alıp düzenleyip kullanabilirsiniz              !!!!!!!!!!!!!!!
-    public static String getScreenshot(String name) throws IOException {
-        // naming the screenshot with the current date to avoid duplication
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        // TakesScreenshot is an interface of selenium that takes the screenshot
-        TakesScreenshot ts = (TakesScreenshot) Driver.getAppiumDriver();
-
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        // full path to the screenshot location
-        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
-        File finalDestination = new File(target);
-        // save the screenshot to the path given
-        FileUtils.copyFile(source, finalDestination);
-        return target;
-    }
-
-
-    /*
-     * Element gorunene kadar kodlari bekletir
-     * @param element beklenilecek elementin locate
-     * @param timeout ne kadar sure beklenilecegi int olarak verilir
-     */
-
-        public static void waitToBeClickable(WebElement element, Duration timeout) {
-            WebDriverWait wait = new WebDriverWait(getAppiumDriver(), timeout);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-        }
-        public static void waitToBeVisible(WebElement element, Duration timeout) {
-            WebDriverWait wait = new WebDriverWait(getAppiumDriver(), timeout);
-            wait.until(ExpectedConditions.visibilityOf(element));
-        }
-
-    public static boolean isElementPresent(String text) {
-        boolean elementFound = false;
-        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
-        for (WebElement el : mobileElementList) {
-            if (el.getText().equals(text)) {
-                waitToBeVisible(el, Duration.ofSeconds(10));
-                if (el.isDisplayed()) {
-                    elementFound = true;
-                }
-            }
-        }
-        return elementFound;
-    }
-        public static void tapOn(WebElement element) {
-            waitToBeClickable(element, Duration.ofSeconds(10));
-            element.click();
-        }
-
-        public static void enterText(WebElement element, String text) {
-            tapOn(element);
-            wait(10);
-            element.sendKeys(text);
-        }
-
-
-
-    public static boolean isElementMultiple(String text, int sayi) {
-        boolean elementFound = false;
-        List<WebElement> mobileElementList = Driver.getAppiumDriver().findElements(By.xpath("//android.widget.TextView[@text='" + text + "']"));
-
-        for (WebElement el : mobileElementList) {
-            if (el.getText().equals(text)) {
-                waitToBeVisible(el, Duration.ofSeconds(10));
-                if (el.isDisplayed()) {
-                    elementFound = true;
-                }
-            }
-        }
-        return elementFound;
-    }
-
-
-    /*
-     * elementi listin icine alıp, listin boyutunu olcer. list bos ise true dondurecek.scrollForMobile() ile kullanilir
-     * @param element element locate yazilmali
-     * @return true yada false doner
-     */
-    private static boolean isElementNotEnabled(WebElement element) throws MalformedURLException {
-        List<WebElement> elements = Driver.getAppiumDriver().findElements((By) element);
-        boolean enabled;
-        if (elements.size() < 1) enabled = true;
-        else enabled = false;
-        return enabled;
-    }
-
-    /*
-     * bu metot ile aranan bir texti iceren elemente scroll yapilir
-     * @param textFromOutSide aranan text degeridir
-     */
-    public static void scrollTo(String textFromOutSide) throws MalformedURLException {
-        AppiumBy.ByAndroidUIAutomator permissionElement = new AppiumBy.ByAndroidUIAutomator("new UiScrollable" +
-                "(new UiSelector().scrollable(true).instance(0)." +
-                "scrollIntoView(new UiSelector()" + ".textMatches(\"" + textFromOutSide + "\").instance(0)");
-        getAppiumDriver().findElement(permissionElement);
-    }
-
     public static void enterText(WebElement element, String text, boolean needClear) {
         waitToBeClickable(element, Duration.ofSeconds(10));
         if (needClear) {
@@ -239,35 +136,10 @@ public class ReusableMethods extends Base {
         }
         element.sendKeys(text);
     }
-
-
-
-
-    /*
-     * Bu metot ile toast message(kaybolan mesaj)'in ustunde yazan mesaj alinir ve string olarak doner
-     * @return string olarak doner
-     */
-    public static String getToastMessage() {
-        String toastMessage= getAppiumDriver().findElement(By.xpath("//android.widget.Toast")).getAttribute("name");
-        return toastMessage;
+    public static void waitToBeClickable(WebElement element, Duration timeout) {
+        WebDriverWait wait = new WebDriverWait(getAppiumDriver(), timeout);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-
-    /*
-     * bu metot ile locate verilen elemente double click yapilir
-     * @param driver yerine AndroidDriver objesi verilir
-     * @param element double click yapilacak elementinid turunden locate'i verilecek
-     */
-    public static void doubleClick(AndroidDriver driver, WebElement element){
-        driver.executeScript("mobile: doubleClickGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) element).getId()
-        ));
-    }
-    /**
-     * bu metot ile text degeri verilen elemente kadar sayfa kaydirilir
-     * @param driver yerine AndroidDriver objesi verilir
-     * @param text yerine elementin text degeri verilir
-     */
-
 }
 
 

@@ -25,7 +25,7 @@ public abstract class Base {
     public static DesiredCapabilities desiredCapabilities;
     public static HomePage homePage;
     public static ProfilePage profilePage;
-    public static WishlistPage wishlistPage;
+    //public static WishlistPage wishlistPage;
     public static WebElement element;
     public static int x, y;
     public static Point expectedLocation;
@@ -35,7 +35,7 @@ public abstract class Base {
         faker = new Faker();
         random = new Random();
         profilePage = new ProfilePage();
-        wishlistPage = new WishlistPage();
+        //wishlistPage = new WishlistPage();
         homePage = new HomePage();
         desiredCapabilities = new DesiredCapabilities();
         driver = Driver.getAppiumDriver();

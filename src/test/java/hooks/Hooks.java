@@ -14,7 +14,7 @@ public class Hooks {
     @Before
     public void startUp() throws InterruptedException {
      Base.initialize();
-     Thread.sleep(10000);
+     Thread.sleep(5000);
     }
     @After
     public void tearDown(Scenario scenario) throws InterruptedException {

@@ -14,12 +14,12 @@ public class Hooks {
      getAppiumDriver();
      Thread.sleep(5000);
     }
-    @After
+  /*  @After
     public void tearDown(Scenario scenario) throws InterruptedException {
         final byte[] screenshot = ((TakesScreenshot) getAppiumDriver()).getScreenshotAs(OutputType.BYTES);
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png", "screenshots");
         }
         quitAppiumDriver();
-    }
+    }*/
 }

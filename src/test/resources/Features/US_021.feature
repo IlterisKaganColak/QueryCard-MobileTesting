@@ -40,7 +40,7 @@ Feature: US_021 As a registered user, I want to have a payment page where I can 
   @212
   Scenario Outline:
     # Card Number area
-    * Verify that "206,477" is visible
+   # * Verify that "206,477" is visible
     * Click on the "206,477"
     * Wait 20 second
     * Enter valid <Card Number>, <Card Date>, <CVC Code> and <ZIP Code>

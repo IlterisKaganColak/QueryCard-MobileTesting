@@ -3,6 +3,7 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import utilities.ConfigReader;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -277,5 +278,40 @@ public class Stepdefinitions extends Base {
     @Given("Click on the eleventh product in the men page")
     public void click_on_the_eleventh_product_in_the_men_page() {
         homePage.eleventhProductMenPage.click();
+    }
+
+    @When("Verify that the Sign In button is visible and active on the login page")
+    public void verifyThatTheSignInButtonIsVisibleAndActiveOnTheLoginPage() {
+        assertTrue(profilePage.signInButton.isDisplayed());
+        assertTrue(profilePage.signInButton.isEnabled());
+    }
+
+    @When("Verify that {string} is selected")
+    public void verifyThatIsSelecteble(String elementText) throws InterruptedException {
+        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
+        element.click();
+        wait_second(5);
+        element.click();
+        assertEquals("false",element.getAttribute("checked"));
+    }
+
+    @When("Verify that Error message is visible")
+    public void verifyThatErrorMessageIsVisible() {
+        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Error\n" +
+                "Invalid credentials or you are blocked\")"));
+        element.isDisplayed();
+
+    }
+
+    @When("Try to log in by using {string} and {string} information")
+    public void tryToLogInByUsingAndInformation(String userCredential, String password) throws InterruptedException {
+        profilePage.emailTextBox.click();
+        profilePage.emailTextBox.sendKeys(ConfigReader.getProperty(userCredential));
+        profilePage.passwordTextBox.click();
+        profilePage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
+        clickWithCoordinates(991,1707);
+        Thread.sleep(3000);
+        //Sign In butonuna tıklar
+        clickWithCoordinates(532,1127);
     }
 }

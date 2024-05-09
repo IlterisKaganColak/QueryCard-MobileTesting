@@ -9,9 +9,9 @@ Feature: US_010 As a user, I would like to be able to see the categories and pro
 
   Scenario: [TC_02>US_010] Tested that adding to cart is possible on the products on the men category page.
     * Click on the "Men"
-#    ilk ürüne tıkla
+    #    ilk ürüne tıkla
     * Click on the "286,554"
-#    black seçeneğini seç
+    #    black seçeneğini seç
     * Click on the "120,1700"
     * Click on the "Add To Cart"
     * Verify that "Success Product added to cart" is visible
@@ -19,7 +19,7 @@ Feature: US_010 As a user, I would like to be able to see the categories and pro
   Scenario: [TC_03>US_010] Tested that adding to wishlist is possible on the products on the men category page.
 
     * Click on the "Men"
-#    favoriye eklemek için minik kalbe tıkla
+    #    favoriye eklemek için minik kalbe tıkla
     * Click on the favorite icon
     * Registered user logs in by using "zelihaEmail" and "Password" information
     * Click on the "Wishlist"
@@ -40,7 +40,7 @@ Feature: US_010 As a user, I would like to be able to see the categories and pro
 
     * Click on the "Men"
     * Click filtering icon
-#    * Verify that sort by icon is active
+    #    * Verify that sort by icon is active
     * Verify that "Sort By" is visible
     * Verify that "Sort By" is active
     * Click on the "Sort By"

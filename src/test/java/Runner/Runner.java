@@ -10,9 +10,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features",
         glue = {"stepdefinitions" , "hooks"},
 
-        tags = "@16",
+        tags = "@senaryo",
 
-        dryRun = true
+        dryRun = false
 )
 public class Runner {
 }

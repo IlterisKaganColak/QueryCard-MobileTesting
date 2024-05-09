@@ -264,11 +264,7 @@ public class Stepdefinitions extends Base {
 
     @Given("Enter valid {int}, {int}, {int} and {int}")
     public void enter_valid_and(int cardNumber, int cardDate, int cvcCode, int zipCode) {
-        actions.sendKeys(String.valueOf(cardNumber))
-                .sendKeys(String.valueOf(cardDate))
-                .sendKeys(String.valueOf(cvcCode))
-                .sendKeys(String.valueOf(zipCode))
-                .perform();
+        profilePage.cardInfoTextbox.sendKeys(cardNumber+""+cardDate+cvcCode+zipCode);
     }
 
 }

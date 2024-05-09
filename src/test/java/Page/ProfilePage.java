@@ -52,6 +52,8 @@ public class ProfilePage extends Base {
     public WebElement productRemoveIcon;
     @AndroidFindBy(xpath = "(//*[@content-desc='Sign Up'])[2]")
     public WebElement signUpButton;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
+    public WebElement cardInfoTextbox;
 
 
     public void signIn(String validEmail,String validPassword) throws InterruptedException {

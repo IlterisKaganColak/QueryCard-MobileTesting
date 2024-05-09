@@ -3,7 +3,7 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Launch the app
     @senaryo
   Scenario: urun satin alma
-#Calistirmadan once sign in methodundaki clickElement("Sign In"); methodunu yoruma almayi unutma!!!!
+#Calistirmadan once sign in methodundaki clickElement("Sign In"); satirini yoruma almayi unutma!!!!
     * Wait for 1000 miliseconds
     * Click on the first product in the Most Popular list
     * Click on the "Favorite"
@@ -50,7 +50,6 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Click on the "Add To Cart"
     * Navigate to the previous page
     * Navigate to the previous page
-   # * Slide categories
     * Click on the "Women"
       #Dilan Hoca için ayakkabı
     * Click on the third product in the women page

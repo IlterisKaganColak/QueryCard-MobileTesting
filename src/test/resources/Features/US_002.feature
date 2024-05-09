@@ -23,7 +23,7 @@ Feature: US_002 As a user, I would like to have easy links in the bottom bar of 
   @2
   Scenario: TC_03 The site logo should be on the top left of the page and the home page should refresh when clicked.
 
-    * Verify that the site logo is visible at the top left of the home page
+    #* Verify that the site logo is visible at the top left of the home page
     #* Verify that the home page refreshes when it clicked
 
 

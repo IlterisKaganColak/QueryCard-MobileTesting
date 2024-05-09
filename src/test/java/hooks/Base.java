@@ -27,8 +27,7 @@ public abstract class Base {
     public static ProfilePage profilePage;
     public static WishlistPage wishlistPage;
     public static WebElement element;
-    public static int x;
-    public static int y;
+    public static int x, y;
     public static Point expectedLocation;
     public static Actions actions;
 

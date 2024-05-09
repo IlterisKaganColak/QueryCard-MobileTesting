@@ -74,7 +74,7 @@ public class ProfilePage extends Base {
         Thread.sleep(1000);
         clickWithCoordinates(977,1722);                                    //Profile butonuna tıklar
         Thread.sleep(3000);
-       // clickElement("Sign In");                                            //Sign In butonuna tıklar
+        clickElement("Sign In");                                            //Sign In butonuna tıklar
         Thread.sleep(1000);
         clickElement("*Use Email Instead");                                 //*Use Email Instead yazısına tıklar
         Thread.sleep(1000);

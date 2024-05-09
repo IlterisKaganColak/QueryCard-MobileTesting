@@ -18,8 +18,9 @@ Feature: US_009 As a user, I want to be able to access detailed information abou
     * Verify that "Shipping & Return" is active
 
   Scenario: TC_02 Selected products should be added to the wishlist list from the wishlist /favorite button.
-
-    * Click on the first product
+    * Wait 5 second
+    * Click on the "797,1344"
+    #* Click on the first product
     * Click on the "Details"
     * Verify that "Product Details" is visible
 
@@ -31,6 +32,10 @@ Feature: US_009 As a user, I want to be able to access detailed information abou
 
   Scenario:TC_04 When the Review button is clicked, the Review title and reviews of the product should be displayed
     * Click on the first product
+    * Click on the "Review"
+    * Verify that "Product Reviews" is visible
+
+  Scenario:TC_05 When the Shipping&Return button is clicked, the Shipping&Return heading and the shipping and return conditions of the product should be displayed
+    * Click on the first product
     * Click on the "Shipping & Return"
     * Verify that "Shipping & Return" is visible
-  Scenario:TC_05 When the Shipping&Return button is clicked, the Shipping&Return heading and the shipping and return conditions of the product should be displayed

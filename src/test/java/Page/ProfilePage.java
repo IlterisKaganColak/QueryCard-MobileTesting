@@ -22,7 +22,7 @@ public class ProfilePage extends Base {
     public WebElement passwordTextBox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
-    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[19]")
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[21]")
     public WebElement firstProductMostPopularHomepage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[13]")
     public WebElement cartIconProductDetailsPage;
@@ -56,7 +56,7 @@ public class ProfilePage extends Base {
     public WebElement addressCountryDDM;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[13]")
     public WebElement addressStateDDM;
-    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[14]")
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[12]")
     public WebElement addressCityDDM;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
     public WebElement addressNameTextbox;
@@ -64,9 +64,9 @@ public class ProfilePage extends Base {
     public WebElement addressEmailTextbox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[3]")
     public WebElement addressPhoneTextbox;
-    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[4]")
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
     public WebElement addressZipCodeTextbox;
-    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[5]")
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[3]")
     public WebElement addressStreetAddressTextbox;
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
@@ -74,7 +74,7 @@ public class ProfilePage extends Base {
         clickWithCoordinates(977,1722);
         Thread.sleep(3000);
         //Sign In butonuna tıklar
-     //   clickElement("Sign In");
+        clickElement("Sign In");
         Thread.sleep(1000);
         //*Use Email Instead yazısına tıklar
         clickElement("*Use Email Instead");
@@ -198,23 +198,32 @@ public void forgotPassword(){
     }
     public void updateAddress() throws InterruptedException {
         editIcon.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
      addressNameTextbox.click();
+     addressNameTextbox.clear();
      addressNameTextbox.sendKeys(faker.name().fullName());
      addressEmailTextbox.click();
+     addressEmailTextbox.clear();
      addressEmailTextbox.sendKeys(faker.internet().emailAddress());
      addressPhoneTextbox.click();
+     addressPhoneTextbox.clear();
      addressPhoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
      addressCountryDDM.click();
-     driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description('Andorra'))")).click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + "Algeria" + "\")")).click();
+     Thread.sleep(2000);
      addressStateDDM.click();
-     driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description('Canillo'))")).click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + "Adrar Province" + "\")")).click();
+        Thread.sleep(2000);
      slideWithCoordinatesUpToDown();
+     Thread.sleep(2000);
      addressCityDDM.click();
-     driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description('Canillo'))")).click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + "Adrar" + "\")")).click();
+        Thread.sleep(2000);
      addressZipCodeTextbox.click();
+     addressZipCodeTextbox.clear();
      addressZipCodeTextbox.sendKeys(faker.address().zipCode());
      addressStreetAddressTextbox.click();
+     addressStreetAddressTextbox.clear();
      addressStreetAddressTextbox.sendKeys(faker.address().streetAddress());
      slideWithCoordinatesUpToDown();
     }

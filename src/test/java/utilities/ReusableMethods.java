@@ -67,8 +67,8 @@ public class ReusableMethods extends Base {
     }
     public static void slideWithCoordinatesUpToDown() {
         final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        var start = new Point(526, 1346);
-        var end = new Point (535, 833);
+        var start = new Point(481, 1039);
+        var end = new Point (481, 400);
         var swipe = new Sequence(finger, 1);
         swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
                 PointerInput.Origin.viewport(), start.getX(), start.getY()));

@@ -1,5 +1,5 @@
 @HS @5
-Feature: US_004 As a registered user, I would like to have a page in my Dashboard where I can view my shopping history
+Feature: US_005 As a registered user, I would like to have a page in my Dashboard where I can view my shopping history
   Background:
     * Launch the app
     * Verify access to "homepage"

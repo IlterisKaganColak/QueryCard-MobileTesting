@@ -44,6 +44,8 @@ public class ProfilePage extends Base {
     public WebElement productRemoveIcon;
     @AndroidFindBy(xpath = "(//*[@content-desc='Sign Up'])[2]")
     public WebElement signUpButton;
+    @AndroidFindBy(xpath = "(//*[@content-desc='Sign In'])[2]")
+    public WebElement signInButton;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement editIcon;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[12]")
@@ -81,6 +83,7 @@ public class ProfilePage extends Base {
         passwordTextBox.sendKeys(ConfigReader.getProperty(validPassword));       //Geçerli password girilir
         clickWithCoordinates(991,1707);                                    //Klavye kapatılır
         Thread.sleep(3000);
+
         clickWithCoordinates(532,1127);                                    //Sign In butonuna tıklar
         Thread.sleep(3000);
     }

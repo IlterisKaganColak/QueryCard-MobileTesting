@@ -8,25 +8,19 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
-import java.util.List;
-
 import static org.junit.Assert.*;
 import static utilities.Driver.getAppiumDriver;
 import static utilities.ReusableMethods.*;
 
-
 public class ProfilePage extends Base {
     public ProfilePage() {PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);}
-
-    @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
-    public WebElement changePassMessage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
     public WebElement emailTextBox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
     public WebElement passwordTextBox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
-    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[19]")
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[21]")
     public WebElement firstProductMostPopularHomepage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[13]")
     public WebElement cartIconProductDetailsPage;
@@ -46,10 +40,6 @@ public class ProfilePage extends Base {
     public WebElement productQtyUpIcon;
     @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[1]")
     public WebElement productQtyDownIcon;
-    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[2]")
-    public WebElement productQtyUpIcon1;
-    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[9]")
-    public WebElement productQtyDownIcon1;
     @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[10]")
     public WebElement productRemoveIcon;
     @AndroidFindBy(xpath = "(//*[@content-desc='Sign Up'])[2]")
@@ -59,51 +49,44 @@ public class ProfilePage extends Base {
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement editIcon;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[12]")
-    public WebElement addressCountry;
+    public WebElement addressCountryDDM;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[13]")
-    public WebElement addressState;
-    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[14]")
-    public WebElement addressCity;
+    public WebElement addressStateDDM;
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[12]")
+    public WebElement addressCityDDM;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
+    public WebElement addressNameTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public WebElement addressEmailTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[3]")
+    public WebElement addressPhoneTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public WebElement addressZipCodeTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[3]")
+    public WebElement addressStreetAddressTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[4]")
+    public WebElement addressSelection;
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
-        //Profile butonuna tıklar
-          clickWithCoordinates(977,1722);
+        clickWithCoordinates(977,1722);                                    //Profile butonuna tıklar
         Thread.sleep(3000);
-        //Sign In butonuna tıklar
-          clickWithCoordinates(800,552);//789
-       Thread.sleep(3000);
-        //*Use Email Instead yazısına tıklar
-        clickElement("*Use Email Instead");
-       // ReusableMethods.clickWithCoordinates(855,546); //551
+       // clickElement("Sign In");                                            //Sign In butonuna tıklar
+        Thread.sleep(1000);
+        clickElement("*Use Email Instead");                                 //*Use Email Instead yazısına tıklar
+        Thread.sleep(1000);
+        emailTextBox.click();                                                    //Email textbox ına tıklar
         Thread.sleep(2000);
+        emailTextBox.sendKeys(ConfigReader.getProperty(validEmail));             //Geçerli email girilir
+        Thread.sleep(1000);
+        passwordTextBox.click();                                                 //Password textbox ına tıklar
+        Thread.sleep(3000);
+        passwordTextBox.sendKeys(ConfigReader.getProperty(validPassword));       //Geçerli password girilir
+        clickWithCoordinates(991,1707);                                    //Klavye kapatılır
+        Thread.sleep(3000);
 
-        clickWithCoordinates(977,1722);
-        Thread.sleep(1000);
-        //Sign In butonuna tıklar
-        clickElement("Sign In");
-        //*Use Email Instead yazısına tıklar
-        clickElement("*Use Email Instead");
-        Thread.sleep(1000);
-        //Email textbox ına tıklar
-        emailTextBox.click();
-        Thread.sleep(2000);
-        //Geçerli email girilir
-        emailTextBox.sendKeys(ConfigReader.getProperty(validEmail));
-        Thread.sleep(1000);
-        //Password textbox ına tıklar
-        passwordTextBox.click();
+        clickWithCoordinates(532,1127);                                    //Sign In butonuna tıklar
         Thread.sleep(3000);
-        //Geçerli password girilir
-        passwordTextBox.sendKeys(ConfigReader.getProperty(validPassword));
-        //Klavye kapatılır
-        clickWithCoordinates(991,1707);
-        Thread.sleep(3000);
-        //Sign In butonuna tıklar
-        clickWithCoordinates(532,1127);
     }
-
-
-
     public void changePassword() throws InterruptedException {
         var el1 = driver.findElement(AppiumBy.accessibilityId("Change Password"));
         el1.click();
@@ -117,33 +100,7 @@ public class ProfilePage extends Base {
         el4.click();
         el4.sendKeys("123123");
         Thread.sleep(3000);
-
-
     }
-
-public void forgotPassword(){
-
-    var el6 = driver.findElement(AppiumBy.accessibilityId("Forgot Password"));
-    el6.click();
-    var el7 = driver.findElement(AppiumBy.accessibilityId("*Use Email Instead"));
-    el7.click();
-    var el8 = driver.findElement(AppiumBy.className("android.widget.EditText"));
-    el8.click();
-    el8.sendKeys(ConfigReader.getProperty("zehraEmail"));
-    var el9 = driver.findElement(AppiumBy.accessibilityId("Get OTP"));
-    el9.click();
-    var el10 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]"));
-    el10.click();
-    el10.sendKeys("Query.2904");
-    var el11 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]"));
-    el11.click();
-    el11.sendKeys("Query.2904");
-    var el12 = driver.findElement(AppiumBy.accessibilityId("Submit"));
-    el12.click();
-
-
-}
-
     public void isVisibleTextbox() throws InterruptedException {
         Thread.sleep(1000);
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
@@ -155,7 +112,6 @@ public void forgotPassword(){
         Thread.sleep(1000);
         assertTrue(element.isEnabled());
     }
-
     public void fillInTextbox(String textboxName, String value) {
         switch (textboxName + " with " + value){
             case "Name with validName" :
@@ -200,8 +156,38 @@ public void forgotPassword(){
                 break;
         }
     }
-    public void updateAddress(){
-
+    public void updateAddress(String update) throws InterruptedException {
+       if (update.equals("Edit")){
+           editIcon.click();
+       }
+        Thread.sleep(4000);
+     addressNameTextbox.click();
+     addressNameTextbox.clear();
+     addressNameTextbox.sendKeys(faker.name().fullName());
+     addressEmailTextbox.click();
+     addressEmailTextbox.clear();
+     addressEmailTextbox.sendKeys(faker.internet().emailAddress());
+     addressPhoneTextbox.click();
+     addressPhoneTextbox.clear();
+     addressPhoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
+     addressCountryDDM.click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + "Algeria" + "\")")).click();
+     Thread.sleep(2000);
+     addressStateDDM.click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + "Adrar Province" + "\")")).click();
+     Thread.sleep(2000);
+     slideWithCoordinatesUpToDown();
+     Thread.sleep(2000);
+     addressCityDDM.click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"" + "Adrar" + "\")")).click();
+     Thread.sleep(2000);
+     addressZipCodeTextbox.click();
+     addressZipCodeTextbox.clear();
+     addressZipCodeTextbox.sendKeys(faker.address().zipCode());
+     addressStreetAddressTextbox.click();
+     addressStreetAddressTextbox.clear();
+     addressStreetAddressTextbox.sendKeys(faker.address().streetAddress());
+     slideWithCoordinatesUpToDown();
     }
     public void textBoxIsVisibleAndEnabled(String textBoxName) {
         switch (textBoxName) {

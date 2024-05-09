@@ -1,9 +1,4 @@
-
-
 Feature: US_012 As a user, I would like to be able to see the categories and products of the Women menu on the home page.
-
-
-
   Background:
     * Registered user logs in by using "yusufEmail" and "yusufPassword" information
 

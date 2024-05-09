@@ -74,10 +74,6 @@ public class Stepdefinitions extends Base {
     public void click_on_the_cart_icon(){
         profilePage.cartIcon.click();
     }
-    @Given("Click on the cart right icon")
-    public void click_on_the_cart_right_icon(){
-        profilePage.cartIconRight.click();
-    }
     @Given("Click on the remove icon")
     public void click_on_the_remove_icon(){
         profilePage.productRemoveIcon.click();
@@ -107,11 +103,6 @@ public class Stepdefinitions extends Base {
     public void click_on_the_change_password() throws InterruptedException {
         profilePage.changePassword();
     }
-    @Given("Verify that Change Password message is visible")
-     public void verify_that_change_password_mesagge_is_visible() throws InterruptedException {
-        wait(3);
-        assertTrue(profilePage.changePassMessage.getText().contains("Change Password"));
-       }
     @Given("Verify that email textbox is visible")
     public void verify_that_email_textbox_is_visible() throws InterruptedException {
         profilePage.isVisibleTextbox();
@@ -119,15 +110,6 @@ public class Stepdefinitions extends Base {
     @Given("Verify that email textbox is active")
     public void verify_that_email_textbox_is_active() throws InterruptedException {
         profilePage.isEnableTextbox();
-    }
-    @Given("Click on the Save Changes")
-    public void click_on_the_save_changes() throws InterruptedException {
-        scrollToElementWithText("Save Changes");
-       clickElement("Save Changes");
-    }
-    @Given("Click on the Forgot Password")
-    public void click_on_the_forgot_password()  {
-        profilePage.forgotPassword();
     }
     @Given("Registered email is entered")
     public void registered_email_is_entered() {
@@ -161,19 +143,9 @@ public class Stepdefinitions extends Base {
         }
     @Given("Enter the old password")
     public void enter_the_password() throws InterruptedException {
-
         var el2 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]"));
         el2.click();
         el2.sendKeys("Query.2904");
-    }
-    @Given("Verify that the page does not appear to have changed")
-    public void verify_that_the_page_does_not_appear_to_have_changed() {
-    }
-    @Given("Verify that error message is visible")
-    public void verify_that_error_mesagge_is_visible() throws InterruptedException {
-       wait(3);
-        var el4 = driver.findElement(AppiumBy.accessibilityId("Password is short"));
-        assertTrue(el4.isDisplayed());
     }
     @When("Verify that the Sign Up button is visible under the SignUp form")
     public void verifyThatSignUpButtonIsVisibleUnderTheSignUpForm() {
@@ -195,9 +167,6 @@ public class Stepdefinitions extends Base {
     public void clickOnTheSignUpButton() {
         profilePage.signUpButton.click();
     }
-    @When("Fill in {string} textbox with invalid phone number")
-    public void fillInTextboxWithInvalidPhoneNumberLessThanDigit(String arg0, int arg1) {
-    }
     @Given("Launch the app")
     public void launch_the_app() throws InterruptedException {
         Thread.sleep(1000);
@@ -212,10 +181,6 @@ public class Stepdefinitions extends Base {
         homePage.logoVisibilityTest();
     }
     //Simge
-    @Given("Click on the first product in Wishlist Page")
-    public void click_on_the_first_product_in_wishlist_page() {
-        wishlistPage.firstProductWishlistPage.click();
-    }
     @Given("Navigate to the previous page")
     public void navigate_to_the_previous_page() {
         backToPreScreen();
@@ -238,10 +203,6 @@ public class Stepdefinitions extends Base {
     @Given("Verify that filtering icon is visible")
     public void Verify_that_filtering_icon_is_visible(){
         assertTrue(homePage.filteringIcon.isDisplayed());
-    }
-    @Given("Click on the first brand checkbox")
-    public void Click_on_the_first_brand_checkbox(){
-
     }
     @Given("Wait {int} second")
     public void wait_second(int wait) throws InterruptedException {
@@ -313,5 +274,12 @@ public class Stepdefinitions extends Base {
         Thread.sleep(3000);
         //Sign In butonuna tıklar
         clickWithCoordinates(532,1127);
+    @Given("{string} address information in the update address page")
+    public void address_information_in_the_update_address_page(String update) throws InterruptedException {
+        profilePage.updateAddress(update);
+    }
+    @Given("Select the address")
+    public void select_the_address() throws InterruptedException {
+        profilePage.addressSelection.click();
     }
 }

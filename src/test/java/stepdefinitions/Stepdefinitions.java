@@ -270,10 +270,11 @@ public class Stepdefinitions extends Base {
         profilePage.emailTextBox.sendKeys(ConfigReader.getProperty(userCredential));
         profilePage.passwordTextBox.click();
         profilePage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
-        clickWithCoordinates(991,1707);
+        clickWithCoordinates(991, 1707);
         Thread.sleep(3000);
         //Sign In butonuna tıklar
-        clickWithCoordinates(532,1127);
+        clickWithCoordinates(532, 1127);
+    }
     @Given("{string} address information in the update address page")
     public void address_information_in_the_update_address_page(String update) throws InterruptedException {
         profilePage.updateAddress(update);

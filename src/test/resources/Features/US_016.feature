@@ -26,7 +26,7 @@ Feature: US_016 As a registered user, I would like to have a page on the site wh
     * Verify that "Edit" is active
     * Verify that "Add" is visible
     * Verify that "Add" is active
-
+@16
   Scenario: TC_03 Shipping address information should be edited
     * Click on the first product in the Most Popular list
     * Click on the "S"
@@ -34,3 +34,6 @@ Feature: US_016 As a registered user, I would like to have a page on the site wh
     * Click on the Cart icon in product details page
     * Click on the "Proceed to Checkout"
     * Click on the "Edit"
+    * Edit address information in the update address page
+    * Click on the "Update Address"
+    * Verify that "Address" is visible

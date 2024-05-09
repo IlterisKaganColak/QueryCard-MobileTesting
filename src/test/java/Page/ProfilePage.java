@@ -54,8 +54,14 @@ public class ProfilePage extends Base {
     public WebElement productRemoveIcon;
     @AndroidFindBy(xpath = "(//*[@content-desc='Sign Up'])[2]")
     public WebElement signUpButton;
-
-
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
+    public WebElement editIcon;
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[12]")
+    public WebElement addressCountry;
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[13]")
+    public WebElement addressState;
+    @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[14]")
+    public WebElement addressCity;
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
         //Profile butonuna tıklar
@@ -192,6 +198,9 @@ public void forgotPassword(){
                 profilePage.passwordTextbox.sendKeys(faker.internet().password(6,6,true,true,true));
                 break;
         }
+    }
+    public void updateAddress(){
+
     }
     public void textBoxIsVisibleAndEnabled(String textBoxName) {
         switch (textBoxName) {

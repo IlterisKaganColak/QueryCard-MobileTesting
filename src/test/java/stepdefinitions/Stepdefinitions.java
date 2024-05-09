@@ -243,7 +243,7 @@ public class Stepdefinitions extends Base {
         assertTrue(profilePage.signInButton.isEnabled());
     }
 
-    @When("Verify that {string} is selected")
+    @When("Verify that {string} is selectable")
     public void verifyThatIsSelecteble(String elementText) throws InterruptedException {
         element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
         element.click();
@@ -252,19 +252,27 @@ public class Stepdefinitions extends Base {
         assertEquals("false",element.getAttribute("checked"));
     }
 
-    @When("Verify that Error message is visible")
-    public void verifyThatErrorMessageIsVisible() {
-        element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Error\n" +
-                "Invalid credentials or you are blocked\")"));
-        element.isDisplayed();
+    @When("Verify that {string} message is visible")
+    public void verifyThatErrorMessageIsVisible(String messageType) throws InterruptedException {
+        switch (messageType){
+            case "Success" : element = driver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Success\nLogin Successfully.\"]"));
+                element.isDisplayed();
+                break;
+            case "Error" : element = driver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Error\nInvalid credentials or you are blocked\"]"));
+                element.isDisplayed(); break;
+        }
+//        element = driver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Success\nLogin Successfully.\"]"));
+//        element.isDisplayed();
 
     }
 
     @When("Try to log in by using {string} and {string} information")
     public void tryToLogInByUsingAndInformation(String userCredential, String password) throws InterruptedException {
         profilePage.emailTextBox.click();
+        profilePage.emailTextBox.clear();
         profilePage.emailTextBox.sendKeys(ConfigReader.getProperty(userCredential));
         profilePage.passwordTextBox.click();
+        profilePage.passwordTextBox.clear();
         profilePage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
         clickWithCoordinates(991, 1707);
         Thread.sleep(3000);

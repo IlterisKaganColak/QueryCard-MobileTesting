@@ -19,6 +19,7 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Click on the "Add To Cart"
     * Navigate to the previous page
     * Click on the "Men"
+    * Wait for 3000 miliseconds
       #Murat Hoca için adidas ayakkabı
     * Click on the second product in the men page
     * Wait for 2000 miliseconds
@@ -26,7 +27,6 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Click on the "Add To Cart"
     * Navigate to the previous page
       #Ahmet Hoca için deri çanta
-    * Slide small
     * Slide small
     * Slide small
     * Click on the eighth product in the men page
@@ -58,7 +58,6 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
     * Click on the "Add To Cart"
     * Navigate to the previous page
       #Özge Hoca için parka
-    * Slide small
     * Slide small
     * Slide small
     * Slide small

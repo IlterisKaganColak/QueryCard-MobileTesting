@@ -68,13 +68,23 @@ public class ProfilePage extends Base {
     public WebElement addressSelection;
     @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
     public WebElement cardInfoTextbox;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[2]")
+    public WebElement cardDate;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[3]")
+    public WebElement cvcCode;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[4]")
+    public WebElement cardZipCode;
+    @AndroidFindBy(xpath = "//*[@class=\"android.widget.Button\"]")
+    public WebElement confirmButton;
+
+
 
 
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
         clickWithCoordinates(977,1722);                                    //Profile butonuna tıklar
-        Thread.sleep(3000);
-        clickElement("Sign In");                                            //Sign In butonuna tıklar
+      //  Thread.sleep(3000);
+      //  clickElement("Sign In");                                            //Sign In butonuna tıklar
         Thread.sleep(1000);
         clickElement("*Use Email Instead");                                 //*Use Email Instead yazısına tıklar
         Thread.sleep(1000);

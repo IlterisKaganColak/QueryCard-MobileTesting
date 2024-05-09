@@ -8,16 +8,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
-import java.util.List;
-
 import static org.junit.Assert.*;
 import static utilities.Driver.getAppiumDriver;
 import static utilities.ReusableMethods.*;
 
-
 public class ProfilePage extends Base {
     public ProfilePage() {PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);}
-
     @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
     public WebElement changePassMessage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
@@ -57,28 +53,29 @@ public class ProfilePage extends Base {
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement editIcon;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[12]")
-    public WebElement addressCountry;
+    public WebElement addressCountryDDM;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[13]")
-    public WebElement addressState;
+    public WebElement addressStateDDM;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[14]")
-    public WebElement addressCity;
+    public WebElement addressCityDDM;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
+    public WebElement addressNameTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public WebElement addressEmailTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[3]")
+    public WebElement addressPhoneTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[4]")
+    public WebElement addressZipCodeTextbox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[5]")
+    public WebElement addressStreetAddressTextbox;
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
         //Profile butonuna tıklar
-          clickWithCoordinates(977,1722);
+        clickWithCoordinates(977,1722);
         Thread.sleep(3000);
         //Sign In butonuna tıklar
-          clickWithCoordinates(800,552);//789
-       Thread.sleep(3000);
-        //*Use Email Instead yazısına tıklar
-        clickElement("*Use Email Instead");
-       // ReusableMethods.clickWithCoordinates(855,546); //551
-        Thread.sleep(2000);
-
-        clickWithCoordinates(977,1722);
+     //   clickElement("Sign In");
         Thread.sleep(1000);
-        //Sign In butonuna tıklar
-        clickElement("Sign In");
         //*Use Email Instead yazısına tıklar
         clickElement("*Use Email Instead");
         Thread.sleep(1000);
@@ -199,8 +196,27 @@ public void forgotPassword(){
                 break;
         }
     }
-    public void updateAddress(){
-
+    public void updateAddress() throws InterruptedException {
+        editIcon.click();
+        Thread.sleep(2000);
+     addressNameTextbox.click();
+     addressNameTextbox.sendKeys(faker.name().fullName());
+     addressEmailTextbox.click();
+     addressEmailTextbox.sendKeys(faker.internet().emailAddress());
+     addressPhoneTextbox.click();
+     addressPhoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
+     addressCountryDDM.click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description('Andorra'))")).click();
+     addressStateDDM.click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description('Canillo'))")).click();
+     slideWithCoordinatesUpToDown();
+     addressCityDDM.click();
+     driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(description('Canillo'))")).click();
+     addressZipCodeTextbox.click();
+     addressZipCodeTextbox.sendKeys(faker.address().zipCode());
+     addressStreetAddressTextbox.click();
+     addressStreetAddressTextbox.sendKeys(faker.address().streetAddress());
+     slideWithCoordinatesUpToDown();
     }
     public void textBoxIsVisibleAndEnabled(String textBoxName) {
         switch (textBoxName) {

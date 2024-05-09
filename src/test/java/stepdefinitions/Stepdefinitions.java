@@ -278,4 +278,9 @@ public class Stepdefinitions extends Base {
     public void click_on_the_eleventh_product_in_the_men_page() {
         homePage.eleventhProductMenPage.click();
     }
+    @Given("Edit address information in the update address page")
+    public void edit_address_information_in_the_update_address_page() throws InterruptedException {
+       profilePage.updateAddress();
+    }
+
 }

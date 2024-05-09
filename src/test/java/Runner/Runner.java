@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 
         tags = "@senaryo",
 
-        dryRun = true
+        dryRun = false
 )
 public class Runner {
 }

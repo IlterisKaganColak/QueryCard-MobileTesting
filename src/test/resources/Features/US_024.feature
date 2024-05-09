@@ -21,13 +21,11 @@ Feature:As a registered user, I want to have a cart on the site and I want to be
 #   * Click on the cart right icon
     * Verify that first product listing is visible
 #    urun sayisi arttir
-    * Click on the product qty up icon
-    * Click on the product qty up icon
-    * Click on the product qty down icon
+#   * Click on the product qty up icon
+
 #    urun sayisi azalt
-    * Click on the product qty down icon
-    * Click on the product qty down icon
-    * Click on the product qty down icon
+#   * Click on the product qty down icon
+
 
   Scenario: [TC_03>US_024] Tested that on the Shopping Cart page, products added to the cart can be deleted
 

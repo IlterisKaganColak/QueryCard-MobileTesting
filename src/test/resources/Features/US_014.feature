@@ -7,7 +7,7 @@ Feature: US_014 As a registered user, I would like to have a page on the site wh
 
   @[TC_01>US_014]
   Scenario:Profile icon should be visible and active on the home page.
-    * Launch the app
+
     * Click on the "Profile"
     * Click on the "Address"
     * Verify that "Address" is visible
@@ -18,3 +18,14 @@ Feature: US_014 As a registered user, I would like to have a page on the site wh
     * Click on the "Profile"
     * Click on the "Address"
     * Verify that "Address" is visible
+
+  @[TC_03>US_014]
+  Scenario:Profile icon should be visible and active on the home page.
+    * Launch the app
+    * Click on the "Profile"
+    * Click on the "Address"
+    * Verify that "Address" is visible
+
+
+
+

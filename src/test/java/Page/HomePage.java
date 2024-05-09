@@ -41,10 +41,5 @@ public class HomePage extends Base {
         }
         assertTrue(queryCardLogoElement.isDisplayed());
     }
-    public void logoLocateTest(){
-        x=48;
-        y=63;
-        assertEquals(expectedLocation,homePage.queryCardLogoElement.getLocation());
-    }
 
 }

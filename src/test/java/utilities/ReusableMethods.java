@@ -1,26 +1,16 @@
 package utilities;
-import com.google.common.collect.ImmutableMap;
 import hooks.Base;
 import io.appium.java_client.*;
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import static utilities.Driver.getAppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 public class ReusableMethods extends Base {
     public static void scrollWithUiScrollableAndClick(String elementText) throws InterruptedException {
         boolean flag=true;
@@ -117,14 +107,6 @@ public class ReusableMethods extends Base {
 
             }}while(flag);
         Thread.sleep(1000);
-    }
-
-    public static void wait(int saniye) {
-        try {
-            Thread.sleep(saniye * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
     public static void backToPreScreen(){
         driver.navigate().back();

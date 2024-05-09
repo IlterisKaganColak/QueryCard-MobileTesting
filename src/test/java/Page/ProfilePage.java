@@ -14,8 +14,6 @@ import static utilities.ReusableMethods.*;
 
 public class ProfilePage extends Base {
     public ProfilePage() {PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);}
-    @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
-    public WebElement changePassMessage;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
     public WebElement emailTextBox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
@@ -42,10 +40,6 @@ public class ProfilePage extends Base {
     public WebElement productQtyUpIcon;
     @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[1]")
     public WebElement productQtyDownIcon;
-    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[2]")
-    public WebElement productQtyUpIcon1;
-    @AndroidFindBy (xpath =  "(//*[@class=\"android.widget.ImageView\"])[9]")
-    public WebElement productQtyDownIcon1;
     @AndroidFindBy (xpath = "(//*[@class=\"android.widget.ImageView\"])[10]")
     public WebElement productRemoveIcon;
     @AndroidFindBy(xpath = "(//*[@content-desc='Sign Up'])[2]")
@@ -74,7 +68,7 @@ public class ProfilePage extends Base {
         Thread.sleep(1000);
         clickWithCoordinates(977,1722);                                    //Profile butonuna tıklar
         Thread.sleep(3000);
-        clickElement("Sign In");                                            //Sign In butonuna tıklar
+       // clickElement("Sign In");                                            //Sign In butonuna tıklar
         Thread.sleep(1000);
         clickElement("*Use Email Instead");                                 //*Use Email Instead yazısına tıklar
         Thread.sleep(1000);
@@ -104,26 +98,6 @@ public class ProfilePage extends Base {
         el4.sendKeys("123123");
         Thread.sleep(3000);
     }
-    public void forgotPassword(){
-
-        var el6 = driver.findElement(AppiumBy.accessibilityId("Forgot Password"));
-        el6.click();
-        var el7 = driver.findElement(AppiumBy.accessibilityId("*Use Email Instead"));
-        el7.click();
-        var el8 = driver.findElement(AppiumBy.className("android.widget.EditText"));
-        el8.click();
-        el8.sendKeys(ConfigReader.getProperty("zehraEmail"));
-        var el9 = driver.findElement(AppiumBy.accessibilityId("Get OTP"));
-        el9.click();
-        var el10 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]"));
-        el10.click();
-        el10.sendKeys("Query.2904");
-        var el11 = driver.findElement(AppiumBy.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]"));
-        el11.click();
-        el11.sendKeys("Query.2904");
-        var el12 = driver.findElement(AppiumBy.accessibilityId("Submit"));
-        el12.click();
-    }
     public void isVisibleTextbox() throws InterruptedException {
         Thread.sleep(1000);
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
@@ -135,7 +109,6 @@ public class ProfilePage extends Base {
         Thread.sleep(1000);
         assertTrue(element.isEnabled());
     }
-
     public void fillInTextbox(String textboxName, String value) {
         switch (textboxName + " with " + value){
             case "Name with validName" :

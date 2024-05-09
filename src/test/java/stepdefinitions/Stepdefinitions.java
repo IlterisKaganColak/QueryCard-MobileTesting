@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import utilities.ConfigReader;
+import utilities.ReusableMethods;
+
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
 public class Stepdefinitions extends Base {
@@ -208,9 +210,20 @@ public class Stepdefinitions extends Base {
     public void wait_second(int wait) throws InterruptedException {
         Thread.sleep(wait);
     }
-    @Given("Enter valid {int}, {int}, {int} and {int}")
-    public void enter_valid_and(int cardNumber, int cardDate, int cvcCode, int zipCode) {
-        profilePage.cardInfoTextbox.sendKeys(cardNumber+""+cardDate+cvcCode+zipCode);
+    @Given("Enter valid {string}, {string}, {string} and {string}")
+    public void enter_valid_and(String cardNumber, String cardDate, String cvcCode, String zipCode) throws InterruptedException {
+        profilePage.cardInfoTextbox.click();
+        profilePage.cardInfoTextbox.sendKeys(cardNumber);
+        Thread.sleep(2000);
+        profilePage.cardDate.sendKeys(cardDate);
+        Thread.sleep(2000);
+        profilePage.cvcCode.sendKeys(cvcCode);
+        Thread.sleep(2000);
+        profilePage.cardZipCode.sendKeys(zipCode);
+    }
+    @Given("Click on the Confirm Button")
+    public void click_on_the_confirm_button() {
+        profilePage.confirmButton.click();
     }
     @Given("Click on the third product in the women page")
     public void click_on_the_third_product_in_the_women_page() {
@@ -250,6 +263,10 @@ public class Stepdefinitions extends Base {
         wait_second(5);
         element.click();
         assertEquals("false",element.getAttribute("checked"));
+    }
+    @Given("Click on the card element")
+    public void click_on_the_card_element() {
+        profilePage.cardInfoTextbox.click();
     }
 
     @When("Verify that {string} message is visible")

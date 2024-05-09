@@ -8,19 +8,22 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
-import static utilities.ReusableMethods.*;
 import java.util.List;
 
 import static org.junit.Assert.*;
 import static utilities.Driver.getAppiumDriver;
+import static utilities.ReusableMethods.*;
+
 
 public class ProfilePage extends Base {
     public ProfilePage() {PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);}
 
     @AndroidFindBy (accessibility = "Change Password Password Updated Successfully")
     public WebElement changePassMessage;
-    @AndroidFindBy (xpath = "//*[@class='android.widget.EditText']")
-    public List<WebElement> emailPasswordTextBoxes;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[1]")
+    public WebElement emailTextBox;
+    @AndroidFindBy (xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public WebElement passwordTextBox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[2]")
     public WebElement shoppingHistory;
     @AndroidFindBy (xpath = "(//*[@class='android.view.View'])[19]")
@@ -54,7 +57,7 @@ public class ProfilePage extends Base {
 
 
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(1000);
         //Profile butonuna tıklar
           clickWithCoordinates(977,1722);
         Thread.sleep(3000);
@@ -65,17 +68,25 @@ public class ProfilePage extends Base {
         clickElement("*Use Email Instead");
        // ReusableMethods.clickWithCoordinates(855,546); //551
         Thread.sleep(2000);
+
+        clickWithCoordinates(977,1722);
+        Thread.sleep(1000);
+        //Sign In butonuna tıklar
+        clickElement("Sign In");
+        //*Use Email Instead yazısına tıklar
+        clickElement("*Use Email Instead");
+        Thread.sleep(1000);
         //Email textbox ına tıklar
-        emailPasswordTextBoxes.get(0).click();
+        emailTextBox.click();
         Thread.sleep(2000);
         //Geçerli email girilir
-        emailPasswordTextBoxes.get(0).sendKeys(ConfigReader.getProperty(validEmail));
+        emailTextBox.sendKeys(ConfigReader.getProperty(validEmail));
         Thread.sleep(1000);
         //Password textbox ına tıklar
-        emailPasswordTextBoxes.get(1).click();
+        passwordTextBox.click();
         Thread.sleep(3000);
         //Geçerli password girilir
-        emailPasswordTextBoxes.get(1).sendKeys(ConfigReader.getProperty(validPassword));
+        passwordTextBox.sendKeys(ConfigReader.getProperty(validPassword));
         //Klavye kapatılır
         clickWithCoordinates(991,1707);
         Thread.sleep(3000);

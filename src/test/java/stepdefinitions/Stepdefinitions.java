@@ -210,11 +210,7 @@ public class Stepdefinitions extends Base {
     }
     @Given("Enter valid {int}, {int}, {int} and {int}")
     public void enter_valid_and(int cardNumber, int cardDate, int cvcCode, int zipCode) {
-        actions.sendKeys(String.valueOf(cardNumber))
-                .sendKeys(String.valueOf(cardDate))
-                .sendKeys(String.valueOf(cvcCode))
-                .sendKeys(String.valueOf(zipCode))
-                .perform();
+        profilePage.cardInfoTextbox.sendKeys(cardNumber+""+cardDate+cvcCode+zipCode);
     }
     @Given("Click on the third product in the women page")
     public void click_on_the_third_product_in_the_women_page() {

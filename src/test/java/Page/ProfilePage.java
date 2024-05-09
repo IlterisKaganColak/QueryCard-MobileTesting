@@ -66,6 +66,10 @@ public class ProfilePage extends Base {
     public WebElement addressStreetAddressTextbox;
     @AndroidFindBy (xpath = "(//*[@class='android.widget.ImageView'])[4]")
     public WebElement addressSelection;
+    @AndroidFindBy(xpath = "(//*[@class=\"android.widget.EditText\"])[1]")
+    public WebElement cardInfoTextbox;
+
+
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
         clickWithCoordinates(977,1722);                                    //Profile butonuna tıklar

@@ -4,13 +4,16 @@ import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
-import static org.junit.Assert.assertTrue;
+import java.util.List;
+
+import static org.junit.Assert.*;
 import static utilities.Driver.getAppiumDriver;
 import static utilities.ReusableMethods.*;
+
 
 public class ProfilePage extends Base {
     public ProfilePage() {PageFactory.initElements(new AppiumFieldDecorator(getAppiumDriver()), this);}
@@ -62,6 +65,16 @@ public class ProfilePage extends Base {
     public void signIn(String validEmail,String validPassword) throws InterruptedException {
         Thread.sleep(1000);
         //Profile butonuna tıklar
+          clickWithCoordinates(977,1722);
+        Thread.sleep(3000);
+        //Sign In butonuna tıklar
+          clickWithCoordinates(800,552);//789
+       Thread.sleep(3000);
+        //*Use Email Instead yazısına tıklar
+        clickElement("*Use Email Instead");
+       // ReusableMethods.clickWithCoordinates(855,546); //551
+        Thread.sleep(2000);
+
         clickWithCoordinates(977,1722);
         Thread.sleep(1000);
         //Sign In butonuna tıklar
@@ -134,12 +147,12 @@ public void forgotPassword(){
         Thread.sleep(1000);
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
-        Assert.assertTrue(element.isDisplayed());
+        assertTrue(element.isDisplayed());
     }
     public void isEnableTextbox() throws InterruptedException {
         element = driver.findElement(AppiumBy.className("android.widget.EditText"));
         Thread.sleep(1000);
-        Assert.assertTrue(element.isEnabled());
+        assertTrue(element.isEnabled());
     }
 
     public void fillInTextbox(String textboxName, String value) {
@@ -152,9 +165,18 @@ public void forgotPassword(){
                 profilePage.phoneTextbox.click();
                 profilePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
                 break;
+            case "Email with validEmail" :
+                profilePage.eMailTextbox.click();
+                profilePage.phoneTextbox.sendKeys(faker.internet().emailAddress());
+                break;
             case "Password with validPassword" :
                 profilePage.passwordTextbox.click();
                 profilePage.passwordTextbox.sendKeys(faker.internet().password(8,12,true,true,true));
+                break;
+            case "Password with 6DigitValidPassword" :
+                profilePage.passwordTextbox.click();
+                profilePage.passwordTextbox.sendKeys("1234.A" + Keys.RETURN);
+                clickWithCoordinates(991, 1707);
                 break;
             case "Name with blankName" :break;
             case "Phone with blankPhone" :break;
@@ -166,6 +188,10 @@ public void forgotPassword(){
             case "Phone with invalidPhone" :
                 profilePage.phoneTextbox.click();
                 profilePage.phoneTextbox.sendKeys("555"+faker.numerify("###"));
+                break;
+            case "Email with invalidEmail" :
+                profilePage.eMailTextbox.click();
+                profilePage.eMailTextbox.sendKeys("invalid");
                 break;
             case "Password with invalidPassword" :
                 profilePage.passwordTextbox.click();
@@ -185,6 +211,10 @@ public void forgotPassword(){
             case "Phone" :
                 assertTrue(profilePage.phoneTextbox.isDisplayed());
                 assertTrue(profilePage.phoneTextbox.isEnabled());
+                break;
+            case "Email" :
+                assertTrue(profilePage.eMailTextbox.isDisplayed());
+                assertTrue(profilePage.eMailTextbox.isEnabled());
                 break;
             case "Password" :
                 assertTrue(profilePage.passwordTextbox.isDisplayed());

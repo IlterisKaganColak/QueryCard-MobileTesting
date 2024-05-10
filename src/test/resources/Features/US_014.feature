@@ -2,9 +2,6 @@ Feature: US_014 As a registered user, I would like to have a page on the site wh
 
 
 
-  Background:
-    * Registered user logs in by using "yusufEmail" and "yusufPassword" information
-
   @[TC_01>US_014]
   Scenario:Profile icon should be visible and active on the home page.
 
@@ -26,6 +23,9 @@ Feature: US_014 As a registered user, I would like to have a page on the site wh
     * Click on the "Address"
     * Verify that "Address" is visible
 
+  @[TC_04>US_014]
+  Scenario:Registered addresses should be visible, editable and deleteable on the Address page
 
 
-
+    * Click on the "Profile"
+    # * Sign in user enters email inbox "yusufEmail" than enter password inbox "yusufPassword"  sign in profile

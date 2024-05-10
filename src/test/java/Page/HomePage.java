@@ -2,9 +2,12 @@ package Page;
 
 import hooks.Base;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AndroidFindBys;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import utilities.Driver;
+
 import static org.junit.Assert.*;
 import static utilities.Driver.getAppiumDriver;
 
@@ -32,6 +35,8 @@ public class HomePage extends Base {
     public  WebElement fourteenthProducMenPage;
     @AndroidFindBy(xpath= "(//*[@class='android.view.View'])[11]")
     public  WebElement eleventhProductMenPage;
+    @AndroidFindBy(accessibility = "(8 Products Found)")
+    public WebElement mostPopularProducts;
 
     public void logoVisibilityTest(){
         try {

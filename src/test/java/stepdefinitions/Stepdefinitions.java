@@ -295,4 +295,9 @@ public class Stepdefinitions extends Base {
     public void select_the_address() throws InterruptedException {
         profilePage.addressSelection.click();
     }
+
+    @When("Verify Current products listed under Most Popular")
+    public void verifyCurrentProductsListedUnderMostPopular() {
+        assertTrue(homePage.mostPopularProducts.isDisplayed());
+    }
 }

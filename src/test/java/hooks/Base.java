@@ -42,5 +42,4 @@ public abstract class Base {
         actions = new Actions(driver);
         expectedLocation = new Point(x,y);
     }
-
 }

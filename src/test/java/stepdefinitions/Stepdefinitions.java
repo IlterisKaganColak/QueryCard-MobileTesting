@@ -1,11 +1,9 @@
 package stepdefinitions;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import org.junit.Assert;
+import io.cucumber.java.en.*;
 import utilities.ConfigReader;
-import utilities.ReusableMethods;
+
 
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -249,13 +247,11 @@ public class Stepdefinitions extends Base {
     public void click_on_the_eleventh_product_in_the_men_page() {
         homePage.eleventhProductMenPage.click();
     }
-
     @When("Verify that the Sign In button is visible and active on the login page")
     public void verifyThatTheSignInButtonIsVisibleAndActiveOnTheLoginPage() {
         assertTrue(profilePage.signInButton.isDisplayed());
         assertTrue(profilePage.signInButton.isEnabled());
     }
-
     @When("Verify that {string} is selectable")
     public void verifyThatIsSelecteble(String elementText) throws InterruptedException {
         element = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
@@ -268,7 +264,6 @@ public class Stepdefinitions extends Base {
     public void click_on_the_card_element() {
         profilePage.cardInfoTextbox.click();
     }
-
     @When("Verify that {string} message is visible")
     public void verifyThatErrorMessageIsVisible(String messageType) throws InterruptedException {
         switch (messageType){
@@ -278,11 +273,7 @@ public class Stepdefinitions extends Base {
             case "Error" : element = driver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Error\nInvalid credentials or you are blocked\"]"));
                 element.isDisplayed(); break;
         }
-//        element = driver.findElement(AppiumBy.xpath("//android.view.View[@content-desc=\"Success\nLogin Successfully.\"]"));
-//        element.isDisplayed();
-
     }
-
     @When("Try to log in by using {string} and {string} information")
     public void tryToLogInByUsingAndInformation(String userCredential, String password) throws InterruptedException {
         profilePage.emailTextBox.click();

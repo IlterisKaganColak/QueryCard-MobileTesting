@@ -52,7 +52,6 @@ Feature: US_005 As a registered user, I would like to have a page in my Dashboar
     * Verify that "Error" message is visible
     * Try to log in by using "Phone" and "invalidPassword" information
     * Verify that "Error" message is visible
-
   @HS @5 @507
   Scenario: TC_07 Error messages should be displayed when entering invalid information in the login form and clicking the signIn button.
     * Verify that "Sign In" is visible

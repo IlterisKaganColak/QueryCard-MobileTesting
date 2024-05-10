@@ -37,6 +37,22 @@ public class HomePage extends Base {
     public  WebElement eleventhProductMenPage;
     @AndroidFindBy(accessibility = "(8 Products Found)")
     public WebElement mostPopularProducts;
+    @AndroidFindBy(accessibility = "Profile")
+    public WebElement profileButton;
+    @AndroidFindBy(accessibility = "Sign In")
+    public WebElement signInButton;
+    @AndroidFindBy(xpath= "//android.view.View[@content-desc=\"*Use Email Instead\"]") //for use email sign In
+    public WebElement UseEmailInsteade;
+    @AndroidFindBy(xpath= "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]")
+    public  WebElement emailTextBox;
+    @AndroidFindBy(xpath= "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[2]")
+    public  WebElement passwordTextBox;
+    @AndroidFindBy(xpath= "//android.widget.ScrollView/android.widget.EditText[2]")
+    public  WebElement LastSignInButton;
+
+
+
+
 
     public void logoVisibilityTest(){
         try {

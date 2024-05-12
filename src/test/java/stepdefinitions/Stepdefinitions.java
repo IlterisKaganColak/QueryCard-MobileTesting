@@ -343,6 +343,7 @@ public class Stepdefinitions extends Base {
         homePage.fullNameTextBox.click();
         homePage.fullNameTextBox.sendKeys(faker.name().fullName());
         Thread.sleep(1000);
+
         homePage.emailAddressTextbox.click();
         Thread.sleep(1000);
         homePage.emailAddressTextbox.sendKeys(faker.internet().safeEmailAddress());
@@ -368,6 +369,22 @@ public class Stepdefinitions extends Base {
         homePage.zipCodeTextBox.sendKeys(faker.address().zipCode());
         Thread.sleep(1000);
         scrollToElementWithText("Street Address");
+
+        homePage.emailAddressTextbox.sendKeys(faker.internet().safeEmailAddress());
+        Select selectTel=new Select(homePage.dropdownAddressTel.get(0));
+        selectTel.selectByIndex(0);
+        clickWithCoordinates(732,558);
+        homePage.emailAddressTextbox.sendKeys(faker.phoneNumber().cellPhone());
+        Select selectCountry=new Select(homePage.dropdownCountry.get(0));
+        selectCountry.selectByIndex(2);
+        Select selectState=new Select(homePage.dropdownState.get(0));
+        selectState.selectByIndex(2);
+        Thread.sleep(1000);
+        homePage.zipCodeTextBox.click();
+        homePage.zipCodeTextBox.sendKeys(faker.address().zipCode());
+        Thread.sleep(1000);
+        homePage.streetAddressTextBox.click();
+
         homePage.streetAddressTextBox.sendKeys(faker.address().streetAddress());
         Thread.sleep(1000);
         homePage.addAdressButton.click();

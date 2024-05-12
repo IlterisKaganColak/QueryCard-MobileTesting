@@ -34,3 +34,12 @@ Feature: US_014 As a registered user, I would like to have a page on the site wh
     * Click on the "Address"
     * Click red button , delete ikon from first adress
     * Verify that  Success Adress Deleted Successfully message is visible
+
+  @[TC_05>US_014]
+  Scenario:New address records should be added
+
+    * Launch the app
+    * Click on the "Profile"
+    * Click on the "Address"
+    * Click on the "Add New Address"
+    * Fills in information

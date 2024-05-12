@@ -47,8 +47,13 @@ public class HomePage extends Base {
     public  WebElement emailTextBox;
     @AndroidFindBy(xpath= "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[2]")
     public  WebElement passwordTextBox;
-    @AndroidFindBy(xpath= "//android.widget.ScrollView/android.widget.EditText[2]")
+    @AndroidFindBy(xpath= "(//android.view.View[@content-desc=\"Sign In\"])[2]")
     public  WebElement LastSignInButton;
+    @AndroidFindBy(accessibility = "Delete")    //Are u sure you want to delete?
+    public WebElement deleteButton;
+    @AndroidFindBy(accessibility = "Success\n" + "Address Deleted Successfully!")
+    public WebElement adressDeleteSuccesfullyMessage;
+
 
 
 

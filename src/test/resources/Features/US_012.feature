@@ -1,6 +1,7 @@
 Feature: US_012 As a user, I would like to be able to see the categories and products of the Women menu on the home page.
+
   Background:
-    * Registered user logs in by using "yusufEmail" and "yusufPassword" information
+    * Sign in user enters email inbox "yusufEmail" than enter password inbox "yusufPassword"  sign in profile
 
   @[TC_01>US_012]
    Scenario:TC_01 Women category window should be displayed in the body section of the home page.

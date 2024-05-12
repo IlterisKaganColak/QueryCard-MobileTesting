@@ -1,9 +1,12 @@
 package stepdefinitions;
+import Page.ProfilePage;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.*;
 import utilities.ConfigReader;
 
+
+import java.lang.module.Configuration;
 
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -300,4 +303,41 @@ public class Stepdefinitions extends Base {
     public void verifyCurrentProductsListedUnderMostPopular() {
         assertTrue(homePage.mostPopularProducts.isDisplayed());
     }
+
+    @Given("Sign in user enters email inbox {string} than enter password inbox {string}  sign in profile")
+    public void sign_in_user_enters_email_inbox_than_enter_password_inbox_sign_in_profile(String email, String password) throws InterruptedException {
+     homePage.profileButton.click();
+     Thread.sleep(1000);
+     homePage.signInButton.click();
+     Thread.sleep(1000);
+     homePage.UseEmailInsteade.click();
+     Thread.sleep(2000);
+     homePage.emailTextBox.click();
+     Thread.sleep(2000);
+     profilePage.emailTextBox.sendKeys(ConfigReader.getProperty(email));
+        Thread.sleep(2000);
+     profilePage.passwordTextBox.click();
+     Thread.sleep(1000);
+     profilePage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
+     clickWithCoordinates(991,1707); // klavye kapatılır!
+        Thread.sleep(1000);
+        homePage.LastSignInButton.click();
+
+    }
+    @Given("Click red button , delete ikon from first adress")
+    public void click_red_button_delete_ikon_from_first_adress() throws InterruptedException {
+        clickWithCoordinates(971,421);  //deleteAdress button for first red button
+      Thread.sleep(1000);
+      homePage.deleteButton.click();
+
+    }
+    @Given("Verify that  Success Adress Deleted Successfully message is visible")
+    public void verify_that_success_adress_deleted_successfully_message_is_visible() {
+       assertTrue(homePage.adressDeleteSuccesfullyMessage.isDisplayed());
+    }
+
+
+
+
+
 }

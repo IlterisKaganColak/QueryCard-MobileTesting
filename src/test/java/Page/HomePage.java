@@ -62,6 +62,16 @@ public class HomePage extends Base {
     public WebElement fullNameTextBox;
     @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[2]")
     public WebElement emailAddressTextbox;  //for adress  email
+
+    @AndroidFindBy(id = "android:id/content")
+    public List<WebElement> dropdownAddressTel;
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[3]")
+    public WebElement phoneTextbox;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Country\"]")
+    public WebElement dropdownCountry;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"State\"]")
+    public WebElement dropdownState;
+
    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"+1201\"]")
    public List<WebElement> dropdownAddressTel;
 
@@ -69,6 +79,7 @@ public class HomePage extends Base {
     public List<WebElement> dropdownCountry;
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"State\"]")
     public List<WebElement> dropdownState;
+
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"City\"]")
     public List<WebElement> dropdownCity;
     @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[1]")

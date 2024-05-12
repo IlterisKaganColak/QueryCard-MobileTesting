@@ -4,9 +4,12 @@ import hooks.Base;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AndroidFindBys;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.cucumber.java.gl.Cando;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static utilities.Driver.getAppiumDriver;
@@ -53,6 +56,31 @@ public class HomePage extends Base {
     public WebElement deleteButton;
     @AndroidFindBy(accessibility = "Success\n" + "Address Deleted Successfully!")
     public WebElement adressDeleteSuccesfullyMessage;
+    @AndroidFindBy(accessibility = "Add New Address")
+    public WebElement addNewAddressButton;
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[1]")
+    public WebElement fullNameTextBox;
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[2]")
+    public WebElement emailAddressTextbox;  //for adress  email
+   @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"+1201\"]")
+   public List<WebElement> dropdownAddressTel;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Country\"]")
+    public List<WebElement> dropdownCountry;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"State\"]")
+    public List<WebElement> dropdownState;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"City\"]")
+    public List<WebElement> dropdownCity;
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[1]")
+    public WebElement zipCodeTextBox;
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[2]")
+    public WebElement streetAddressTextBox;
+    // 732 , 558
+    @AndroidFindBy(accessibility = "Add Address")
+    public WebElement addAdressButton;
+
+
+
 
 
 

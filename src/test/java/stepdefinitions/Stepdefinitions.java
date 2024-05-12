@@ -343,20 +343,31 @@ public class Stepdefinitions extends Base {
         homePage.fullNameTextBox.click();
         homePage.fullNameTextBox.sendKeys(faker.name().fullName());
         Thread.sleep(1000);
+        homePage.emailAddressTextbox.click();
+        Thread.sleep(1000);
         homePage.emailAddressTextbox.sendKeys(faker.internet().safeEmailAddress());
-        Select selectTel=new Select(homePage.dropdownAddressTel.get(0));
-        selectTel.selectByIndex(0);
-        clickWithCoordinates(732,558);
-        homePage.emailAddressTextbox.sendKeys(faker.phoneNumber().cellPhone());
-        Select selectCountry=new Select(homePage.dropdownCountry.get(0));
+        Thread.sleep(1000);
+
+        homePage.phoneTextbox.click();
+        Thread.sleep(1000);
+        homePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
+
+        //Select selectTel=new Select(homePage.dropdownAddressTel.get(0));
+        //selectTel.selectByIndex(1);
+
+
+        Thread.sleep(2000);
+        homePage.dropdownCountry.click();
+        Select selectCountry=new Select(homePage.dropdownCountry);
         selectCountry.selectByIndex(2);
-        Select selectState=new Select(homePage.dropdownState.get(0));
+        Thread.sleep(1000);
+        Select selectState=new Select(homePage.dropdownState);
         selectState.selectByIndex(2);
         Thread.sleep(1000);
-        homePage.zipCodeTextBox.click();
+       scrollToElementWithText("Zip Code"); //"Zip Code" at the bottom
         homePage.zipCodeTextBox.sendKeys(faker.address().zipCode());
         Thread.sleep(1000);
-        homePage.streetAddressTextBox.click();
+        scrollToElementWithText("Street Address");
         homePage.streetAddressTextBox.sendKeys(faker.address().streetAddress());
         Thread.sleep(1000);
         homePage.addAdressButton.click();

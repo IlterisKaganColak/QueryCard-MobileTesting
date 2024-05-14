@@ -28,7 +28,13 @@ Feature: US_014 As a registered user, I would like to have a page on the site wh
 
   @[TC_04>US_014]
   Scenario:Registered addresses should be visible, editable and deleteable on the Address page
-
+    * Launch the app
+    * Click on the "Profile"
+    * Click on the "Address"
+    * Click on the "Add New Address"
+    * Fills in information
+    * Click back
+#------------------------------------------------------
     * Launch the app
     * Click on the "Profile"
     * Click on the "Address"

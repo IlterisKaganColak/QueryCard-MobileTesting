@@ -1,10 +1,12 @@
 package stepdefinitions;
+import Page.HomePage;
 import Page.ProfilePage;
 import hooks.Base;
 import io.appium.java_client.AppiumBy;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.support.ui.Select;
 import utilities.ConfigReader;
+import utilities.ReusableMethods;
 
 
 import java.lang.module.Configuration;
@@ -343,68 +345,69 @@ public class Stepdefinitions extends Base {
         homePage.fullNameTextBox.click();
         homePage.fullNameTextBox.sendKeys(faker.name().fullName());
         Thread.sleep(1000);
-
         homePage.emailAddressTextbox.click();
         Thread.sleep(1000);
         homePage.emailAddressTextbox.sendKeys(faker.internet().safeEmailAddress());
         Thread.sleep(1000);
-
         homePage.phoneTextbox.click();
         Thread.sleep(1000);
         homePage.phoneTextbox.sendKeys(faker.phoneNumber().cellPhone());
+        homePage.dropdownCountry.click();
+        ReusableMethods.clickWithCoordinates(315,642);
+        Thread.sleep(1000);
+        homePage.dropdownState.click();
+        ReusableMethods.clickWithCoordinates(315,642);
+        Thread.sleep(1000);
+        ReusableMethods.slideWithCoordinatesUpToDown();
+        Thread.sleep(1000);
 
+
+      /*  homePage.zipCodeTextBox.click();
+        Thread.sleep(1000);
+        Thread.sleep(1000);//"Zip Code" at the bottom
+        homePage.zipCodeTextBox.sendKeys(faker.address().zipCode());
+        Thread.sleep(1000); */
+
+        ReusableMethods.clickWithCoordinates(478,662);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(595,1245);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(705,1233);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(209,1269);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(422,1414);
+        Thread.sleep(1000);
+       //--------------------------------------------------------------
+        ReusableMethods.clickWithCoordinates(373,895);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(595,1245);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(705,1233);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(209,1269);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(422,1414);
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+        ReusableMethods.clickWithCoordinates(1002,1726);
+        homePage.addAdressButton.click();
+        Thread.sleep(1000);
+        System.out.println("System testing succesffully");
         //Select selectTel=new Select(homePage.dropdownAddressTel.get(0));
         //selectTel.selectByIndex(1);
-
-
         Thread.sleep(2000);
-        homePage.dropdownCountry.click();
-        Select selectCountry=new Select(homePage.dropdownCountry);
-        selectCountry.selectByIndex(2);
+        //Select selectCountry=new Select(homePage.dropdownCountry);
+        //selectCountry.selectByVisibleText("Albania");
         Thread.sleep(1000);
-        Select selectState=new Select(homePage.dropdownState);
-        selectState.selectByIndex(2);
-        Thread.sleep(1000);
-       scrollToElementWithText("Zip Code"); //"Zip Code" at the bottom
-        homePage.zipCodeTextBox.sendKeys(faker.address().zipCode());
-        Thread.sleep(1000);
-        scrollToElementWithText("Street Address");
-
-        homePage.emailAddressTextbox.sendKeys(faker.internet().safeEmailAddress());
-        Select selectTel=new Select(homePage.dropdownAddressTel.get(0));
-        selectTel.selectByIndex(0);
-        clickWithCoordinates(732,558);
-        homePage.emailAddressTextbox.sendKeys(faker.phoneNumber().cellPhone());
-        Select selectCountry=new Select(homePage.dropdownCountry.get(0));
-        selectCountry.selectByIndex(2);
-        Select selectState=new Select(homePage.dropdownState.get(0));
-        selectState.selectByIndex(2);
-        Thread.sleep(1000);
-        homePage.zipCodeTextBox.click();
-        homePage.zipCodeTextBox.sendKeys(faker.address().zipCode());
-        Thread.sleep(1000);
-        homePage.streetAddressTextBox.click();
-
-        homePage.streetAddressTextBox.sendKeys(faker.address().streetAddress());
-        Thread.sleep(1000);
-        homePage.addAdressButton.click();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //Select selectState=new Select(homePage.dropdownState);
+        //selectState.selectByIndex(2);
 
     }
-
+    @Given("Click back")
+    public void click_back() {
+        ReusableMethods.clickWithCoordinates(228,1868);
+    }
 
 
 

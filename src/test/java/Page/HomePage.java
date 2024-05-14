@@ -67,30 +67,42 @@ public class HomePage extends Base {
     public List<WebElement> dropdownAddressTel;
     @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[3]")
     public WebElement phoneTextbox;
+
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Country\"]")
     public WebElement dropdownCountry;
+    @AndroidFindBy(id = "Albania")
+    public WebElement AlbaniaCountry;
+
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"State\"]")
     public WebElement dropdownState;
+    @AndroidFindBy(id = "Berat County")
+    public WebElement beratCounty;
 
-   @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"+1201\"]")
-   public List<WebElement> dropdownAddressTel;
 
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Country\"]")
-    public List<WebElement> dropdownCountry;
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"State\"]")
-    public List<WebElement> dropdownState;
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"+1201\"]")
+    public WebElement dropdowAddressTel;
+
+
+
+
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"City\"]")
-    public List<WebElement> dropdownCity;
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[1]")
+    public WebElement dropdownCity;
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[4]    ")
     public WebElement zipCodeTextBox;
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.widget.EditText[2]")
-    public WebElement streetAddressTextBox;
+
+
+    @AndroidFindBy(xpath ="//android.widget.ScrollView/android.view.View/android.widget.EditText[5]")
+    public WebElement StreetAddress;
+
     // 732 , 558
     @AndroidFindBy(accessibility = "Add Address")
     public WebElement addAdressButton;
 
 
+
+    ////android.widget.ScrollView/android.view.View/android.widget.EditText[4]
 
 
 
